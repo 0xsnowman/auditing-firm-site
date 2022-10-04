@@ -1,0 +1,68 @@
+{
+    "data": [
+        {
+            "name": "SweepToken",
+            "rank": 1,
+            "tokenUri": "assets/icons/sweeptoken.svg",
+            "score": 90,
+            "chain": "BSC",
+            "category": "DeFi",
+            "contract": "https://bscscan.com/token/0x09c704c1EB9245Af48f058878e72129557a10F04",
+            "audit": "https://github.com/TechRate/Smart-Contract-Audits/blob/main/October_2022/Sweeptoken.pdf",
+            "links": [
+                "https://zootopia.finance/",
+                "https://twitter.com/ZootopiaFinance",
+                "https://t.me/Zootopiafinance"
+            ],
+            "date": "2022/10/4"
+        },
+        {
+            "name": "Zootopia",
+            "rank": 2,
+            "tokenUri": "assets/icons/sweeptoken.svg",
+            "score": 89,
+            "chain": "Ethereum",
+            "category": "Gaming",
+            "contract": "https://bscscan.com/token/0x09c704c1EB9245Af48f058878e72129557a10F04",
+            "audit": "https://github.com/TechRate/Smart-Contract-Audits/blob/main/October_2022/Sweeptoken.pdf",
+            "links": [
+                "https://zootopia.finance/",
+                "https://twitter.com/ZootopiaFinance",
+                "https://t.me/Zootopiafinance"
+            ],
+            "date": "2022/10/3"
+        },
+        {
+            "name": "Сloudia",
+            "rank": 3,
+            "tokenUri": "assets/icons/sweeptoken.svg",
+            "score": 85,
+            "chain": "BSC",
+            "category": "DeFi",
+            "contract": "https://bscscan.com/token/0x09c704c1EB9245Af48f058878e72129557a10F04",
+            "audit": "https://github.com/TechRate/Smart-Contract-Audits/blob/main/October_2022/Sweeptoken.pdf",
+            "links": [
+                "https://zootopia.finance/",
+                "https://twitter.com/ZootopiaFinance",
+                "https://t.me/Zootopiafinance"
+            ],
+            "date": "2022/10/1"
+        },
+        {
+            "name": "Galaxy Arena 2",
+            "rank": 4,
+            "tokenUri": "assets/icons/sweeptoken.svg",
+            "score": 80,
+            "chain": "BSC",
+            "category": "Utility",
+            "contract": "https://bscscan.com/token/0x09c704c1EB9245Af48f058878e72129557a10F04",
+            "audit": "https://github.com/TechRate/Smart-Contract-Audits/blob/main/October_2022/Sweeptoken.pdf",
+            "links": [
+                "https://zootopia.finance/",
+                "https://twitter.com/ZootopiaFinance",
+                "https://t.me/Zootopiafinance"
+            ],
+            "date": "2022/10/3"
+        }
+    ]
+}
