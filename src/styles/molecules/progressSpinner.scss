@@ -1,0 +1,45 @@
+.svg-pi {
+  transform: rotate(-90deg); /* Fix the orientation */
+
+  &-wrapper {
+    position: relative;
+    display: flex !important;
+    justify-content: center;
+    align-content: center;
+  }
+
+  &-indicator--spinner {
+    animation: spinner .75s linear infinite;
+    transform-origin: center;
+  }
+
+  &-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    &__loading {
+      opacity: .5;
+      font-size: 0.75em;
+      display: block;
+    }
+
+    &__progress {
+      font-size: 1.5em;
+      font-weight: bold;
+      display: block;
+    }
+  }
+}
+
+/* Spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
