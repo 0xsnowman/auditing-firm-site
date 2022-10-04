@@ -18,6 +18,10 @@ interface IBoxProps {
   paddingVertical?: number;
   paddingHorizontal?: number;
   padding?: number;
+  top?: string | number;
+  right?: string | number;
+  bottom?: string | number;
+  left?: string | number;
   backgroundColor?: string;
   backgroundPrimary?: boolean;
   boxShadow?: string;
@@ -45,6 +49,10 @@ const Box: React.FC<IBoxProps> = ({
   paddingVertical = 0,
   paddingHorizontal = 0,
   padding = 0,
+  top = "auto",
+  right = "auto",
+  bottom = "auto",
+  left = "auto",
   backgroundColor,
   boxShadow,
   overflowX = "initial",
@@ -69,6 +77,10 @@ const Box: React.FC<IBoxProps> = ({
         padding: padding
           ? `${padding}px`
           : `${paddingVertical}px ${paddingHorizontal}px`,
+        top: top,
+        right: right,
+        bottom: bottom,
+        left: left,
         backgroundColor: backgroundColor,
         cursor: onClick ? "pointer" : "default",
         overflowX: overflowX,
