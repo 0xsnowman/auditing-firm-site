@@ -1,0 +1,21 @@
+.atom-image {
+  &-contain {
+    object-fit: contain;
+  }
+
+  &-cover {
+    object-fit: cover;
+  }
+
+  &-fill {
+    object-fit: fill;
+  }
+
+  &-revert {
+    object-fit: revert;
+  }
+
+  &-scaleDown {
+    object-fit: scale-down;
+  }
+}
