@@ -1,0 +1,18 @@
+.molecule-navitem {
+    cursor: pointer !important;
+    padding: 0px 16px;
+    &__text {
+      color: #808080 !important;
+      transition: 0.3s;
+      &:hover {
+        color: #ffffff !important;
+      }
+    }
+  
+    &-active {
+      &__text {
+        color: #ffffff !important;
+      }
+    }
+  }
+  
