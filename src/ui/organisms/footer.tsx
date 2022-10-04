@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Box } from "../atoms";
+import { Box } from "ui/atoms";
 
-import { PADDING } from "../../config/dimensions";
+import { PADDING } from "config/dimensions";
 
 const Footer = () => {
   return (
     <Box className="organism-footer" paddingVertical={PADDING.SUPER_LARGE}>
-      <p>Footer</p>
+      <p></p>
     </Box>
   );
 };
