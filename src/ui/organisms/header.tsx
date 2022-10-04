@@ -1,28 +1,35 @@
 import React from "react";
 
-import { Box, Container, Text, Flex } from "../atoms";
+import { Box, Container, Text, Flex } from "ui/atoms";
+import { Button, NavItem } from "ui/molecules";
 
 const Header = () => {
-    return <Box className="organism-header" padding={10}>
-        <Container>
-            <Flex>
-                <Text color="white" type="title">Proof Audit</Text>
-                <Flex>
-                    <Text>Home</Text>
-                    <Text>Security Audit</Text>
-                    <Text>KYC</Text>
-                    <Text>About US</Text>
-                    <Text>Contact Us</Text>
-                    <Text>Projects</Text>
-                    <Flex>
-                        <Text>Telegram</Text>
-                        <Text>Github</Text>
-                        <Text>Twitter</Text>
-                    </Flex>                    
-                </Flex>
+  return (
+    <Box className="organism-header" paddingVertical={15}>
+      <Container>
+        <Flex justifyContent="space-between" alignItems="center">
+          <Text color="white" type="title">
+            Proof Audit
+          </Text>
+          <Flex gap={40} alignItems="center">
+            <Flex gap={25}>
+              <NavItem>Products</NavItem>
+              <NavItem>Blog</NavItem>
+              <NavItem>About Us</NavItem>
+              <NavItem>Contact</NavItem>
             </Flex>
-        </Container>
+            <Button
+              onClick={() => {
+                alert("[Button] [Get free audit] clicked");
+              }}
+            >
+              Get free audit
+            </Button>
+          </Flex>
+        </Flex>
+      </Container>
     </Box>
+  );
 };
 
 export default Header;
