@@ -1,0 +1,25 @@
+.atom-input {
+  outline: none;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  background-color: transparent;
+  font-size: 20px;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px transparent;
+  display: block !important;
+  width: 100%;
+  text-indent: 8px !important;
+  color: black;
+  box-sizing: border-box;
+  padding: 15px 40px 15px 70px;
+
+  &:hover {
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px black;
+  }
+
+  &:focus {
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px black;
+  }
+}
