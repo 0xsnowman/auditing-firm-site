@@ -19,6 +19,8 @@ interface IFlexProps {
     | "space-around"
     | "initial";
   height?: number | "100%";
+  gap?: number;
+  flex?: number;
 }
 
 const Flex: React.FC<IFlexProps> = ({
@@ -27,7 +29,9 @@ const Flex: React.FC<IFlexProps> = ({
   flexDirection,
   alignItems = "initial",
   justifyContent = "initial",
-  height
+  height,
+  gap,
+  flex,
 }) => {
   return (
     <div
@@ -38,7 +42,9 @@ const Flex: React.FC<IFlexProps> = ({
         alignItems: alignItems,
         justifyContent: justifyContent,
         height: height ? height : "initial",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
+        gap: gap,
+        flex: flex,
       }}
     >
       {children}
