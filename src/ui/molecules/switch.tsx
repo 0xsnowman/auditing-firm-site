@@ -4,7 +4,7 @@ import { Box, Flex, Text } from "ui/atoms";
 
 import { COLORS } from "config/colors";
 
-const Switch = ({}) => {
+const Switch = () => {
   const [switchValue, setSwitchValue] = useState<"ETH" | "BSC">(
     "ETH"
   );

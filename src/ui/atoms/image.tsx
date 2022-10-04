@@ -28,7 +28,7 @@ const Image: React.FC<IImageProps> = ({
         " "
       )}
       src={image}
-      alt="image"
+      alt="atom-img"
       width={width}
       height={height}
     />

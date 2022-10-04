@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid, GridItem } from "ui/atoms";
+import { Grid } from "ui/atoms";
 
 interface ITableRowProps {
   children: JSX.Element | JSX.Element[];
