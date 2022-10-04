@@ -1,5 +1,6 @@
 .atom-text {
   transition: 0.4s;
+  color: black;
   &-logo {
     font-size: 64px;
     font-weight: bolder;
@@ -12,8 +13,18 @@
   &-subtitle {
     font-size: 24px;
   }
+
   &-paragraph {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 20px;
+  }
+
+  &-plain {
+    font-size: 14px;
+  }
+
+  &-button {
+    font-size: 18px;
+    font-weight: bold;
   }
 }
