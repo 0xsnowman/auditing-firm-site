@@ -1,0 +1,14 @@
+.molecule-iconbutton {
+  transition: 0.4s;
+  user-select: none;
+  cursor: pointer;
+  opacity: 1;
+
+  &-disabled{
+    opacity: 0.3;
+    cursor: not-allowed !important;
+    &:hover {
+      user-select: none;
+    }
+  }
+}
