@@ -1,0 +1,18 @@
+.atom-box {
+  transition: 0.4s;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: black;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #5d6163;
+    // border-radius: 20px;
+    border: 0px solid transparent;
+    background-clip: content-box;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+}

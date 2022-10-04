@@ -1,0 +1,19 @@
+.atom-text {
+  transition: 0.4s;
+  &-logo {
+    font-size: 64px;
+    font-weight: bolder;
+  }
+  &-title {
+    font-size: 32px;
+    font-weight: bolder;
+  }
+
+  &-subtitle {
+    font-size: 24px;
+  }
+  &-paragraph {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
