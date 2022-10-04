@@ -16,7 +16,8 @@ const CarouselCard: React.FC<ICarouselCardProps> = ({ title, date, slide }) => {
   return (
     <Box
       className="organism-carouselcard"
-      padding={PADDING.MEDIUM}
+      paddingHorizontal={PADDING.MEDIUM}
+      paddingVertical={PADDING.LARGE}
       backgroundColor={COLORS.TRANSPARENT}
       width="100%"
     >
