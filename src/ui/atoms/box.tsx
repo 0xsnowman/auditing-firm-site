@@ -1,11 +1,12 @@
 import React from "react";
 
 interface IBoxProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   width?: string | number;
   height?: string | number;
   className?: string;
   display?: "block" | "inline-block";
+  position?: "static" | "absolute" | "relative" | "fixed" | "sticky" | "initial";
   borderRadius?: number;
   borderWidth?: number;
   borderStyle?: "solid" | "dashed";
@@ -32,6 +33,7 @@ const Box: React.FC<IBoxProps> = ({
   height,
   width,
   display = "block",
+  position = "static",
   borderRadius = 0,
   borderWidth = 0,
   borderTopWidth = 0,
@@ -54,6 +56,7 @@ const Box: React.FC<IBoxProps> = ({
       className={["atom-box", className].join(" ")}
       style={{
         display: display,
+        position: position,
         width: width ? width : "auto",
         height: height ? height : "auto",
         borderRadius: borderRadius,
