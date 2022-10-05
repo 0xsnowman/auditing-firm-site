@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Box, Flex, Icon, Text, Grid, GridItem } from "ui/atoms";
-import { Button } from "ui/molecules";
+import { Button, AlarmNotifier } from "ui/molecules";
 
 import Icons from "assets/icons";
 
@@ -10,18 +10,43 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import { COLORS } from "config/colors";
 import { Z_INDEX_LEVELS } from "config/dimensions";
 
-const MobileMenu = () => {
+interface IMobileMenuProps {
+  type?: "news" | "menu";
+  hasDeals?: boolean;
+}
+
+const MobileMenu: React.FC<IMobileMenuProps> = ({
+  type = "menu",
+  hasDeals = true
+}) => {
   const [collapsed, setCollapsed] = useState<boolean>(true);
   const { deviceHeight, deviceWidth } = useWindowDimensions();
+
+  const determineMenuIcon = () => {
+    switch (type) {
+      case "news":
+        return Icons.alarm;
+      case "menu":
+        return Icons.menu;
+      default:
+        break;
+    }
+  };
+
   return (
     <Box position="relative" zIndex={Z_INDEX_LEVELS.MAXIMUM}>
       <Icon
-        icon={collapsed ? Icons.menu : Icons.close}
+        icon={collapsed ? determineMenuIcon() : Icons.close}
         size="MEDIUM"
         onClick={() => {
           setCollapsed(!collapsed);
         }}
       />
+      {hasDeals && (
+        <Box position="absolute" top={0} right={-3}>
+          <AlarmNotifier />
+        </Box>
+      )}
       {!collapsed && (
         <Box
           width={deviceWidth}
