@@ -14,35 +14,136 @@ const Footer = () => {
   const { deviceWidth } = useWindowDimensions();
 
   return (
-    <Box className="organism-footer" paddingVertical={PADDING.SUPER_LARGE}>
+    <Box
+      className="organism-footer"
+      paddingHorizontal={30}
+      paddingVertical={60}
+    >
       <Container>
         <Flex
-          justifyContent={deviceWidth > 1024 ? "space-between" : "center"}
-          alignItems={deviceWidth > 1024 ? "center" : "flex-start"}
-          flexDirection={deviceWidth > 1024 ? "row" : "column"}
-          gap={20}
+          flexDirection="column"
+          alignItems="flex-start"
+          justifyContent="space-between"
+          gap={30}
         >
-          <Flex flexDirection="column" gap={20}>
-            <Text color="white" type="title">
-              Proof Audit
-            </Text>
-            <Text color={COLORS.GRAY_DARK} type="plain">
-              @ 2018 by Proof Audit. All Rights Reserved
-            </Text>
-          </Flex>
-          <Flex gap={40} alignItems="center">
-            <Flex gap={5}>
-              <NavItem>Products</NavItem>
-              <NavItem>Blog</NavItem>
-              <NavItem>About Us</NavItem>
-              <NavItem>Contact</NavItem>
+          <Flex justifyContent="space-between" width="100%" className="organism-footer__connection-list">
+            <Flex flex={2}>
+              <Text type="logo" color="#999">
+                Proof Audit
+              </Text>
             </Flex>
-            <Flex gap={30}>
-              <Icon icon={Icons.telegram} size="LARGE" />
-              <Icon icon={Icons.discord} size="LARGE" />
-              <Icon icon={Icons.github} size="LARGE" />
+            <Flex flex={3} gap={30} className="organism-footer__connection-list__details">
+              <Flex flex={1} flexDirection="column" gap={10}>
+                <Box paddingVertical={30}>
+                  <Text type="paragraph" color="white">
+                    Products
+                  </Text>
+                </Box>
+                <Text type="plain" color="#999">
+                  Security Audit
+                </Text>
+                <Text type="plain" color="#999">
+                  Skynet
+                </Text>
+                <Text type="plain" color="#999">
+                  SkyTrace
+                </Text>
+                <Text type="plain" color="#999">
+                  Prenetration Testing
+                </Text>
+                <Text type="plain" color="#999">
+                  KYC
+                </Text>
+              </Flex>
+              <Flex flex={1} flexDirection="column" gap={10}>
+                <Box paddingVertical={30}>
+                  <Text type="paragraph" color="white">
+                    Resources
+                  </Text>
+                </Box>
+                <Text type="plain" color="#999">
+                  Blog
+                </Text>
+              </Flex>
+              <Flex flex={1} flexDirection="column" gap={10}>
+                <Box paddingVertical={30}>
+                  <Text type="paragraph" color="white">
+                    Company
+                  </Text>
+                </Box>
+                <Text type="plain" color="#999">
+                  About
+                </Text>
+                <Text type="plain" color="#999">
+                  Careers
+                </Text>
+                <Text type="plain" color="#999">
+                  Disclaimer
+                </Text>
+                <Text type="plain" color="#999">
+                  Privacy Policy
+                </Text>
+                <Text type="plain" color="#999">
+                  Cookie Policy
+                </Text>
+                <Text type="plain" color="#999">
+                  Terms and Conditions
+                </Text>
+              </Flex>
+              <Flex flex={1} flexDirection="column" gap={10}>
+                <Box paddingVertical={30}>
+                  <Text type="paragraph" color="white">
+                    Socials
+                  </Text>
+                </Box>
+                <Flex gap={10}>
+                  <Icon icon={Icons.discord} size="SMALL" />
+                  <Text color="#999" type="plain">
+                    Discord
+                  </Text>
+                </Flex>
+                <Flex gap={10}>
+                  <Icon icon={Icons.discord} size="SMALL" />
+                  <Text color="#999" type="plain">
+                    Telegram
+                  </Text>
+                </Flex>
+                <Flex gap={10}>
+                  <Icon icon={Icons.discord} size="SMALL" />
+                  <Text color="#999" type="plain">
+                    Twitter
+                  </Text>
+                </Flex>
+                <Flex gap={10}>
+                  <Icon icon={Icons.discord} size="SMALL" />
+                  <Text color="#999" type="plain">
+                    Facebook
+                  </Text>
+                </Flex>
+                <Flex gap={10}>
+                  <Icon icon={Icons.discord} size="SMALL" />
+                  <Text color="#999" type="plain">
+                    Github
+                  </Text>
+                </Flex>
+                <Flex gap={10}>
+                  <Icon icon={Icons.discord} size="SMALL" />
+                  <Text color="#999" type="plain">
+                    Gitbook
+                  </Text>
+                </Flex>
+                <Flex gap={10}>
+                  <Icon icon={Icons.discord} size="SMALL" />
+                  <Text color="#999" type="plain">
+                    Email
+                  </Text>
+                </Flex>
+              </Flex>
             </Flex>
           </Flex>
+          <Text color="#999" type="plain">
+            © 2022 by Proof Audit. All Rights Reserved.
+          </Text>
         </Flex>
       </Container>
     </Box>
