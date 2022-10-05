@@ -37,7 +37,7 @@ const ProgressSpinner: React.FC<IProgressSpinnerProps> = ({
 
   return (
     <>
-      <Box className="svg-pi-wrapper" width={size} height={size}>
+      <Box className="svg-pi-wrapper" width={size} height={size} position="relative">
         <svg className="svg-pi" width={size} height={size}>
           <circle
             className="svg-pi-track"

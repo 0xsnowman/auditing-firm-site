@@ -2,6 +2,8 @@ import React from "react";
 import MultiCarousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+import { WINDOW_SIZES } from "config/dimensions";
+
 interface ICarouselProps {
   children: JSX.Element | JSX.Element[];
 }
@@ -10,19 +12,19 @@ const Carousel: React.FC<ICarouselProps> = ({ children }) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
+      breakpoint: { max: WINDOW_SIZES.SIZE_4000, min: WINDOW_SIZES.SIZE_3000 },
       items: 5,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: WINDOW_SIZES.SIZE_3000, min: WINDOW_SIZES.SIZE_1024 },
       items: 1,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
+      breakpoint: { max: WINDOW_SIZES.SIZE_1024, min: WINDOW_SIZES.SIZE_464 },
+      items: 1,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: WINDOW_SIZES.SIZE_464, min: 0 },
       items: 1,
     }
   };
@@ -31,7 +33,8 @@ const Carousel: React.FC<ICarouselProps> = ({ children }) => {
     <MultiCarousel
       arrows
       autoPlaySpeed={3000}
-      centerMode={true}
+      // centerMode={deviceWidth > WINDOW_SIZES.SIZE_1280 ? true : false}
+      centerMode={false}
       draggable
       infinite
       minimumTouchDrag={80}

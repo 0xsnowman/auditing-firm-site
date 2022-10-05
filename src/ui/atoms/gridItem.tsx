@@ -14,7 +14,7 @@ const GridItem: React.FC<IGridItemProps> = ({
   return (
     <div
       className={["atom-griditem", className].join(" ")}
-      style={{ gridColumnStart: `span ${columns}` }}
+      style={{ gridColumnStart: `span ${columns}`, minWidth: `70px` }}
     >
       {children}
     </div>

@@ -1,0 +1,13 @@
+.page-home {
+  &__blogcarousel {
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    &__dash {
+      @media only screen and (max-width: 464px) {
+        flex-direction: column;
+      }
+    }
+  }
+}
