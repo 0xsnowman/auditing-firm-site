@@ -1,18 +1,10 @@
 import React from "react";
 
 import { Box, Container, Flex, Text, Icon } from "ui/atoms";
-import { NavItem } from "ui/molecules";
-
-import useWindowDimensions from "hooks/useWindowDimensions";
 
 import Icons from "assets/icons";
 
-import { PADDING } from "config/dimensions";
-import { COLORS } from "config/colors";
-
 const Footer = () => {
-  const { deviceWidth } = useWindowDimensions();
-
   return (
     <Box
       className="organism-footer"
