@@ -45,4 +45,16 @@ export const WINDOW_SIZES = {
   SIZE_464: 464,
   SIZE_320: 320,
   SIZE_240: 240,
-}
+};
+
+export const Z_INDEX_LEVELS = {
+  LOWEST: 0,
+  VERY_LOW: 1,
+  LOW: 2,
+  NORMAL: 10,
+  MEDIUM: 50,
+  HIGH: 100,
+  VERY_HIGH: 500,
+  SUPER: 1000,
+  MAXIMUM: 2000
+};
