@@ -29,6 +29,7 @@ const NavItem: React.FC<INavItem> = ({ children, onClick, active }) => {
             ? COLORS.TEXT_PRIMARY_DARK
             : COLORS.TEXT_SECONDARY_DARK
         }
+        type="plain"
       >
         {children}
       </Text>

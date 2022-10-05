@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box, Container, Text, Flex, Icon } from "ui/atoms";
-import { Button, NavItem } from "ui/molecules";
+import { Button, NavItem, MobileMenu } from "ui/molecules";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
@@ -20,7 +20,7 @@ const Header = () => {
           </Text>
           {deviceWidth > WINDOW_SIZES.SIZE_1024 && (
             <Flex gap={40} alignItems="center">
-              <Flex gap={25}>
+              <Flex gap={10}>
                 <NavItem>Products</NavItem>
                 <NavItem>Blog</NavItem>
                 <NavItem>About Us</NavItem>
@@ -35,9 +35,7 @@ const Header = () => {
               </Button>
             </Flex>
           )}
-          {deviceWidth <= WINDOW_SIZES.SIZE_1024 && (
-            <Icon icon={Icons.rocket} />
-          )}
+          {deviceWidth <= WINDOW_SIZES.SIZE_1024 && <MobileMenu />}
         </Flex>
       </Container>
     </Box>

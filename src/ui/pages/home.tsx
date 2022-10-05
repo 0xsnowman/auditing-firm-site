@@ -69,7 +69,6 @@ const Home = () => {
                             </Text>
                             <Text type="title">1206</Text>
                             <Text
-                              fontWeight={500}
                               color={COLORS.GRAY_DARK}
                               type="plain"
                             >
@@ -92,7 +91,6 @@ const Home = () => {
                             </Text>
                             <Text type="title">18</Text>
                             <Text
-                              fontWeight={500}
                               color={COLORS.GRAY_DARK}
                               type="plain"
                             >
