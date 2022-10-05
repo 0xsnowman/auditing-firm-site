@@ -358,6 +358,7 @@ const Table = () => {
                 </Flex>
               </Box>
             </Flex>
+            <Box padding={10} />
             <Box backgroundColor="white">
               <Flex alignItems="center" gap={40} justifyContent="center">
                 <Box
