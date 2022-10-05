@@ -16,7 +16,7 @@ const Text: React.FC<ITextProps> = ({
   className,
   type = "paragraph",
   color,
-  fontWeight = 600,
+  fontWeight = 400,
   center,
   right
 }) => {

@@ -8,9 +8,11 @@ import Tip from "./tip";
 import ProgressSpinner from "./progressSpinner";
 import Switch from "./switch";
 import Table from "./table";
+import MobileMenu from "./mobileMenu";
 
 export {
   Button,
+  MobileMenu,
   Carousel,
   CarouselCard,
   IconButton,
