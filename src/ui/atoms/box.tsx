@@ -5,6 +5,7 @@ interface IBoxProps {
   width?: string | number;
   height?: string | number;
   className?: string;
+  backdropFilter?: boolean;
   display?: "block" | "inline-block";
   position?: "static" | "absolute" | "relative" | "fixed" | "sticky" | "initial";
   borderRadius?: number;
@@ -29,6 +30,7 @@ interface IBoxProps {
   overflowY?: "initial" | "hidden" | "scroll" | "auto";
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   hover?: boolean;
+  zIndex?: number;
 }
 
 const Box: React.FC<IBoxProps> = ({
@@ -38,6 +40,7 @@ const Box: React.FC<IBoxProps> = ({
   width,
   display = "block",
   position = "static",
+  backdropFilter = false,
   borderRadius = 0,
   borderWidth = 0,
   borderTopWidth = 0,
@@ -58,6 +61,7 @@ const Box: React.FC<IBoxProps> = ({
   overflowX = "initial",
   overflowY = "initial",
   onClick,
+  zIndex = "initial",
 }) => {
   return (
     <div
@@ -86,7 +90,9 @@ const Box: React.FC<IBoxProps> = ({
         overflowX: overflowX,
         overflowY: overflowY,
         boxSizing: "border-box",
-        boxShadow: boxShadow
+        boxShadow: boxShadow,
+        backdropFilter: backdropFilter ? "blur(10px)" : "none",
+        zIndex: zIndex,
       }}
       onClick={onClick}
     >
