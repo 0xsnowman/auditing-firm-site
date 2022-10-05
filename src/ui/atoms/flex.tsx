@@ -18,6 +18,7 @@ interface IFlexProps {
     | "space-between"
     | "space-around"
     | "initial";
+  width?: number | "100%";
   height?: number | "100%";
   gap?: number;
   flex?: number;
@@ -29,6 +30,7 @@ const Flex: React.FC<IFlexProps> = ({
   flexDirection,
   alignItems = "initial",
   justifyContent = "initial",
+  width,
   height,
   gap,
   flex,
@@ -41,6 +43,7 @@ const Flex: React.FC<IFlexProps> = ({
         flexDirection: flexDirection,
         alignItems: alignItems,
         justifyContent: justifyContent,
+        width: width ? width : "initial",
         height: height ? height : "initial",
         boxSizing: "border-box",
         gap: gap,
