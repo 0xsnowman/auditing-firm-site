@@ -35,7 +35,12 @@ const Header = () => {
               </Button>
             </Flex>
           )}
-          {deviceWidth <= WINDOW_SIZES.SIZE_1024 && <MobileMenu />}
+          {deviceWidth <= WINDOW_SIZES.SIZE_1024 && (
+            <Flex gap={20}>
+              <MobileMenu type="news" />
+              <MobileMenu />
+            </Flex>
+          )}
         </Flex>
       </Container>
     </Box>

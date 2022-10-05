@@ -63,9 +63,10 @@ const Box: React.FC<IBoxProps> = ({
   onClick,
   zIndex = "initial",
 }) => {
+  const backdropFilterClassName = backdropFilter ? "atom-box-backdrop" : "none";
   return (
     <div
-      className={["atom-box", className].join(" ")}
+      className={["atom-box", className, backdropFilterClassName].join(" ")}
       style={{
         display: display,
         position: position,

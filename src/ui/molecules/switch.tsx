@@ -38,7 +38,7 @@ const Switch = () => {
           borderColor="#2C60E6"
           borderWidth={2}
           backgroundColor="#E6E5E4"
-          boxShadow="0px 0px 10px black;"
+          boxShadow="0px 0px 10px black"
           position="absolute"
           width="50%"
           height="100%"

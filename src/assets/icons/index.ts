@@ -8,6 +8,7 @@ import telegram from "./telegram.svg";
 import github from "./github.svg";
 import close from "./close.svg";
 import menu from "./menu.svg";
+import alarm from "./alarm.svg";
 
 const Icons = {
     rocket,
@@ -19,7 +20,8 @@ const Icons = {
     telegram,
     discord,
     close,
-    menu
+    menu,
+    alarm
 };
 
 export default Icons;

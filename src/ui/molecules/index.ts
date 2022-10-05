@@ -9,6 +9,7 @@ import ProgressSpinner from "./progressSpinner";
 import Switch from "./switch";
 import Table from "./table";
 import MobileMenu from "./mobileMenu";
+import AlarmNotifier from "./alarmNotifier";
 
 export {
   Button,
@@ -21,5 +22,6 @@ export {
   Tip,
   ProgressSpinner,
   Switch,
-  Table
+  Table,
+  AlarmNotifier
 };
