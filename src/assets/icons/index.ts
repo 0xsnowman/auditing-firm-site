@@ -9,6 +9,8 @@ import github from "./github.svg";
 import close from "./close.svg";
 import menu from "./menu.svg";
 import alarm from "./alarm.svg";
+import dropdown from "./dropdown.svg";
+import up from "./up.svg";
 
 const Icons = {
     rocket,
@@ -21,7 +23,9 @@ const Icons = {
     discord,
     close,
     menu,
-    alarm
+    alarm,
+    dropdown,
+    up
 };
 
 export default Icons;

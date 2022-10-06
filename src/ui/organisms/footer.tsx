@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Box, Container, Flex, Text, Icon } from "ui/atoms";
+import { NavItem } from "ui/molecules";
 
 import Icons from "assets/icons";
 
@@ -31,21 +32,21 @@ const Footer = () => {
                     Products
                   </Text>
                 </Box>
-                <Text type="plain" color="#999">
+                <NavItem>
                   Security Audit
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   Skynet
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   SkyTrace
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   Prenetration Testing
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   KYC
-                </Text>
+                </NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>
@@ -53,9 +54,9 @@ const Footer = () => {
                     Resources
                   </Text>
                 </Box>
-                <Text type="plain" color="#999">
+                <NavItem>
                   Blog
-                </Text>
+                </NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>
@@ -63,24 +64,24 @@ const Footer = () => {
                     Company
                   </Text>
                 </Box>
-                <Text type="plain" color="#999">
+                <NavItem>
                   About
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   Careers
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   Disclaimer
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   Privacy Policy
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   Cookie Policy
-                </Text>
-                <Text type="plain" color="#999">
+                </NavItem>
+                <NavItem>
                   Terms and Conditions
-                </Text>
+                </NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>

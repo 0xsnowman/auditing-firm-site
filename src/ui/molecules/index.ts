@@ -10,6 +10,8 @@ import Switch from "./switch";
 import Table from "./table";
 import MobileMenu from "./mobileMenu";
 import AlarmNotifier from "./alarmNotifier";
+import DropDown from "./dropdown";
+import SearchInput from "./searchInput";
 
 export {
   Button,
@@ -23,5 +25,7 @@ export {
   ProgressSpinner,
   Switch,
   Table,
-  AlarmNotifier
+  AlarmNotifier,
+  DropDown,
+  SearchInput
 };

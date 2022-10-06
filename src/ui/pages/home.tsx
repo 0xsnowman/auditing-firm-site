@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Flex,
   Text,
   Container,
   Box,
-  Icon,
-  Input,
+  Icon
 } from "ui/atoms";
-import { Page, CarouselCard, Carousel, Table } from "ui/molecules";
+import { Page, CarouselCard, Carousel, Table, SearchInput } from "ui/molecules";
 
 import { COLORS } from "config/colors";
 
@@ -22,14 +21,7 @@ import { WINDOW_SIZES } from "config/dimensions";
 // import contractData from "assets/json/contracts.json";
 
 const Home = () => {
-  const [searchText, setSearchText] = useState<string>("");
-  
   const { deviceWidth } = useWindowDimensions();
-
-  const onClickSearchButton = () => {
-    alert(["[Search] [Input] -", searchText].join(" "));
-  };
-
   return (
     <Page>
       <Container>
@@ -64,7 +56,7 @@ const Home = () => {
                         <Icon icon={Icons.rocket} size="MEDIUM" />
                         <Flex>
                           <Flex flexDirection="column" gap={5}>
-                            <Text color={COLORS.GRAY_DARK}>
+                            <Text color={COLORS.GRAY_DARK} type="paragraph">
                               Projects audited
                             </Text>
                             <Text type="title">1206</Text>
@@ -86,7 +78,7 @@ const Home = () => {
                           <Icon icon={Icons.blockchain} size="MEDIUM" />
 
                           <Flex flexDirection="column" gap={5}>
-                            <Text color={COLORS.GRAY_DARK}>
+                            <Text color={COLORS.GRAY_DARK} type="paragraph">
                               Different Blockchains
                             </Text>
                             <Text type="title">18</Text>
@@ -102,34 +94,18 @@ const Home = () => {
                     </Box>
                   </Flex>
                 </Box>
-                <Box position="relative">
-                  <Box
-                    position="absolute"
-                    paddingVertical={16}
-                    paddingHorizontal={30}
-                  >
-                    <Icon icon={Icons.search} size="MEDIUM" />
-                  </Box>
-                  <Input
-                    value={searchText}
-                    onChange={evt => {
-                      setSearchText(evt.target.value);
-                    }}
-                    placeholder="Search project by name or token"
-                    onPressEnter={() => {
-                      onClickSearchButton();
-                    }}
-                  />
-                </Box>
+                <SearchInput placeholder="Input search text here" />
               </Flex>
             </Box>
             <Box
-              backgroundColor="white"
+              backgroundColor="red"
               width={deviceWidth > WINDOW_SIZES.SIZE_768 ? "58%" : "100%"}
+              height="100%"
               borderRadius={20}
-              padding={20}
               borderColor={COLORS.GRAY}
               borderWidth={2}
+              overflowX="hidden"
+              overflowY="hidden"
             >
               <Carousel>
                 <CarouselCard
