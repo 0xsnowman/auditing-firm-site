@@ -16,6 +16,10 @@
     background-color: #a8bbbf;
   }
 
+  &-cursor {
+    cursor: pointer !important;
+  }
+
   &-backdrop {
     -webkit-backdrop-filter: blur(10px);
   }

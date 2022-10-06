@@ -4,6 +4,8 @@ interface IBoxProps {
   children?: React.ReactNode;
   width?: string | number;
   height?: string | number;
+  maxHeight?: string | number;
+  maxWidth?: string | number;
   className?: string;
   backdropFilter?: boolean;
   display?: "block" | "inline-block";
@@ -28,8 +30,10 @@ interface IBoxProps {
   boxShadow?: string;
   overflowX?: "initial" | "hidden" | "scroll" | "auto";
   overflowY?: "initial" | "hidden" | "scroll" | "auto";
+  marginTop?: string | number;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   hover?: boolean;
+  cursor?: boolean;
   zIndex?: number;
 }
 
@@ -38,6 +42,8 @@ const Box: React.FC<IBoxProps> = ({
   className,
   height,
   width,
+  maxHeight,
+  maxWidth,
   display = "block",
   position = "static",
   backdropFilter = false,
@@ -60,18 +66,23 @@ const Box: React.FC<IBoxProps> = ({
   boxShadow,
   overflowX = "initial",
   overflowY = "initial",
+  marginTop = 0,
   onClick,
+  cursor = false,
   zIndex = "initial",
 }) => {
   const backdropFilterClassName = backdropFilter ? "atom-box-backdrop" : "none";
+  const cursorClassName = cursor ? "atom-box-cursor" : "none";
   return (
     <div
-      className={["atom-box", className, backdropFilterClassName].join(" ")}
+      className={["atom-box", className, backdropFilterClassName, cursorClassName].join(" ")}
       style={{
         display: display,
         position: position,
         width: width ? width : "auto",
         height: height ? height : "auto",
+        maxHeight: maxHeight ? maxHeight : "auto",
+        maxWidth: maxWidth ? maxWidth : "auto",
         borderRadius: borderRadius,
         borderTopWidth: borderTopWidth ? borderTopWidth : borderWidth,
         borderRightWidth: borderRightWidth ? borderRightWidth : borderWidth,
@@ -79,6 +90,7 @@ const Box: React.FC<IBoxProps> = ({
         borderLeftWidth: borderLeftWidth ? borderLeftWidth : borderWidth,
         borderStyle: borderStyle,
         borderColor: borderColor,
+        marginTop: marginTop,
         padding: padding
           ? `${padding}px`
           : `${paddingVertical}px ${paddingHorizontal}px`,
