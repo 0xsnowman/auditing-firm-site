@@ -7,6 +7,7 @@ interface ITextProps {
   color?: string;
   colorPrimary?: boolean;
   fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
+  lineHeight?: string | number;
   center?: boolean;
   right?: boolean;
 }
@@ -14,10 +15,11 @@ interface ITextProps {
 const Text: React.FC<ITextProps> = ({
   children,
   className,
-  type = "paragraph",
+  type = "plain",
   color,
   fontWeight = 400,
   center,
+  lineHeight = "auto",
   right
 }) => {
   const classNames = {
@@ -33,6 +35,7 @@ const Text: React.FC<ITextProps> = ({
       className={["atom-text", className, classNames[type]].join(" ")}
       style={{
         color: color,
+        lineHeight: lineHeight,
         fontWeight: fontWeight,
         textAlign: center ? "center" : right ? "right" : "left"
       }}
