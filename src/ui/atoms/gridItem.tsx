@@ -4,17 +4,19 @@ interface IGridItemProps {
   children: React.ReactNode;
   className?: string;
   columns: number;
+  minWidth?: number;
 }
 
 const GridItem: React.FC<IGridItemProps> = ({
   children,
   className,
-  columns
+  columns,
+  minWidth = "60px"
 }) => {
   return (
     <div
       className={["atom-griditem", className].join(" ")}
-      style={{ gridColumnStart: `span ${columns}`, minWidth: `70px` }}
+      style={{ gridColumnStart: `span ${columns}`, minWidth: minWidth }}
     >
       {children}
     </div>
