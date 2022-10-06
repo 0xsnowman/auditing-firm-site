@@ -19,14 +19,12 @@ const CarouselCard: React.FC<ICarouselCardProps> = ({ title, date, slide }) => {
   return (
     <Box
       className="organism-carouselcard"
-      paddingHorizontal={PADDING.MEDIUM}
-      paddingVertical={PADDING.LARGE}
       backgroundColor={COLORS.TRANSPARENT}
       width="100%"
     >
       <Box
         width="100%"
-        height="300px"
+        height={300}
         borderRadius={BORDER_RADIUS.MEDIUM}
         borderWidth={1}
         borderColor={COLORS.BORDER_DARK}
@@ -38,28 +36,36 @@ const CarouselCard: React.FC<ICarouselCardProps> = ({ title, date, slide }) => {
         >
           <Box
             width="100%"
+            height={300}
             borderRadius={BORDER_RADIUS.MEDIUM}
             overflowX="hidden"
             overflowY="hidden"
             position="relative"
           >
-            <Image
-              image={slide}
-              width="100%"
-              height="160px"
-              objectFit="cover"
-            />
+            <Image image={slide} width="100%" height="100%" objectFit="cover" />
           </Box>
-          <Box paddingHorizontal={15} paddingVertical={10} width="100%">
+          <Box position="absolute" left="100px" maxWidth="50%">
             <Flex flexDirection="column" alignItems="space-between" gap={20}>
-              <Text>{title}</Text>
-              <Flex justifyContent="space-between" alignItems="center" gap={5} flexDirection={deviceWidth > WINDOW_SIZES.SIZE_320 ? "row" : "column"}>
-                <Text type="plain" color={COLORS.GRAY_DARK}>
+              <Text type="title" color={COLORS.WHITE}>
+                {title}
+              </Text>
+              <Text type="plain" color={COLORS.WHITE} lineHeight={2}>
+                {`Identify and eliminate security vulnerabilities in blockchains, smart contracts, and Web3 apps using the most rigorous and thorough cybersecurity techniques.`}
+              </Text>
+              <Flex
+                justifyContent="space-between"
+                alignItems="center"
+                gap={5}
+                flexDirection={
+                  deviceWidth > WINDOW_SIZES.SIZE_320 ? "row" : "column"
+                }
+              >
+                <Text type="plain" color={COLORS.WHITE}>
                   {date}
                 </Text>
                 <Flex justifyContent="space-around" gap={5}>
-                  <Tip>Security</Tip>
-                  <Tip>Bug</Tip>
+                  <Tip color="black">Security</Tip>
+                  <Tip color="black">Bug</Tip>
                 </Flex>
               </Flex>
             </Flex>
