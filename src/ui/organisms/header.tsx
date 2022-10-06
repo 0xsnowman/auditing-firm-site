@@ -18,7 +18,7 @@ const Header = () => {
             <Text color="white" type="title">
               {deviceWidth > WINDOW_SIZES.SIZE_1024 ? "Proof Audit" : "PA"}
             </Text>
-            {deviceWidth > WINDOW_SIZES.SIZE_1024 && (
+            {(deviceWidth > WINDOW_SIZES.SIZE_1024) && (
               <Flex gap={160} alignItems="center">
                 <Flex gap={20}>
                   <NavItem>Blog</NavItem>
@@ -37,7 +37,7 @@ const Header = () => {
                 </Button>
               </Flex>
             )}
-            {deviceWidth <= WINDOW_SIZES.SIZE_1024 && (
+            {(deviceWidth <= WINDOW_SIZES.SIZE_1024) && (
               <Flex gap={15}>
                 <MobileMenu type="news" />
                 <MobileMenu />

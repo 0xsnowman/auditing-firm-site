@@ -44,14 +44,16 @@ const CarouselCard: React.FC<ICarouselCardProps> = ({ title, date, slide }) => {
           >
             <Image image={slide} width="100%" height="100%" objectFit="cover" />
           </Box>
-          <Box position="absolute" left="100px" maxWidth="50%">
+          <Box position="absolute" left="85px" maxWidth="50%">
             <Flex flexDirection="column" alignItems="space-between" gap={20}>
-              <Text type="title" color={COLORS.WHITE}>
+              <Text type={deviceWidth > WINDOW_SIZES.SIZE_464 ? "title" : "subtitle"} color={COLORS.WHITE}>
                 {title}
               </Text>
-              <Text type="plain" color={COLORS.WHITE} lineHeight={2}>
-                {`Identify and eliminate security vulnerabilities in blockchains, smart contracts, and Web3 apps using the most rigorous and thorough cybersecurity techniques.`}
-              </Text>
+              {(deviceWidth > WINDOW_SIZES.SIZE_1024) && (
+                <Text type="plain" color={COLORS.WHITE} lineHeight={2}>
+                  {`Identify and eliminate security vulnerabilities in blockchains, smart contracts, and Web3 apps using the most rigorous and thorough cybersecurity techniques.`}
+                </Text>
+              )}
               <Flex
                 justifyContent="space-between"
                 alignItems="center"
