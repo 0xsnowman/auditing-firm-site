@@ -4,10 +4,12 @@ import { Flex, Box, Text, Grid, GridItem, Icon, ProgressBar } from "ui/atoms";
 import { Switch, ProgressSpinner } from "ui/molecules";
 
 import { COLORS } from "config/colors";
-
+import useWindowDimensions from "hooks/useWindowDimensions";
+import { WINDOW_SIZES } from "config/dimensions";
 import Icons from "assets/icons";
 
 const Table = () => {
+  const { deviceWidth } = useWindowDimensions();
   const [progress] = useState<number>(75);
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
   const totalItemCount = 100;
@@ -25,7 +27,7 @@ const Table = () => {
           <Flex flexDirection="column">
             <Box backgroundColor="white" paddingHorizontal={10}>
               <Flex alignItems="center" gap={10} justifyContent="space-between">
-                <Text>Proof Audit</Text>
+                <Text type="paragraph">Proof Audit</Text>
                 <Switch />
               </Flex>
             </Box>
@@ -37,12 +39,12 @@ const Table = () => {
                     <Grid alignCenter gap={0}>
                       <GridItem columns={4}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK}>Rank</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Rank</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={4}>
                         <Box backgroundColor="white" height="100%">
-                          <Text color={COLORS.GRAY_DARK}>Name</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Name</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={4}>{}</GridItem>
@@ -132,37 +134,37 @@ const Table = () => {
                     <Grid alignCenter gap={0}>
                       <GridItem columns={2}>
                         <Box backgroundColor="white">
-                          <Text color={COLORS.GRAY_DARK}>Score</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Score</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK}>Blockchain</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Blockchain</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK}>Category</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Category</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={1}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK}>Contract</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Contract</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK}>Audit</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Audit</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK}>Links</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Links</Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={1}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK}>Date</Text>
+                          <Text color={COLORS.GRAY_DARK} type="button">Date</Text>
                         </Box>
                       </GridItem>
                     </Grid>
@@ -377,7 +379,7 @@ const Table = () => {
                 </Box>
                 <Flex gap={7} alignItems="center">
                   <Text type="plain">01</Text>
-                  <Box width="100px">
+                  <Box width={deviceWidth > WINDOW_SIZES.SIZE_320 ? "100px" : "50px"}>
                     <ProgressBar
                       range={totalItemCount / itemCountPerPage}
                       value={currentPageIndex + 1}
