@@ -5,8 +5,6 @@ import { Button, AlarmNotifier } from "ui/molecules";
 
 import Icons from "assets/icons";
 
-import useWindowDimensions from "hooks/useWindowDimensions";
-
 import { COLORS } from "config/colors";
 import { Z_INDEX_LEVELS } from "config/dimensions";
 
@@ -20,7 +18,6 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   hasDeals = true
 }) => {
   const [collapsed, setCollapsed] = useState<boolean>(true);
-  const { deviceHeight, deviceWidth } = useWindowDimensions();
 
   const determineMenuIcon = () => {
     switch (type) {
@@ -34,7 +31,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   };
 
   return (
-    <Box position="relative" zIndex={Z_INDEX_LEVELS.MAXIMUM}>
+    <Box zIndex={Z_INDEX_LEVELS.MAXIMUM}>
       <Icon
         icon={collapsed ? determineMenuIcon() : Icons.close}
         size="MEDIUM"
@@ -43,27 +40,27 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
         }}
       />
       {hasDeals && (
-        <Box position="absolute" top={0} right={-3}>
+        <Box position="absolute" top={7} right={10}>
           <AlarmNotifier />
         </Box>
       )}
-      {!collapsed && (
+      {/* {!collapsed && (
         <Box
-          width={deviceWidth}
+          width={deviceWidth * 2}
           height={deviceHeight * 5}
           backdropFilter
           position="absolute"
           top={45}
-          right={-30}
+          right={-50}
           backgroundColor="#FFFFFF50"
         ></Box>
-      )}
+      )} */}
       {!collapsed && (
         <Box
           position="absolute"
-          right={0}
+          right={-5}
           top={50}
-          width="320px"
+          width={300}
           backgroundColor="white"
           padding={30}
           borderRadius={15}
@@ -73,7 +70,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
           <Flex flexDirection="column" gap={30}>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK}>Products</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">Products</Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
@@ -98,7 +95,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             </Box>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK}>Technology</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">Technology</Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
@@ -108,7 +105,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             </Box>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK}>Featured Ecosystems</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">Featured Ecosystems</Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
@@ -136,7 +133,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             </Box>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK}>Companies</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">Companies</Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
