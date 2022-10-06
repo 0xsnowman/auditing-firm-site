@@ -1,9 +1,11 @@
 import React from "react";
 
-import { Box, Container, Text, Flex } from "ui/atoms";
+import { Box, Container, Icon, Flex } from "ui/atoms";
 import { Button, NavItem, MobileMenu, DropDown } from "ui/molecules";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
+
+import Icons from "assets/icons";
 
 import { WINDOW_SIZES, Z_INDEX_LEVELS } from "config/dimensions";
 
@@ -15,9 +17,11 @@ const Header = () => {
       <Container>
         <Box position="relative">
           <Flex justifyContent="space-between" alignItems="center">
-            <Text color="white" type="title">
-              {deviceWidth > WINDOW_SIZES.SIZE_1024 ? "Proof Audit" : "PA"}
-            </Text>
+          {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
+            <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
+          ) : (
+            <Icon icon={Icons.proofIconWhite} size="LARGE" />
+          )}
             {(deviceWidth > WINDOW_SIZES.SIZE_1024) && (
               <Flex gap={160} alignItems="center">
                 <Flex gap={20}>

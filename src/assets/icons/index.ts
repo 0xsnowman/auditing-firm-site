@@ -11,6 +11,10 @@ import menu from "./menu.svg";
 import alarm from "./alarm.svg";
 import dropdown from "./dropdown.svg";
 import up from "./up.svg";
+import proofIconWhite from "./prooficon-white.svg";
+import proofIconBlack from "./prooficon-black.svg";
+import proofLogoWhite from "./prooflogo-white.svg";
+import proofLogoBlack from "./prooflogo-black.svg";
 
 const Icons = {
     rocket,
@@ -25,7 +29,11 @@ const Icons = {
     menu,
     alarm,
     dropdown,
-    up
+    up,
+    proofIconWhite,
+    proofIconBlack,
+    proofLogoWhite,
+    proofLogoBlack
 };
 
 export default Icons;
