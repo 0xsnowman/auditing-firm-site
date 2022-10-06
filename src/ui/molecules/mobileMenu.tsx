@@ -31,7 +31,15 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   };
 
   return (
-    <Box zIndex={Z_INDEX_LEVELS.MAXIMUM}>
+    <Box
+      zIndex={Z_INDEX_LEVELS.MAXIMUM}
+      onMouseEnter={() => {
+        setCollapsed(false);
+      }}
+      onMouseLeave={() => {
+        setCollapsed(true);
+      }}
+    >
       <Icon
         icon={collapsed ? determineMenuIcon() : Icons.close}
         size="MEDIUM"
@@ -70,7 +78,9 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
           <Flex flexDirection="column" gap={30}>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK} type="paragraph">Products</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">
+                  Products
+                </Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
@@ -95,7 +105,9 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             </Box>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK} type="paragraph">Technology</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">
+                  Technology
+                </Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
@@ -105,7 +117,9 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             </Box>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK} type="paragraph">Featured Ecosystems</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">
+                  Featured Ecosystems
+                </Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
@@ -133,7 +147,9 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             </Box>
             <Box>
               <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK} type="paragraph">Companies</Text>
+                <Text color={COLORS.GRAY_DARK} type="paragraph">
+                  Companies
+                </Text>
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
