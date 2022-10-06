@@ -1,6 +1,7 @@
 import React from "react";
 
 interface IInputProps {
+  className?: string;
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
@@ -8,6 +9,7 @@ interface IInputProps {
 }
 
 const Input: React.FC<IInputProps> = ({
+  className = "medium",
   value,
   onChange,
   placeholder,
@@ -15,7 +17,7 @@ const Input: React.FC<IInputProps> = ({
 }) => {
   return (
     <input
-      className="atom-input"
+      className={["atom-input", "atom-input-" + className].join(" ")}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
