@@ -43,6 +43,7 @@ export const WINDOW_SIZES = {
   SIZE_874: 874,
   SIZE_768: 768,
   SIZE_464: 464,
+  SIZE_375: 375,
   SIZE_320: 320,
   SIZE_240: 240,
 };
