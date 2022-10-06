@@ -98,7 +98,6 @@ const Home = () => {
               </Flex>
             </Box>
             <Box
-              backgroundColor="red"
               width={deviceWidth > WINDOW_SIZES.SIZE_768 ? "58%" : "100%"}
               height="100%"
               borderRadius={20}
