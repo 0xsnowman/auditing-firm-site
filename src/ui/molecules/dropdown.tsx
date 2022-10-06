@@ -38,6 +38,12 @@ const DropDown: React.FC<IDropDownProps> = ({
       right={direction === "right" ? 0 : "auto"}
       zIndex={Z_INDEX_LEVELS.SUPER}
       paddingVertical={1}
+      onMouseEnter={() => {
+        setCollapsed(false);
+      }}
+      onMouseLeave={() => {
+        setCollapsed(true);
+      }}
     >
       <Box position="relative" width={menuWidth}>
         <Box
