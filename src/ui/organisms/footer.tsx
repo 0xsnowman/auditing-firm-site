@@ -3,9 +3,14 @@ import React from "react";
 import { Box, Container, Flex, Text, Icon } from "ui/atoms";
 import { NavItem } from "ui/molecules";
 
+import useWindowDimensions from "hooks/useWindowDimensions";
+
 import Icons from "assets/icons";
 
+import { WINDOW_SIZES } from "config/dimensions";
+
 const Footer = () => {
+  const { deviceWidth } = useWindowDimensions();
   return (
     <Box
       className="organism-footer"
@@ -19,34 +24,34 @@ const Footer = () => {
           justifyContent="space-between"
           gap={30}
         >
-          <Flex justifyContent="space-between" width="100%" className="organism-footer__connection-list">
+          <Flex
+            justifyContent="space-between"
+            width="100%"
+            className="organism-footer__connection-list"
+          >
             <Flex flex={2}>
-              <Text type="logo" color="#999">
-                Proof Audit
-              </Text>
+              {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
+                <Icon icon={Icons.proofLogoWhite} size="EXTRA_SUPER_LARGE" />
+              ) : (
+                <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
+              )}
             </Flex>
-            <Flex flex={3} gap={30} className="organism-footer__connection-list__details">
+            <Flex
+              flex={3}
+              gap={30}
+              className="organism-footer__connection-list__details"
+            >
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>
                   <Text type="paragraph" color="white">
                     Products
                   </Text>
                 </Box>
-                <NavItem>
-                  Security Audit
-                </NavItem>
-                <NavItem>
-                  Skynet
-                </NavItem>
-                <NavItem>
-                  SkyTrace
-                </NavItem>
-                <NavItem>
-                  Prenetration Testing
-                </NavItem>
-                <NavItem>
-                  KYC
-                </NavItem>
+                <NavItem>Security Audit</NavItem>
+                <NavItem>Skynet</NavItem>
+                <NavItem>SkyTrace</NavItem>
+                <NavItem>Prenetration Testing</NavItem>
+                <NavItem>KYC</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>
@@ -54,9 +59,7 @@ const Footer = () => {
                     Resources
                   </Text>
                 </Box>
-                <NavItem>
-                  Blog
-                </NavItem>
+                <NavItem>Blog</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>
@@ -64,24 +67,12 @@ const Footer = () => {
                     Company
                   </Text>
                 </Box>
-                <NavItem>
-                  About
-                </NavItem>
-                <NavItem>
-                  Careers
-                </NavItem>
-                <NavItem>
-                  Disclaimer
-                </NavItem>
-                <NavItem>
-                  Privacy Policy
-                </NavItem>
-                <NavItem>
-                  Cookie Policy
-                </NavItem>
-                <NavItem>
-                  Terms and Conditions
-                </NavItem>
+                <NavItem>About</NavItem>
+                <NavItem>Careers</NavItem>
+                <NavItem>Disclaimer</NavItem>
+                <NavItem>Privacy Policy</NavItem>
+                <NavItem>Cookie Policy</NavItem>
+                <NavItem>Terms and Conditions</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>

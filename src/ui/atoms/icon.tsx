@@ -2,7 +2,7 @@ import React from "react";
 
 interface IIconProps {
   icon: string;
-  size?: "LARGE" | "MEDIUM" | "SMALL" | "SUPER_LARGE";
+  size?: "LARGE" | "MEDIUM" | "SMALL" | "SUPER_LARGE" | "EXTRA_SUPER_LARGE";
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
@@ -17,7 +17,8 @@ const Icon: React.FC<IIconProps> = ({
     LARGE: "atom-icon-large",
     MEDIUM: "atom-icon-medium",
     SMALL: "atom-icon-small",
-    SUPER_LARGE: "atom-icon-superlarge"
+    SUPER_LARGE: "atom-icon-superlarge",
+    EXTRA_SUPER_LARGE: "atom-icon-extrasuperlarge"
   };
 
   return (

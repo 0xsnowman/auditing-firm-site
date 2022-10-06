@@ -17,12 +17,12 @@ const Header = () => {
       <Container>
         <Box position="relative">
           <Flex justifyContent="space-between" alignItems="center">
-          {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
-            <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
-          ) : (
-            <Icon icon={Icons.proofIconWhite} size="LARGE" />
-          )}
-            {(deviceWidth > WINDOW_SIZES.SIZE_1024) && (
+            {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
+              <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
+            ) : (
+              <Icon icon={Icons.proofIconWhite} size="LARGE" />
+            )}
+            {deviceWidth > WINDOW_SIZES.SIZE_1024 && (
               <Flex gap={160} alignItems="center">
                 <Flex gap={20}>
                   <NavItem>Blog</NavItem>
@@ -41,7 +41,7 @@ const Header = () => {
                 </Button>
               </Flex>
             )}
-            {(deviceWidth <= WINDOW_SIZES.SIZE_1024) && (
+            {deviceWidth <= WINDOW_SIZES.SIZE_1024 && (
               <Flex gap={15}>
                 <MobileMenu type="news" />
                 <MobileMenu />
