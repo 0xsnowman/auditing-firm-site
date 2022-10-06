@@ -7,6 +7,8 @@ import { Animations } from "assets";
 interface IButtonProps {
   children: string;
   backgroundColor?: string;
+  backgroundHoverColor?: string;
+  color?: string;
   onClick?: Function;
   pending?: boolean;
   disabled?: boolean;
@@ -17,6 +19,8 @@ interface IButtonProps {
 const Button: React.FC<IButtonProps> = ({
   children,
   backgroundColor = COLORS.DANGER,
+  backgroundHoverColor = COLORS.DANGER_LIGHT,
+  color = "white",
   onClick = () => {},
   pending,
   disabled,
@@ -42,13 +46,13 @@ const Button: React.FC<IButtonProps> = ({
       }}
       style={{
         width: fixedWidth ? 100 : "initial",
-        backgroundColor: !isHover ? backgroundColor : COLORS.DANGER_LIGHT
+        backgroundColor: !isHover ? backgroundColor : backgroundHoverColor
       }}
     >
       {pending ? (
         <Icon icon={Animations.loading} size="LARGE" />
       ) : (
-        <Text center color={COLORS.WHITE} type="button">
+        <Text center color={color} type="button">
           {children}
         </Text>
       )}
