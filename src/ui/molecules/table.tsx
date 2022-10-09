@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Flex, Box, Text, Grid, GridItem, Icon, ProgressBar } from "ui/atoms";
-import { Switch, ProgressSpinner } from "ui/molecules";
+import { ProgressSpinner, AddressLabel, CheckBox } from "ui/molecules";
 
 import { COLORS } from "config/colors";
 import useWindowDimensions from "hooks/useWindowDimensions";
@@ -14,8 +14,51 @@ const Table = () => {
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
   const totalItemCount = 100;
   const itemCountPerPage = 10;
+  const [entireRowChecked, setEntireRowChecked] = useState<boolean>(false);
   return (
     <Flex flexDirection="column">
+      <Box paddingVertical={20}>
+        <Box paddingVertical={10}>
+          <Text type="title" fontWeight={600} color={COLORS.LIGHT_BLUE}>
+            Audit Reports
+          </Text>
+        </Box>
+        <Flex gap={15}>
+          <Box padding={5} borderRadius={5} backgroundColor="#BBB">
+            <CheckBox />
+          </Box>
+          <Box
+            paddingHorizontal={10}
+            paddingVertical={5}
+            borderRadius={5}
+            backgroundColor="#BBB"
+          >
+            <Text color={"#333"} type="plain" fontWeight={600}>
+              Watchlists
+            </Text>
+          </Box>
+          <Box
+            paddingHorizontal={10}
+            paddingVertical={5}
+            borderRadius={5}
+            backgroundColor="#BBB"
+          >
+            <Text color={"#333"} type="plain" fontWeight={600}>
+              Chain
+            </Text>
+          </Box>
+          <Box
+            paddingHorizontal={10}
+            paddingVertical={5}
+            borderRadius={5}
+            backgroundColor="#BBB"
+          >
+            <Text color={"#333"} type="plain" fontWeight={600}>
+              Category
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
       <Box
         backgroundColor="white"
         borderColor={COLORS.GREY}
@@ -25,146 +68,253 @@ const Table = () => {
       >
         <Box backgroundColor={COLORS.WHITE}>
           <Flex flexDirection="column">
-            <Box backgroundColor="white" paddingHorizontal={10}>
-              <Flex alignItems="center" gap={10} justifyContent="space-between">
-                <Text type="paragraph">Proof Audit</Text>
-                <Switch />
-              </Flex>
-            </Box>
-            <Box backgroundColor="white" padding={5} />
             <Flex gap={0} justifyContent="space-between">
-              <Box>
+              <Box width={deviceWidth > WINDOW_SIZES.SIZE_464 ? "35%" : "70%"}>
                 <Box backgroundColor="white">
                   <Box backgroundColor="white" paddingVertical={5}>
                     <Grid alignCenter gap={0}>
                       <GridItem columns={4}>
+                        <Flex justifyContent="center">
+                          <Box onClick={() => {
+                            setEntireRowChecked(!entireRowChecked);
+                          }}>
+                            <CheckBox defaultCheckState={entireRowChecked} />
+                          </Box>
+                        </Flex>
+                      </GridItem>
+                      <GridItem columns={4}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK} type="button">Rank</Text>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            #
+                          </Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={4}>
                         <Box backgroundColor="white" height="100%">
-                          <Text color={COLORS.GRAY_DARK} type="button">Name</Text>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            Name
+                          </Text>
                         </Box>
                       </GridItem>
-                      <GridItem columns={4}>{}</GridItem>
                     </Grid>
                   </Box>
                 </Box>
                 <Flex flexDirection="column" gap={3}>
                   {/* The first token name part data is here */}
-                  <Box backgroundColor="white" paddingVertical={5}>
+                  <Box backgroundColor="white" paddingVertical={7}>
                     <Grid alignCenter gap={0}>
                       <GridItem columns={4}>
+                        <Flex justifyContent="center">
+                          <CheckBox
+                            stateChangable={false}
+                            defaultCheckState={entireRowChecked}
+                          />
+                        </Flex>
+                      </GridItem>
+                      <GridItem columns={4}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>1</Text>
+                          <Flex justifyContent="center">
+                            <Text>4</Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={4}>
                         <Box backgroundColor="white" height="100%">
-                          <Flex alignItems="center" gap={10}>
+                          <Flex
+                            alignItems="center"
+                            justifyContent="center"
+                            gap={10}
+                          >
                             <Icon icon={Icons.rocket} />
-                            <Text>Sweeptoken</Text>
+                            <Text>Shiba Inu</Text>
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={4}>{}</GridItem>                      
                     </Grid>
                   </Box>
-                  <Box backgroundColor="white" paddingVertical={5}>
+                  <Box backgroundColor="white" paddingVertical={7}>
                     <Grid alignCenter gap={0}>
                       <GridItem columns={4}>
+                        <Flex justifyContent="center">
+                          <CheckBox
+                            stateChangable={false}
+                            defaultCheckState={entireRowChecked}
+                          />
+                        </Flex>
+                      </GridItem>
+                      <GridItem columns={4}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>1</Text>
+                          <Flex justifyContent="center">
+                            <Text>4</Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={4}>
                         <Box backgroundColor="white" height="100%">
-                          <Flex alignItems="center" gap={10}>
+                          <Flex
+                            alignItems="center"
+                            justifyContent="center"
+                            gap={10}
+                          >
                             <Icon icon={Icons.rocket} />
-                            <Text>Sweeptoken</Text>
+                            <Text>Shiba Inu</Text>
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={4}>{}</GridItem>                      
                     </Grid>
                   </Box>
-                  <Box backgroundColor="white" paddingVertical={5}>
+                  <Box backgroundColor="white" paddingVertical={7}>
                     <Grid alignCenter gap={0}>
                       <GridItem columns={4}>
+                        <Flex justifyContent="center">
+                          <CheckBox
+                            stateChangable={false}
+                            defaultCheckState={entireRowChecked}
+                          />
+                        </Flex>
+                      </GridItem>
+                      <GridItem columns={4}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>1</Text>
+                          <Flex justifyContent="center">
+                            <Text>4</Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={4}>
                         <Box backgroundColor="white" height="100%">
-                          <Flex alignItems="center" gap={10}>
+                          <Flex
+                            alignItems="center"
+                            justifyContent="center"
+                            gap={10}
+                          >
                             <Icon icon={Icons.rocket} />
-                            <Text>Sweeptoken</Text>
+                            <Text>Shiba Inu</Text>
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={4}>{}</GridItem>                      
                     </Grid>
                   </Box>
-                  <Box backgroundColor="white" paddingVertical={5}>
+                  <Box backgroundColor="white" paddingVertical={7}>
                     <Grid alignCenter gap={0}>
                       <GridItem columns={4}>
+                        <Flex justifyContent="center">
+                          <CheckBox
+                            stateChangable={false}
+                            defaultCheckState={entireRowChecked}
+                          />
+                        </Flex>
+                      </GridItem>
+                      <GridItem columns={4}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>1</Text>
+                          <Flex justifyContent="center">
+                            <Text>4</Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={4}>
                         <Box backgroundColor="white" height="100%">
-                          <Flex alignItems="center" gap={10}>
+                          <Flex
+                            alignItems="center"
+                            justifyContent="center"
+                            gap={10}
+                          >
                             <Icon icon={Icons.rocket} />
-                            <Text>Sweeptoken</Text>
+                            <Text>Shiba Inu</Text>
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={4}>{}</GridItem>                      
                     </Grid>
                   </Box>
                   <Box backgroundColor="white" padding={10} />
                 </Flex>
               </Box>
-              <Box overflowX="scroll">
+              <Box
+                overflowX="scroll"
+                width={deviceWidth > WINDOW_SIZES.SIZE_464 ? "60%" : "25%"}
+              >
                 <Box backgroundColor="white">
                   <Box backgroundColor="white" paddingVertical={5}>
                     <Grid alignCenter gap={0}>
                       <GridItem columns={2}>
                         <Box backgroundColor="white">
-                          <Text color={COLORS.GRAY_DARK} type="button">Score</Text>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            Trust Score
+                          </Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK} type="button">Blockchain</Text>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            Links
+                          </Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK} type="button">Category</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={1}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK} type="button">Contract</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK} type="button">Audit</Text>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            Contract
+                          </Text>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK} type="button">Links</Text>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            Chain
+                          </Text>
                         </Box>
                       </GridItem>
-                      <GridItem columns={1}>
+                      <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text color={COLORS.GRAY_DARK} type="button">Date</Text>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            Category
+                          </Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text
+                            center
+                            color={COLORS.GRAY_DARK}
+                            type="plain"
+                            fontWeight={600}
+                          >
+                            Audit
+                          </Text>
                         </Box>
                       </GridItem>
                     </Grid>
@@ -176,44 +326,51 @@ const Table = () => {
                     <Grid alignCenter gap={0}>
                       <GridItem columns={2}>
                         <Box backgroundColor="white">
-                          <ProgressSpinner
-                            progress={progress}
-                            indicatorColor={COLORS.GREEN}
-                          />
+                          <Flex justifyContent="center">
+                            <ProgressSpinner
+                              progress={progress}
+                              indicatorColor={COLORS.GREEN}
+                            />
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>BSC</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Text>DeFi</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={1}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.blockchain} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.rocket} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Flex gap={5}>
+                          <Flex gap={5} justifyContent="center">
                             <Icon icon={Icons.blockchain} />
                             <Icon icon={Icons.rocket} />
                             <Icon icon={Icons.search} />
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={1}>
+                      <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>10/3/2022</Text>
+                          <Text center>
+                            <AddressLabel
+                              address="0x24A4502BCD803D84C93D84C9"
+                              shortened={deviceWidth < WINDOW_SIZES.SIZE_1024}
+                            />
+                          </Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>BSC</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>DeFi</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Flex justifyContent="center" gap={10}>
+                            <Icon icon={Icons.rocket} />
+                            <Text type="plain" color={COLORS.BLACK}>
+                              2
+                            </Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                     </Grid>
@@ -222,44 +379,49 @@ const Table = () => {
                     <Grid alignCenter gap={0}>
                       <GridItem columns={2}>
                         <Box backgroundColor="white">
-                          <ProgressSpinner
-                            progress={progress}
-                            indicatorColor={COLORS.GREEN}
-                          />
+                          <Flex justifyContent="center">
+                            <ProgressSpinner
+                              progress={progress}
+                              indicatorColor={COLORS.GREEN}
+                            />
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>BSC</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Text>DeFi</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={1}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.blockchain} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.rocket} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Flex gap={5}>
+                          <Flex gap={5} justifyContent="center">
                             <Icon icon={Icons.blockchain} />
                             <Icon icon={Icons.rocket} />
                             <Icon icon={Icons.search} />
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={1}>
+                      <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>10/3/2022</Text>
+                          <AddressLabel
+                            address="0x24A4502BCD803D84C93D84C9"
+                            shortened={deviceWidth < WINDOW_SIZES.SIZE_1024}
+                          />
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>BSC</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>Utiltiy</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Flex justifyContent="center" gap={10}>
+                            <Icon icon={Icons.rocket} />
+                            <Text type="plain" color={COLORS.BLACK}>
+                              2
+                            </Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                     </Grid>
@@ -268,44 +430,49 @@ const Table = () => {
                     <Grid alignCenter gap={0}>
                       <GridItem columns={2}>
                         <Box backgroundColor="white">
-                          <ProgressSpinner
-                            progress={progress}
-                            indicatorColor={COLORS.GREEN}
-                          />
+                          <Flex justifyContent="center">
+                            <ProgressSpinner
+                              progress={progress}
+                              indicatorColor={COLORS.GREEN}
+                            />
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>BSC</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Text>DeFi</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={1}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.blockchain} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.rocket} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Flex gap={5}>
+                          <Flex gap={5} justifyContent="center">
                             <Icon icon={Icons.blockchain} />
                             <Icon icon={Icons.rocket} />
                             <Icon icon={Icons.search} />
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={1}>
+                      <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>10/3/2022</Text>
+                          <AddressLabel
+                            address="0x24A4502BCD803D84C93D84C9"
+                            shortened={deviceWidth < WINDOW_SIZES.SIZE_1024}
+                          />
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>Ethereum</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>DeFi</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Flex justifyContent="center" gap={10}>
+                            <Icon icon={Icons.rocket} />
+                            <Text type="plain" color={COLORS.BLACK}>
+                              2
+                            </Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                     </Grid>
@@ -314,44 +481,49 @@ const Table = () => {
                     <Grid alignCenter gap={0}>
                       <GridItem columns={2}>
                         <Box backgroundColor="white">
-                          <ProgressSpinner
-                            progress={progress}
-                            indicatorColor={COLORS.GREEN}
-                          />
+                          <Flex justifyContent="center">
+                            <ProgressSpinner
+                              progress={progress}
+                              indicatorColor={COLORS.GREEN}
+                            />
+                          </Flex>
                         </Box>
                       </GridItem>
                       <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>BSC</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Text>DeFi</Text>
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={1}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.blockchain} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Icon icon={Icons.rocket} />
-                        </Box>
-                      </GridItem>
-                      <GridItem columns={2}>
-                        <Box backgroundColor="white" padding={10}>
-                          <Flex gap={5}>
+                          <Flex gap={5} justifyContent="center">
                             <Icon icon={Icons.blockchain} />
                             <Icon icon={Icons.rocket} />
                             <Icon icon={Icons.search} />
                           </Flex>
                         </Box>
                       </GridItem>
-                      <GridItem columns={1}>
+                      <GridItem columns={2}>
                         <Box backgroundColor="white" padding={10}>
-                          <Text>10/3/2022</Text>
+                          <AddressLabel
+                            address="0x24A4502BCD803D84C93D84C9"
+                            shortened={deviceWidth < WINDOW_SIZES.SIZE_1024}
+                          />
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>BSC</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Text center>DeFi</Text>
+                        </Box>
+                      </GridItem>
+                      <GridItem columns={2}>
+                        <Box backgroundColor="white" padding={10}>
+                          <Flex justifyContent="center" gap={10}>
+                            <Icon icon={Icons.rocket} />
+                            <Text type="plain" color={COLORS.BLACK}>
+                              2
+                            </Text>
+                          </Flex>
                         </Box>
                       </GridItem>
                     </Grid>
@@ -379,7 +551,11 @@ const Table = () => {
                 </Box>
                 <Flex gap={7} alignItems="center">
                   <Text type="plain">01</Text>
-                  <Box width={deviceWidth > WINDOW_SIZES.SIZE_320 ? "100px" : "50px"}>
+                  <Box
+                    width={
+                      deviceWidth > WINDOW_SIZES.SIZE_320 ? "100px" : "50px"
+                    }
+                  >
                     <ProgressBar
                       range={totalItemCount / itemCountPerPage}
                       value={currentPageIndex + 1}

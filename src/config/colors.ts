@@ -16,6 +16,7 @@ export const COLORS = {
   GRAY_DARK: "#555",
 
   BLUE: "#0A66C2",
+  LIGHT_BLUE: "#0057FF",
   GREY: "#E8E8E8",
   BORDER: "#444444",
 

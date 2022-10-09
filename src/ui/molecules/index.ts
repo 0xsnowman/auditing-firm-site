@@ -12,8 +12,11 @@ import MobileMenu from "./mobileMenu";
 import AlarmNotifier from "./alarmNotifier";
 import DropDown from "./dropdown";
 import SearchInput from "./searchInput";
+import AddressLabel from "./addressLabel";
+import CheckBox from "./checkBox";
 
 export {
+  AddressLabel,
   Button,
   MobileMenu,
   Carousel,
@@ -27,5 +30,6 @@ export {
   Table,
   AlarmNotifier,
   DropDown,
-  SearchInput
+  SearchInput,
+  CheckBox
 };

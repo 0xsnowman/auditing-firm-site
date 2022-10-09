@@ -13,8 +13,12 @@ import dropdown from "./dropdown.svg";
 import up from "./up.svg";
 import proofIconWhite from "./prooficon-white.svg";
 import proofIconBlack from "./prooficon-black.svg";
+import proofIconBlue from "./prooficon-blue.svg";
 import proofLogoWhite from "./prooflogo-white.svg";
 import proofLogoBlack from "./prooflogo-black.svg";
+import proofLogoBlue from "./prooflogo-blue.svg";
+import star from "./star.svg";
+import starBlack from "./star-black.svg";
 
 const Icons = {
     rocket,
@@ -32,8 +36,12 @@ const Icons = {
     up,
     proofIconWhite,
     proofIconBlack,
+    proofIconBlue,
     proofLogoWhite,
-    proofLogoBlack
+    proofLogoBlack,
+    proofLogoBlue,
+    star,
+    starBlack
 };
 
 export default Icons;

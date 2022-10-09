@@ -7,6 +7,7 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 
 import Icons from "assets/icons";
 
+import { COLORS } from "config/colors";
 import { WINDOW_SIZES } from "config/dimensions";
 
 const Footer = () => {
@@ -16,6 +17,7 @@ const Footer = () => {
       className="organism-footer"
       paddingHorizontal={30}
       paddingVertical={60}
+      backgroundColor={COLORS.LIGHT_BLUE}
     >
       <Container>
         <Flex
@@ -47,19 +49,9 @@ const Footer = () => {
                     Products
                   </Text>
                 </Box>
-                <NavItem>Security Audit</NavItem>
-                <NavItem>Skynet</NavItem>
-                <NavItem>SkyTrace</NavItem>
-                <NavItem>Prenetration Testing</NavItem>
-                <NavItem>KYC</NavItem>
-              </Flex>
-              <Flex flex={1} flexDirection="column" gap={10}>
-                <Box paddingVertical={30}>
-                  <Text type="paragraph" color="white">
-                    Resources
-                  </Text>
-                </Box>
-                <NavItem>Blog</NavItem>
+                <NavItem>Smart Contract Audit</NavItem>
+                <NavItem>dApp Audit</NavItem>
+                <NavItem>NFT Audit</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={10}>
                 <Box paddingVertical={30}>
@@ -82,50 +74,50 @@ const Footer = () => {
                 </Box>
                 <Flex gap={10}>
                   <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#999" type="plain">
+                  <Text color="#DDD" type="plain">
                     Discord
                   </Text>
                 </Flex>
                 <Flex gap={10}>
                   <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#999" type="plain">
+                  <Text color="#DDD" type="plain">
                     Telegram
                   </Text>
                 </Flex>
                 <Flex gap={10}>
                   <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#999" type="plain">
+                  <Text color="#DDD" type="plain">
                     Twitter
                   </Text>
                 </Flex>
                 <Flex gap={10}>
                   <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#999" type="plain">
+                  <Text color="#DDD" type="plain">
                     Facebook
                   </Text>
                 </Flex>
                 <Flex gap={10}>
                   <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#999" type="plain">
+                  <Text color="#DDD" type="plain">
                     Github
                   </Text>
                 </Flex>
                 <Flex gap={10}>
                   <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#999" type="plain">
+                  <Text color="#DDD" type="plain">
                     Gitbook
                   </Text>
                 </Flex>
                 <Flex gap={10}>
                   <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#999" type="plain">
+                  <Text color="#DDD" type="plain">
                     Email
                   </Text>
                 </Flex>
               </Flex>
             </Flex>
           </Flex>
-          <Text color="#999" type="plain">
+          <Text color="#DDD" type="plain">
             © 2022 by Proof Audit. All Rights Reserved.
           </Text>
         </Flex>
