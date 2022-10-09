@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Text } from "ui/atoms";
+import { Box, Text, Flex } from "ui/atoms";
 
 interface IProgressSpinnerProps {
   size?: number;
@@ -25,7 +25,7 @@ const ProgressSpinner: React.FC<IProgressSpinnerProps> = ({
   indicatorColor = `#0077CC`,
   indicatorCap = "round",
   label = `Loading...`,
-  spinnerMode = false,
+  spinnerMode = false
 }) => {
   const center = size / 2,
     radius =
@@ -37,7 +37,12 @@ const ProgressSpinner: React.FC<IProgressSpinnerProps> = ({
 
   return (
     <>
-      <Box className="svg-pi-wrapper" width={size} height={size} position="relative">
+      <Box
+        className="svg-pi-wrapper"
+        width={size}
+        height={size}
+        position="relative"
+      >
         <svg className="svg-pi" width={size} height={size}>
           <circle
             className="svg-pi-track"
@@ -63,8 +68,10 @@ const ProgressSpinner: React.FC<IProgressSpinnerProps> = ({
             strokeLinecap={indicatorCap}
           />
         </svg>
-        <Box position="absolute" paddingVertical={10}>
-          <Text>{progress}</Text>
+        <Box position="absolute" paddingVertical={12}>
+          <Flex justifyContent="center" alignItems="center">
+            <Text>{progress}</Text>
+          </Flex>
         </Box>
 
         {!hideLabel && (
