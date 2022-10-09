@@ -27,7 +27,7 @@ const NavItem: React.FC<INavItem> = ({ children, onClick, active }) => {
         color={
           active || isHover
             ? COLORS.TEXT_PRIMARY_DARK
-            : COLORS.TEXT_SECONDARY_DARK
+            : "#DDD"
         }
         type="plain"
       >
