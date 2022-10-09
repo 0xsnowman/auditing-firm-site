@@ -22,7 +22,7 @@ const DropDown: React.FC<IDropDownProps> = ({
   top = -12,
   border = false,
   title = "Category",
-  menuWidth = 300,
+  menuWidth = 250,
 }) => {
   const [selectedItems, setSelectedItems] = useState<Array<string>>([
     "NFT",
@@ -60,7 +60,7 @@ const DropDown: React.FC<IDropDownProps> = ({
         >
           <Flex gap={menuWidth >= 300 ? 15 : 5} justifyContent="flex-start">
             <Flex justifyContent="space-around" gap={10}>
-              <Text type="plain" fontWeight={500} color={COLORS.WHITE}>
+              <Text type="plain" fontWeight={600} color={COLORS.BLACK}>
                 {title}
               </Text>
               {selectedItems.length > 0 && (
@@ -68,11 +68,11 @@ const DropDown: React.FC<IDropDownProps> = ({
                   width={18}
                   height={18}
                   paddingVertical={1}
-                  backgroundColor={COLORS.WHITE}
+                  backgroundColor={COLORS.GRAY_DARK}
                   borderRadius={5}
                 >
                   <Flex justifyContent="center" alignItems="center">
-                    <Text color={COLORS.BLACK} type="plain" fontWeight={600}>
+                    <Text color={COLORS.WHITE} type="plain" fontWeight={600}>
                       {selectedItems.length < 9 ? selectedItems.length : "9+"}
                     </Text>
                   </Flex>
@@ -100,7 +100,7 @@ const DropDown: React.FC<IDropDownProps> = ({
               <Box paddingVertical={5} />
               <Box paddingVertical={15}>
                 <Text color={COLORS.GRAY_DARK} type="paragraph">
-                  Products
+                  {title}
                 </Text>
               </Box>{" "}
               <Box overflowY="scroll" maxHeight={500} paddingHorizontal={10}>
