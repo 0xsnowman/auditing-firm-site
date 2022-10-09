@@ -48,7 +48,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
         }}
       />
       {hasDeals && (
-        <Box position="absolute" top={7} right={10}>
+        <Box position="absolute" top={5} right={10}>
           <AlarmNotifier />
         </Box>
       )}
