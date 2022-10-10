@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box, Container, Icon, Flex } from "ui/atoms";
-import { Button, SearchInput, MobileMenu, DropDown } from "ui/molecules";
+import { Button, MobileMenu, DropDown } from "ui/molecules";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
@@ -44,7 +44,7 @@ const Header = () => {
             </Flex>
             {deviceWidth > WINDOW_SIZES.SIZE_1024 && (
               <Flex gap={30} alignItems="center">
-                <SearchInput size="small" />
+                {/* <SearchInput size="small" /> */}
                 <Button
                   backgroundColor="#0085FF"
                   backgroundHoverColor="#0066DD"
