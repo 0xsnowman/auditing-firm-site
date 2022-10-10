@@ -6,6 +6,7 @@ interface IBoxProps {
   height?: string | number;
   maxHeight?: string | number;
   maxWidth?: string | number;
+  minHeight?: string | number;
   className?: string;
   backdropFilter?: boolean;
   display?: "block" | "inline-block";
@@ -37,6 +38,8 @@ interface IBoxProps {
   hover?: boolean;
   cursor?: boolean;
   zIndex?: number;
+  backgroundImage?: string;
+  transition?: number;
 }
 
 const Box: React.FC<IBoxProps> = ({
@@ -46,6 +49,7 @@ const Box: React.FC<IBoxProps> = ({
   width,
   maxHeight,
   maxWidth,
+  minHeight,
   display = "block",
   position = "static",
   backdropFilter = false,
@@ -74,6 +78,8 @@ const Box: React.FC<IBoxProps> = ({
   onMouseLeave,
   cursor = false,
   zIndex = "initial",
+  backgroundImage = "auto",
+  transition,
 }) => {
   const backdropFilterClassName = backdropFilter ? "atom-box-backdrop" : "none";
   const cursorClassName = cursor ? "atom-box-cursor" : "none";
@@ -87,11 +93,14 @@ const Box: React.FC<IBoxProps> = ({
         height: height ? height : "auto",
         maxHeight: maxHeight ? maxHeight : "auto",
         maxWidth: maxWidth ? maxWidth : "auto",
+        minHeight: minHeight ? minHeight : "auto",
         borderRadius: borderRadius,
         borderTopWidth: borderTopWidth ? borderTopWidth : borderWidth,
         borderRightWidth: borderRightWidth ? borderRightWidth : borderWidth,
         borderBottomWidth: borderBottomWidth ? borderBottomWidth : borderWidth,
         borderLeftWidth: borderLeftWidth ? borderLeftWidth : borderWidth,
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat: "no-repeat",
         borderStyle: borderStyle,
         borderColor: borderColor,
         marginTop: marginTop,
@@ -110,6 +119,7 @@ const Box: React.FC<IBoxProps> = ({
         boxShadow: boxShadow,
         backdropFilter: backdropFilter ? "blur(10px)" : "none",
         zIndex: zIndex,
+        transition: transition + 's'
       }}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
