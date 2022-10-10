@@ -3,7 +3,7 @@ import React from "react";
 interface IFlexProps {
   children: React.ReactNode;
   className?: string;
-  flexDirection?: "row" | "column";
+  flexDirection?: "row" | "column" | "row-reverse" | "column-reverse";
   alignItems?:
     | "flex-start"
     | "center"
