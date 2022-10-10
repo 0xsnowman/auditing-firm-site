@@ -14,8 +14,13 @@ import DropDown from "./dropdown";
 import SearchInput from "./searchInput";
 import AddressLabel from "./addressLabel";
 import CheckBox from "./checkBox";
+import PostBox from "./postBox";
+import TextBox from "./textBox";
+import MileStone from "./milestone";
+import Accordian from "./accordian";
 
 export {
+  Accordian,
   AddressLabel,
   Button,
   MobileMenu,
@@ -31,5 +36,8 @@ export {
   AlarmNotifier,
   DropDown,
   SearchInput,
-  CheckBox
+  CheckBox,
+  PostBox,
+  TextBox,
+  MileStone,
 };

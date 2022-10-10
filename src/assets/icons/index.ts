@@ -19,6 +19,8 @@ import proofLogoBlack from "./prooflogo-black.svg";
 import proofLogoBlue from "./prooflogo-blue.svg";
 import star from "./star.svg";
 import starBlack from "./star-black.svg";
+import minus from "./minus.svg";
+import plus from "./plus.svg";
 
 const Icons = {
     rocket,
@@ -41,7 +43,9 @@ const Icons = {
     proofLogoBlack,
     proofLogoBlue,
     star,
-    starBlack
+    starBlack,
+    minus,
+    plus
 };
 
 export default Icons;
