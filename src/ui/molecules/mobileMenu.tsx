@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-
 import { Box, Flex, Icon, Text, Grid, GridItem } from "ui/atoms";
 import { Button, AlarmNotifier } from "ui/molecules";
-
 import Icons from "assets/icons";
-
 import { COLORS } from "config/colors";
 import { Z_INDEX_LEVELS } from "config/dimensions";
 
@@ -84,64 +81,31 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
               </Box>
               <Grid gap={15}>
                 <GridItem columns={6}>
-                  <Text type="plain">Security Audit</Text>
+                  <Text type="plain">Smart Contract Audit</Text>
                 </GridItem>
                 <GridItem columns={6}>
-                  <Text type="plain">Skynet</Text>
+                  <Text type="plain">dApp Audit</Text>
                 </GridItem>
                 <GridItem columns={6}>
-                  <Text type="plain">KYC</Text>
-                </GridItem>
-                <GridItem columns={6}>
-                  <Text type="plain">Penetration Testing</Text>
-                </GridItem>
-                <GridItem columns={6}>
-                  <Text type="plain">BugBounty</Text>
-                </GridItem>
-                <GridItem columns={6}>
-                  <Text type="plain">SkyTrace</Text>
+                  <Text type="plain">NFT Audit</Text>
                 </GridItem>
               </Grid>
             </Box>
             <Box>
               <Box paddingVertical={20}>
                 <Text color={COLORS.GRAY_DARK} type="paragraph">
-                  Technology
+                  Chains
                 </Text>
               </Box>
               <Grid gap={15}>
-                <GridItem columns={6}>
-                  <Text type="plain">Formal Verification</Text>
-                </GridItem>
-              </Grid>
-            </Box>
-            <Box>
-              <Box paddingVertical={20}>
-                <Text color={COLORS.GRAY_DARK} type="paragraph">
-                  Featured Ecosystems
-                </Text>
-              </Box>
-              <Grid gap={15}>
-                <GridItem columns={6}>
-                  <Text type="plain">BNB Chain</Text>
-                </GridItem>
                 <GridItem columns={6}>
                   <Text type="plain">Ethereum</Text>
                 </GridItem>
                 <GridItem columns={6}>
-                  <Text type="plain">Avalanche</Text>
+                  <Text type="plain">BSC</Text>
                 </GridItem>
                 <GridItem columns={6}>
                   <Text type="plain">Solana</Text>
-                </GridItem>
-                <GridItem columns={6}>
-                  <Text type="plain">Algorand</Text>
-                </GridItem>
-                <GridItem columns={6}>
-                  <Text type="plain">NEAR</Text>
-                </GridItem>
-                <GridItem columns={6}>
-                  <Text type="plain">Cosmos</Text>
                 </GridItem>
               </Grid>
             </Box>
@@ -158,19 +122,29 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 <GridItem columns={6}>
                   <Text type="plain">Careers</Text>
                 </GridItem>
-                <GridItem columns={6}>Resources </GridItem>
                 <GridItem columns={6}>
                   <Text type="plain">Disclaimer</Text>
+                </GridItem>
+                <GridItem columns={6}>
+                  <Text type="plain">Cookie Policy</Text>
+                </GridItem>
+                <GridItem columns={6}>
+                  <Text type="plain">Privacy Policy</Text>
+                </GridItem>
+                <GridItem columns={6}>
+                  <Text type="plain">Terms and Conditions</Text>
                 </GridItem>
               </Grid>
             </Box>
             <Box>
               <Button
+                backgroundColor="#0085FF"
+                backgroundHoverColor="#0066DD"
                 onClick={() => {
-                  alert("[Button] [Get free audit] clicked");
+                  alert("[Button] [Request a Quote] clicked");
                 }}
               >
-                Get free audit
+                Request a Quote
               </Button>
             </Box>
           </Flex>
