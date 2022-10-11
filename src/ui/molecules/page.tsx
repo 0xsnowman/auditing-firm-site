@@ -21,7 +21,7 @@ const Page: React.FC<IPageProps> = ({
     <Box
       className={["molecule-page", className].join(" ")}
       paddingVertical={paddingVertical}
-      backgroundColor={COLORS.GREY}
+      backgroundColor={COLORS.WHITE}
     >
       {children}
     </Box>

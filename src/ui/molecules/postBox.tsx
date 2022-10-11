@@ -55,7 +55,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
   return (
     <Box
       borderRadius={borderRadius}
-      backgroundColor={background === "black" ? "#161922" : COLORS.GREY}
+      backgroundColor={background === "black" ? "#161922" : COLORS.WHITE}
       position="relative"
       height="100%"
       overflowX="hidden"

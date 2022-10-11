@@ -21,7 +21,7 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
     <Box width="100%" backgroundColor="#999" cursor>
       <Flex flexDirection="column" gap={5}>
         {content.length === 0 && (
-          <Box backgroundColor={COLORS.GREY} padding={50}>
+          <Box backgroundColor={COLORS.WHITE} padding={50}>
             <Text type="subtitle">"No FAQs"</Text>
           </Box>
         )}
@@ -29,7 +29,7 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
           content.map((contentItem, index) => {
             return (
               <Box
-                backgroundColor={COLORS.GREY}
+                backgroundColor={COLORS.WHITE}
                 padding={20}
                 onClick={() => {
                   const newContent = content.map((contentItem, idx) => {

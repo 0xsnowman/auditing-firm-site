@@ -13,7 +13,7 @@ const Header = () => {
     <Box
       className="organism-header"
       paddingVertical={40}
-      backgroundColor={COLORS.GREY}
+      backgroundColor={COLORS.WHITE}
     >
       <Container>
         <Box position="relative">
