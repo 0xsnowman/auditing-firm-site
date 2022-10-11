@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-
 import { Box, Flex, Text, Grid, GridItem, Icon } from "ui/atoms";
 import { SearchInput, Button } from "ui/molecules";
-
 import { COLORS } from "config/colors";
-
 import Icons from "assets/icons";
-
 import { Z_INDEX_LEVELS } from "config/dimensions";
 
 interface IDropDownProps {
@@ -193,9 +189,8 @@ const DropDown: React.FC<IDropDownProps> = ({
                 />
                 <Box paddingVertical={5} />
                 <Button
-                  color={COLORS.BLACK}
-                  backgroundColor={COLORS.GREY}
-                  backgroundHoverColor={COLORS.GRAY_DARK}
+                  backgroundColor="#0085FF"
+                  backgroundHoverColor="#0066DD"
                   onClick={() => {
                     setSelectedItems([]);
                   }}

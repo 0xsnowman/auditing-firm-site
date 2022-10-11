@@ -1,8 +1,5 @@
 import React from "react";
-
-// components
 import { Box } from "../atoms";
-
 import { COLORS } from "config/colors";
 
 interface IPageProps {

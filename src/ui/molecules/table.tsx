@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
 import { Flex, Box, Text, Grid, GridItem, Icon, ProgressBar } from "ui/atoms";
 import { ProgressSpinner, AddressLabel, CheckBox } from "ui/molecules";
-
 import { COLORS } from "config/colors";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import { WINDOW_SIZES } from "config/dimensions";

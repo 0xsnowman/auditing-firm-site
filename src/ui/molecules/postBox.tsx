@@ -1,10 +1,10 @@
 import React from "react";
-
 import { Box, Text, Flex, Image } from "ui/atoms";
-
 import Images from "assets/images";
-
 import { COLORS } from "config/colors";
+import { Z_INDEX_LEVELS } from "config/dimensions";
+import useWindowDimensions from "hooks/useWindowDimensions";
+import { WINDOW_SIZES } from "config/dimensions";
 
 interface IPostBoxProps {
   title?: string;
@@ -21,7 +21,7 @@ interface IPostBoxProps {
   subtitleCenter?: boolean;
   paddingVertical?: number;
   minHeight?: number | string;
-  direction?: "left-right" | "right-left";
+  direction?: "left-right" | "right-left" | "up-down" | "down-up";
   leftTextCount?: number;
 }
 
@@ -50,6 +50,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
     if (direction === "down-up") return "column-reverse";
     return "row";
   };
+  const { deviceWidth } = useWindowDimensions();
 
   return (
     <Box
@@ -59,7 +60,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
       height="100%"
       overflowX="hidden"
       overflowY="hidden"
-      paddingHorizontal={30}
+      paddingHorizontal={20}
       paddingVertical={paddingVertical}
       borderColor={COLORS.BORDER_DARK}
       borderWidth={border ? 1 : 0}
@@ -72,12 +73,20 @@ const PostBox: React.FC<IPostBoxProps> = ({
         justifyContent="space-between"
       >
         <Box
-          width={image ? "50%" : "100%"}
-          padding={content.length > 0 ? 30 : 0}
+          width={
+            image
+              ? direction === "left-right" || direction === "right-left"
+                ? "50%"
+                : "100%"
+              : "100%"
+          }
+          zIndex={Z_INDEX_LEVELS.HIGH}
+          paddingHorizontal={content.length > 0 ? 20 : 0}
+          paddingVertical={content.length > 0 ? 30 : 0}
         >
           <Flex flexDirection="column">
             {title.length > 0 && (
-              <Text type="title" color={titleColor}>
+              <Text type={deviceWidth > WINDOW_SIZES.SIZE_1024 ? "logo" : "sublogo"} color={titleColor}>
                 {title}
               </Text>
             )}
@@ -94,11 +103,13 @@ const PostBox: React.FC<IPostBoxProps> = ({
             )}
             {content.length > 0 &&
               content.map((contentItem, index) => {
-                return <Box paddingVertical={10}>
-                  <Text type="paragraph" color={textColor}>
-                    {contentItem.substr(0, leftTextCount) + " ..."}
-                  </Text>
-                </Box>;
+                return (
+                  <Box paddingVertical={10} key={index}>
+                    <Text type="paragraph" color={textColor}>
+                      {contentItem.substr(0, leftTextCount) + " ..."}
+                    </Text>
+                  </Box>
+                );
               })}
           </Flex>
         </Box>
@@ -113,6 +124,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
                 ? -200
                 : -120
             }
+            zIndex={Z_INDEX_LEVELS.MEDIUM}
           >
             <Flex
               justifyContent={
@@ -123,7 +135,11 @@ const PostBox: React.FC<IPostBoxProps> = ({
               }
             >
               <Image
-                width="50%"
+                width={
+                  direction === "left-right" || direction === "right-left"
+                    ? "50%"
+                    : "100%"
+                }
                 height="80%"
                 objectFit="contain"
                 image={

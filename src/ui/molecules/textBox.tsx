@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Box, Text, Flex } from "ui/atoms";
-
 import { COLORS } from "config/colors";
 
 interface ITextBoxProps {

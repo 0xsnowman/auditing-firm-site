@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Text, Icon, Box, Flex } from "ui/atoms";
 import { PADDING, BORDER_RADIUS } from "config/dimensions";
 

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import { Box, Flex, Text } from "ui/atoms";
-
 import { COLORS } from "config/colors";
 
 const Switch = () => {

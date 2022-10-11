@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Text, Icon } from "ui/atoms";
 import { COLORS } from "config/colors";
 import { Animations } from "assets";

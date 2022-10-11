@@ -1,12 +1,8 @@
 import React from "react";
-
 import { Box, Container, Flex, Text, Icon } from "ui/atoms";
 import { NavItem } from "ui/molecules";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
-
 import Icons from "assets/icons";
-
 import { COLORS } from "config/colors";
 import { WINDOW_SIZES } from "config/dimensions";
 

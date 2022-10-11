@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import { Box, Input, Icon } from "ui/atoms";
-
 import Icons from "assets/icons";
 
 interface ISearchInputProps {

@@ -1,7 +1,6 @@
 import React from "react";
 import MultiCarousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
 import { WINDOW_SIZES } from "config/dimensions";
 
 interface ICarouselProps {

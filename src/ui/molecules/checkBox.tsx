@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-
 import { Icon } from "ui/atoms";
-
 import Icons from "assets/icons";
 
 interface ICheckBoxProps {

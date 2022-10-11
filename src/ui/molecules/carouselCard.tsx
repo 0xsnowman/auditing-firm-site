@@ -1,10 +1,8 @@
 import React from "react";
-
 import { Text, Box, Flex, Image } from "ui/atoms";
 import { Tip } from "ui/molecules";
 import { BORDER_RADIUS, WINDOW_SIZES } from "config/dimensions";
 import { COLORS } from "config/colors";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 interface ICarouselCardProps {

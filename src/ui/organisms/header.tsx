@@ -1,12 +1,8 @@
 import React from "react";
-
 import { Box, Container, Icon, Flex } from "ui/atoms";
 import { Button, MobileMenu, DropDown } from "ui/molecules";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
-
 import Icons from "assets/icons";
-
 import { COLORS } from "config/colors";
 import { WINDOW_SIZES, Z_INDEX_LEVELS } from "config/dimensions";
 
@@ -49,7 +45,7 @@ const Header = () => {
                   backgroundColor="#0085FF"
                   backgroundHoverColor="#0066DD"
                   onClick={() => {
-                    alert("[Button] [Get free audit] clicked");
+                    alert("[Button] [Request a Quote] clicked");
                   }}
                 >
                   Request a Quote
