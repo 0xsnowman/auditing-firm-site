@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-
 import { Box, Flex, Text, Icon } from "ui/atoms";
-
 import { COLORS } from "config/colors";
-
 import Icons from "assets/icons";
 
 interface IAccordianContentTypes {
@@ -21,7 +18,7 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
     contents
   );
   return (
-    <Box width="100%" backgroundColor="#999">
+    <Box width="100%" backgroundColor="#999" cursor>
       <Flex flexDirection="column" gap={5}>
         {content.length === 0 && (
           <Box backgroundColor={COLORS.GREY} padding={50}>
@@ -34,7 +31,6 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
               <Box
                 backgroundColor={COLORS.GREY}
                 padding={20}
-                cursor
                 onClick={() => {
                   const newContent = content.map((contentItem, idx) => {
                     if (idx === index)
@@ -44,8 +40,9 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
                   });
                   setContent(newContent);
                 }}
+                key={index}
               >
-                <Box transition={1}>
+                <Box transition={1} cursor>
                   <Flex gap={20} flexDirection="column" justifyContent="center">
                     <Flex alignItems="center" gap={15}>
                       <Text type="logo" color={COLORS.LIGHT_BLUE}>
@@ -55,7 +52,7 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
                           <Icon icon={Icons.plus} size="MEDIUM"></Icon>
                         )}
                       </Text>
-                      <Text type="paragraph" fontWeight={500}>{contentItem.title}</Text>
+                      <Text type="undersubtitle" fontWeight={500}>{contentItem.title}</Text>
                     </Flex>
                     {!contentItem.collapse && (
                       <Text type="paragraph">{contentItem.content}</Text>
