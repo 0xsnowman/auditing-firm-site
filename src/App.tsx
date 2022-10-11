@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Header, Footer } from "ui/organisms";
-import Home from "ui/pages/home";
-
+import { Home, Audit } from "ui/pages";
 import "styles/index.scss";
 
 function App() {
@@ -11,6 +10,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/audit" element={<Audit />} />
       </Routes>
       <Footer />
     </BrowserRouter>
