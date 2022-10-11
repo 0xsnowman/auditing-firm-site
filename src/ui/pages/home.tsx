@@ -60,6 +60,7 @@ const Home = () => {
             paddingVertical={30}
             minHeight="auto"
             imageColor="blue"
+            leftTextCount="all"
             direction={
               deviceWidth > WINDOW_SIZES.SIZE_1024 ? "left-right" : "up-down"
             }

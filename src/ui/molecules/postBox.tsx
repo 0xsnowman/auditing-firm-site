@@ -22,7 +22,7 @@ interface IPostBoxProps {
   paddingVertical?: number;
   minHeight?: number | string;
   direction?: "left-right" | "right-left" | "up-down" | "down-up";
-  leftTextCount?: number;
+  leftTextCount?: number | "all";
 }
 
 const PostBox: React.FC<IPostBoxProps> = ({
@@ -86,7 +86,10 @@ const PostBox: React.FC<IPostBoxProps> = ({
         >
           <Flex flexDirection="column">
             {title.length > 0 && (
-              <Text type={deviceWidth > WINDOW_SIZES.SIZE_1024 ? "logo" : "sublogo"} color={titleColor}>
+              <Text
+                type={deviceWidth > WINDOW_SIZES.SIZE_1024 ? "logo" : "sublogo"}
+                color={titleColor}
+              >
                 {title}
               </Text>
             )}
@@ -106,7 +109,9 @@ const PostBox: React.FC<IPostBoxProps> = ({
                 return (
                   <Box paddingVertical={10} key={index}>
                     <Text type="paragraph" color={textColor}>
-                      {contentItem.substr(0, leftTextCount) + " ..."}
+                      {leftTextCount === "all"
+                        ? contentItem
+                        : contentItem.substr(0, leftTextCount) + " ..."}
                     </Text>
                   </Box>
                 );
