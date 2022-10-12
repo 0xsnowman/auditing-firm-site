@@ -3,7 +3,6 @@ import { Box, Container, Icon, Flex } from "ui/atoms";
 import { Button, MobileMenu, DropDown } from "ui/molecules";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import Icons from "assets/icons";
-import { COLORS } from "config/colors";
 import { WINDOW_SIZES, Z_INDEX_LEVELS } from "config/dimensions";
 
 const Header = () => {
@@ -12,8 +11,11 @@ const Header = () => {
   return (
     <Box
       className="organism-header"
-      paddingVertical={40}
-      backgroundColor={COLORS.WHITE}
+      paddingVertical={30}
+      backgroundColor="#FFFFFF50"
+      zIndex={Z_INDEX_LEVELS.SUPER}
+      width="100%"
+      backdropFilter={true}
     >
       <Container>
         <Box position="relative">
@@ -27,13 +29,59 @@ const Header = () => {
               {deviceWidth > WINDOW_SIZES.SIZE_1024 && (
                 <Flex gap={150} alignItems="center">
                   <Box position="relative">
-                    <DropDown title="Products" direction="left" top={-18} />
+                    <DropDown
+                      title="Products"
+                      data={[
+                        { title: "Smart Contract", amount: 45 },
+                        { title: "dApp", amount: 27 },
+                        { title: "NFT", amount: 210 }
+                      ]}
+                      direction="left"
+                      top={-18}
+                    />
                   </Box>
                   <Box position="relative">
-                    <DropDown title="Chains" direction="left" top={-18} />
+                    <DropDown
+                      title="Chains"
+                      data={[
+                        { title: "Ethereum", amount: 25 },
+                        { title: "Avalanche", amount: 63 },
+                        { title: "Solana", amount: 82 }
+                      ]}
+                      direction="left"
+                      top={-18}
+                    />
                   </Box>
                   <Box position="relative">
-                    <DropDown title="Company" direction="left" top={-18} />
+                    <DropDown
+                      title="Company"
+                      data={[
+                        { title: "About", amount: 25 },
+                        { title: "Careers", amount: 63 },
+                        { title: "Disclaimer", amount: 82 },
+                        { title: "Privacy Policy", amount: 82 },
+                        { title: "Cookie Policy", amount: 82 },
+                        { title: "Terms and Conditions", amount: 82 },
+                      ]}
+                      direction="left"
+                      top={-18}
+                    />
+                  </Box>
+                  <Box position="relative">
+                    <DropDown
+                      title="Socials"
+                      data={[
+                        { title: "Discord", amount: 25 },
+                        { title: "Telegram", amount: 63 },
+                        { title: "Twitter", amount: 82 },
+                        { title: "Facebook", amount: 82 },
+                        { title: "Github", amount: 82 },
+                        { title: "Gitbook", amount: 82 },
+                        { title: "Email", amount: 82 },
+                      ]}
+                      direction="left"
+                      top={-18}
+                    />
                   </Box>
                 </Flex>
               )}
