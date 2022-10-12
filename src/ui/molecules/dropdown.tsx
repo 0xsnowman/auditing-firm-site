@@ -82,17 +82,19 @@ const DropDown: React.FC<IDropDownProps> = ({
           </Flex>
         </Box>
         {/* <Box paddingVertical={5} /> */}
-        {!collapsed && (
+        {/* {!collapsed && (
           <Box paddingHorizontal={30} marginTop={-5}>
             <Icon icon={Icons.up} />
           </Box>
-        )}
+        )} */}
         {!collapsed && (
           <Box
             padding={20}
             marginTop={-5}
             backgroundColor={COLORS.WHITE}
             borderRadius={15}
+            borderColor={COLORS.GREY}
+            borderWidth={2}
           >
             <SearchInput size="small" placeholder="Input category here" />
             <Box>
