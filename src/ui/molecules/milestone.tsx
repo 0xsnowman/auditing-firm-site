@@ -17,7 +17,7 @@ const MileStone: React.FC<IMileStoneProps> = ({
     <Box position="relative">
       <Flex flexDirection={direction === "horizontal" ? "column" : "row"}>
         <Box
-          backgroundColor={COLORS.GRAY_DARK}
+          backgroundColor={COLORS.GREY}
           padding={1}
           position="absolute"
           top={direction === "horizontal" ? 14 : 0}
@@ -30,7 +30,7 @@ const MileStone: React.FC<IMileStoneProps> = ({
             width={30}
             height={30}
             backgroundColor={COLORS.LIGHT_BLUE}
-            zIndex={Z_INDEX_LEVELS.SUPER}
+            zIndex={Z_INDEX_LEVELS.VERY_HIGH}
             borderRadius={30}
             padding={0}
           >

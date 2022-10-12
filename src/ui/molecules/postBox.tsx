@@ -62,7 +62,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
       overflowY="hidden"
       paddingHorizontal={20}
       paddingVertical={paddingVertical}
-      borderColor={COLORS.BORDER_DARK}
+      borderColor={COLORS.GREY}
       borderWidth={border ? 1 : 0}
       minHeight={minHeight}
     >

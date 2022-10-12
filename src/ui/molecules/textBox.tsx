@@ -16,9 +16,9 @@ const TextBox: React.FC<ITextBoxProps> = ({
   return (
     <Box
       borderWidth={1}
-      borderColor={COLORS.GRAY_DARK}
+      borderColor={COLORS.GREY}
       backgroundColor={COLORS.LIGHT_BLUE}
-      borderRadius={10}
+      borderRadius={12}
       width="100%"
     >
       <Flex flexDirection="column" height="100%">
@@ -26,7 +26,7 @@ const TextBox: React.FC<ITextBoxProps> = ({
           backgroundColor="white"
           borderRadius={10}
           padding={20}
-          borderColor={COLORS.GRAY_DARK}
+          borderColor={COLORS.GREY}
           borderWidth={0}
           height="100%"
         >

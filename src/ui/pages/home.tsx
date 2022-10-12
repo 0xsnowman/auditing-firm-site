@@ -98,7 +98,7 @@ const Home = () => {
             }
           />
           <Box padding={20}>
-            <Box backgroundColor={COLORS.GRAY_DARK}>
+            <Box backgroundColor={COLORS.GREY}>
               <Grid gap={4}>
                 <GridItem
                   columns={
