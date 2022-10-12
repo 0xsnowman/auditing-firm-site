@@ -5,7 +5,13 @@ import { COLORS } from "config/colors";
 import Icons from "assets/icons";
 import { Z_INDEX_LEVELS } from "config/dimensions";
 
+interface IDataProps {
+  title: string;
+  amount: number;
+}
+
 interface IDropDownProps {
+  data?: Array<IDataProps>;
   direction?: "left" | "right";
   top?: number | "auto";
   border?: boolean;
@@ -14,17 +20,14 @@ interface IDropDownProps {
 }
 
 const DropDown: React.FC<IDropDownProps> = ({
+  data = [],
   direction = "left",
   top = -12,
   border = false,
   title = "Category",
-  menuWidth = 250,
+  menuWidth = 250
 }) => {
-  const [selectedItems, setSelectedItems] = useState<Array<string>>([
-    "NFT",
-    "Gaming",
-    "DeFi"
-  ]);
+  const [selectedItems, setSelectedItems] = useState<Array<IDataProps>>(data);
   const [collapsed, setCollapsed] = useState<boolean>(true);
   return (
     <Box
@@ -101,84 +104,23 @@ const DropDown: React.FC<IDropDownProps> = ({
               </Box>{" "}
               <Box overflowY="scroll" maxHeight={500} paddingHorizontal={10}>
                 <Grid gap={13}>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">NFT</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">845</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Gaming</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">78</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Token</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">205</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Utility</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">352</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">DeFi</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">10</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Security Audit</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">1025</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
+                  {data.map((dataItem, index) => {
+                    return (
+                      <GridItem columns={12} key={index}>
+                        <Flex justifyContent="space-between">
+                          <Text type="plain">{dataItem.title}</Text>
+                          <Box
+                            paddingHorizontal={6}
+                            paddingVertical={2}
+                            backgroundColor={COLORS.GREY}
+                            borderRadius={5}
+                          >
+                            <Text type="plain">{dataItem.amount}</Text>
+                          </Box>
+                        </Flex>
+                      </GridItem>
+                    );
+                  })}
                 </Grid>
               </Box>
               <Box>
