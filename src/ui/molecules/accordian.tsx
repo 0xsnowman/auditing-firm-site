@@ -18,7 +18,7 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
     contents
   );
   return (
-    <Box width="100%" backgroundColor="#999" cursor>
+    <Box width="100%" backgroundColor={COLORS.GREY} cursor>
       <Flex flexDirection="column" gap={5}>
         {content.length === 0 && (
           <Box backgroundColor={COLORS.WHITE} padding={50}>
