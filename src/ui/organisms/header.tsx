@@ -108,6 +108,11 @@ const Header = () => {
                   <DropDown
                     title="Products"
                     direction="right"
+                    data={[
+                      {title: "Smart Contract", amount: 10},
+                      {title: "dApp", amount: 16},
+                      {title: "NFT", amount: 30},
+                    ]}
                     menuWidth={210}
                     top={-8}
                   />
