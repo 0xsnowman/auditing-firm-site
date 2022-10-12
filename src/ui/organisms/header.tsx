@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Container, Icon, Flex } from "ui/atoms";
-import { Button, MobileMenu, DropDown } from "ui/molecules";
+import { Button, MobileMenu, DropDown, SearchInput } from "ui/molecules";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import Icons from "assets/icons";
 import { WINDOW_SIZES, Z_INDEX_LEVELS } from "config/dimensions";
@@ -13,21 +13,25 @@ const Header = () => {
       className="organism-header"
       paddingVertical={30}
       backgroundColor="#FFFFFF50"
-      zIndex={Z_INDEX_LEVELS.SUPER}
+      zIndex={Z_INDEX_LEVELS.MAXIMUM}
       width="100%"
       backdropFilter={true}
     >
       <Container>
         <Box position="relative">
           <Flex justifyContent="space-between" alignItems="center">
-            <Flex gap={50}>
+            <Flex gap={60}>
               {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
                 <Icon icon={Icons.proofLogoBlue} size="SUPER_LARGE" />
               ) : (
                 <Icon icon={Icons.proofIconBlue} size="LARGE" />
               )}
-              {deviceWidth > WINDOW_SIZES.SIZE_1024 && (
-                <Flex gap={150} alignItems="center">
+              {deviceWidth > WINDOW_SIZES.SIZE_1280 && (
+                <Flex
+                  gap={110}
+                  alignItems="center"
+                  justifyContent="space-around"
+                >
                   <Box position="relative">
                     <DropDown
                       title="Products"
@@ -37,7 +41,7 @@ const Header = () => {
                         { title: "NFT", amount: 210 }
                       ]}
                       direction="left"
-                      top={-18}
+                      top={-20}
                     />
                   </Box>
                   <Box position="relative">
@@ -49,7 +53,7 @@ const Header = () => {
                         { title: "Solana", amount: 82 }
                       ]}
                       direction="left"
-                      top={-18}
+                      top={-20}
                     />
                   </Box>
                   <Box position="relative">
@@ -61,10 +65,10 @@ const Header = () => {
                         { title: "Disclaimer", amount: 82 },
                         { title: "Privacy Policy", amount: 82 },
                         { title: "Cookie Policy", amount: 82 },
-                        { title: "Terms and Conditions", amount: 82 },
+                        { title: "Terms and Conditions", amount: 82 }
                       ]}
                       direction="left"
-                      top={-18}
+                      top={-20}
                     />
                   </Box>
                   <Box position="relative">
@@ -77,16 +81,22 @@ const Header = () => {
                         { title: "Facebook", amount: 82 },
                         { title: "Github", amount: 82 },
                         { title: "Gitbook", amount: 82 },
-                        { title: "Email", amount: 82 },
+                        { title: "Email", amount: 82 }
                       ]}
                       direction="left"
-                      top={-18}
+                      top={-20}
                     />
                   </Box>
+                  <SearchInput
+                    size="small"
+                    placeholder="Input category here"
+                    extend={false}
+                    extendChangable={true}
+                  />
                 </Flex>
               )}
             </Flex>
-            {deviceWidth > WINDOW_SIZES.SIZE_1024 && (
+            {deviceWidth > WINDOW_SIZES.SIZE_1280 && (
               <Flex gap={30} alignItems="center">
                 {/* <SearchInput size="small" /> */}
                 <Button
@@ -100,23 +110,10 @@ const Header = () => {
                 </Button>
               </Flex>
             )}
-            {deviceWidth <= WINDOW_SIZES.SIZE_1024 && (
+            {deviceWidth <= WINDOW_SIZES.SIZE_1280 && (
               <Flex gap={15}>
                 <MobileMenu type="news" />
                 <MobileMenu />
-                <Box position="relative" zIndex={Z_INDEX_LEVELS.VERY_HIGH}>
-                  <DropDown
-                    title="Products"
-                    direction="right"
-                    data={[
-                      {title: "Smart Contract", amount: 10},
-                      {title: "dApp", amount: 16},
-                      {title: "NFT", amount: 30},
-                    ]}
-                    menuWidth={210}
-                    top={-8}
-                  />
-                </Box>
               </Flex>
             )}
           </Flex>

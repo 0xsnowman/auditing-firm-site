@@ -3,7 +3,8 @@ import { Box, Flex, Icon, Text, Grid, GridItem } from "ui/atoms";
 import { Button, AlarmNotifier } from "ui/molecules";
 import Icons from "assets/icons";
 import { COLORS } from "config/colors";
-import { Z_INDEX_LEVELS } from "config/dimensions";
+import useWindowDimensions from "hooks/useWindowDimensions";
+import { WINDOW_SIZES, Z_INDEX_LEVELS } from "config/dimensions";
 
 interface IMobileMenuProps {
   type?: "news" | "menu";
@@ -15,6 +16,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   hasDeals = true
 }) => {
   const [collapsed, setCollapsed] = useState<boolean>(true);
+  const { deviceWidth } = useWindowDimensions();
 
   const determineMenuIcon = () => {
     switch (type) {
@@ -45,7 +47,11 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
         }}
       />
       {hasDeals && (
-        <Box position="absolute" top={5} right={10}>
+        <Box
+          position="absolute"
+          top={deviceWidth > WINDOW_SIZES.SIZE_375 ? 13 : 5}
+          right={-1}
+        >
           <AlarmNotifier />
         </Box>
       )}

@@ -25,7 +25,7 @@ const DropDown: React.FC<IDropDownProps> = ({
   top = -12,
   border = false,
   title = "Category",
-  menuWidth = 250
+  menuWidth = 260
 }) => {
   const [selectedItems, setSelectedItems] = useState<Array<IDataProps>>(data);
   const [collapsed, setCollapsed] = useState<boolean>(true);
@@ -35,7 +35,7 @@ const DropDown: React.FC<IDropDownProps> = ({
       left={direction === "left" ? 0 : "auto"}
       top={top}
       right={direction === "right" ? 0 : "auto"}
-      zIndex={Z_INDEX_LEVELS.SUPER}
+      zIndex={Z_INDEX_LEVELS.MAXIMUM}
       paddingVertical={1}
       onMouseEnter={() => {
         setCollapsed(false);
@@ -47,12 +47,12 @@ const DropDown: React.FC<IDropDownProps> = ({
       <Box position="relative" width={menuWidth}>
         <Box
           paddingVertical={11}
-          paddingHorizontal={20}
+          paddingHorizontal={5}
           borderColor={COLORS.WHITE}
           borderWidth={border ? 1 : 0}
           borderRadius={15}
           cursor
-          width={120}
+          width={100}
           onClick={() => {
             setCollapsed(!collapsed);
           }}
@@ -63,25 +63,26 @@ const DropDown: React.FC<IDropDownProps> = ({
                 {title}
               </Text>
               {selectedItems.length > 0 && (
-                <Box
-                  width={18}
-                  height={18}
-                  paddingVertical={1}
-                  backgroundColor={COLORS.GRAY_DARK}
-                  borderRadius={5}
-                >
-                  <Flex justifyContent="center" alignItems="center">
-                    <Text color={COLORS.WHITE} type="plain" fontWeight={600}>
-                      {selectedItems.length < 9 ? selectedItems.length : "9+"}
-                    </Text>
-                  </Flex>
-                </Box>
+                // <Box
+                //   width={18}
+                //   height={18}
+                //   paddingVertical={1}
+                //   backgroundColor={COLORS.GRAY_DARK}
+                //   borderRadius={5}
+                // >
+                //   <Flex justifyContent="center" alignItems="center">
+                //     <Text color={COLORS.WHITE} type="plain" fontWeight={600}>
+                //       {selectedItems.length < 9 ? selectedItems.length : "9+"}
+                //     </Text>
+                //   </Flex>
+                // </Box>
+                <></>
               )}
             </Flex>
             <Icon icon={Icons.dropdown} />
           </Flex>
         </Box>
-        {/* <Box paddingVertical={5} /> */}
+        <Box paddingVertical={10} />
         {/* {!collapsed && (
           <Box paddingHorizontal={30} marginTop={-5}>
             <Icon icon={Icons.up} />
@@ -95,8 +96,9 @@ const DropDown: React.FC<IDropDownProps> = ({
             borderRadius={15}
             borderColor={COLORS.GREY}
             borderWidth={2}
+            zIndex={Z_INDEX_LEVELS.MAXIMUM}
           >
-            <SearchInput size="small" placeholder="Input category here" />
+            <SearchInput size="small" placeholder="Input category here"/>
             <Box>
               <Box paddingVertical={5} />
               <Box paddingVertical={15}>
