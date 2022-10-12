@@ -1,37 +1,24 @@
-import React, { useState } from "react";
-import { Text } from "../atoms";
-import { COLORS } from "../../config/colors";
+import React from "react";
 
 interface INavItem {
-  children: string;
+  children: any;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  active?: boolean;
+  url?: string;
 }
 
-const NavItem: React.FC<INavItem> = ({ children, onClick, active }) => {
-  const [isHover, setIshover] = useState(false);
-
+const NavItem: React.FC<INavItem> = ({
+  children,
+  onClick,
+  url = "#"
+}) => {
   return (
     <div
       className="molecule-navitem"
-      onMouseEnter={() => {
-        setIshover(true);
-      }}
-      onMouseLeave={() => {
-        setIshover(false);
-      }}
       onClick={onClick}
     >
-      <Text
-        color={
-          active || isHover
-            ? COLORS.TEXT_PRIMARY_DARK
-            : "#DDD"
-        }
-        type="plain"
-      >
+      <a href={url} target="_blank" rel="noreferrer">
         {children}
-      </Text>
+      </a>
     </div>
   );
 };

@@ -21,6 +21,10 @@ import star from "./star.svg";
 import starBlack from "./star-black.svg";
 import minus from "./minus.svg";
 import plus from "./plus.svg";
+import instagram from "./instagram.svg";
+import linkedin from "./linkedin.svg";
+import medium from "./medium.svg";
+import twitter from "./twitter.svg";
 
 const Icons = {
     rocket,
@@ -45,7 +49,11 @@ const Icons = {
     star,
     starBlack,
     minus,
-    plus
+    plus,
+    linkedin,
+    medium,
+    instagram,
+    twitter
 };
 
 export default Icons;

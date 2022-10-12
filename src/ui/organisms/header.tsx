@@ -75,13 +75,12 @@ const Header = () => {
                     <DropDown
                       title="Socials"
                       data={[
-                        { title: "Discord", amount: 25 },
-                        { title: "Telegram", amount: 63 },
-                        { title: "Twitter", amount: 82 },
-                        { title: "Facebook", amount: 82 },
+                        { title: "Telegram", amount: 25 },
+                        { title: "Twitter", amount: 63 },
+                        { title: "Medium", amount: 82 },
+                        { title: "LinkedIn", amount: 82 },
+                        { title: "Instagram", amount: 82 },
                         { title: "Github", amount: 82 },
-                        { title: "Gitbook", amount: 82 },
-                        { title: "Email", amount: 82 }
                       ]}
                       direction="left"
                       top={-20}

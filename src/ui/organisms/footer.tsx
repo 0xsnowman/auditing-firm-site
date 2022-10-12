@@ -39,7 +39,7 @@ const Footer = () => {
               gap={30}
               className="organism-footer__connection-list__details"
             >
-              <Flex flex={1} flexDirection="column" gap={10}>
+              <Flex flex={1} flexDirection="column" gap={15}>
                 <Box paddingVertical={30}>
                   <Text type="paragraph" color="white">
                     Products
@@ -49,7 +49,7 @@ const Footer = () => {
                 <NavItem>dApp Audit</NavItem>
                 <NavItem>NFT Audit</NavItem>
               </Flex>
-              <Flex flex={1} flexDirection="column" gap={10}>
+              <Flex flex={1} flexDirection="column" gap={15}>
                 <Box paddingVertical={30}>
                   <Text type="paragraph" color="white">
                     Company
@@ -62,54 +62,60 @@ const Footer = () => {
                 <NavItem>Cookie Policy</NavItem>
                 <NavItem>Terms and Conditions</NavItem>
               </Flex>
-              <Flex flex={1} flexDirection="column" gap={10}>
+              <Flex flex={1} flexDirection="column" gap={17}>
                 <Box paddingVertical={30}>
                   <Text type="paragraph" color="white">
                     Socials
                   </Text>
                 </Box>
-                <Flex gap={10}>
-                  <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#DDD" type="plain">
-                    Discord
-                  </Text>
-                </Flex>
-                <Flex gap={10}>
-                  <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#DDD" type="plain">
-                    Telegram
-                  </Text>
-                </Flex>
-                <Flex gap={10}>
-                  <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#DDD" type="plain">
-                    Twitter
-                  </Text>
-                </Flex>
-                <Flex gap={10}>
-                  <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#DDD" type="plain">
-                    Facebook
-                  </Text>
-                </Flex>
-                <Flex gap={10}>
-                  <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#DDD" type="plain">
-                    Github
-                  </Text>
-                </Flex>
-                <Flex gap={10}>
-                  <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#DDD" type="plain">
-                    Gitbook
-                  </Text>
-                </Flex>
-                <Flex gap={10}>
-                  <Icon icon={Icons.discord} size="SMALL" />
-                  <Text color="#DDD" type="plain">
-                    Email
-                  </Text>
-                </Flex>
+                <NavItem url={"https://t.me/proofaudit"}>
+                  <Flex gap={10}>
+                    <Icon icon={Icons.telegram} size="SMALL" />
+                    <Text color="#DDD" type="plain">
+                      Telegram
+                    </Text>
+                  </Flex>
+                </NavItem>
+                <NavItem url={"https://twitter.com/proofaudit"}>
+                  <Flex gap={10}>
+                    <Icon icon={Icons.twitter} size="SMALL" />
+                    <Text color="#DDD" type="plain">
+                      Twitter
+                    </Text>
+                  </Flex>
+                </NavItem>
+                <NavItem url={"https://medium.com/@proofaudit"}>
+                  <Flex gap={10}>
+                    <Icon icon={Icons.medium} size="SMALL" />
+                    <Text color="#DDD" type="plain">
+                      Medium
+                    </Text>
+                  </Flex>
+                </NavItem>
+                <NavItem url={"https://www.linkedin.com/company/proofaudit/"}>
+                  <Flex gap={10}>
+                    <Icon icon={Icons.linkedin} size="SMALL" />
+                    <Text color="#DDD" type="plain">
+                      LinkedIn
+                    </Text>
+                  </Flex>
+                </NavItem>
+                <NavItem url={"https://www.instagram.com/proof.audit/"}>
+                  <Flex gap={10}>
+                    <Icon icon={Icons.instagram} size="SMALL" />
+                    <Text color="#DDD" type="plain">
+                      Instagram
+                    </Text>
+                  </Flex>
+                </NavItem>
+                <NavItem url={"https://github.com/proofaudit"}>
+                  <Flex gap={10}>
+                    <Icon icon={Icons.github} size="SMALL" />
+                    <Text color="#DDD" type="plain">
+                      Github
+                    </Text>
+                  </Flex>
+                </NavItem>
               </Flex>
             </Flex>
           </Flex>
