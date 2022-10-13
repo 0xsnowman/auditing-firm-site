@@ -8,6 +8,7 @@ import Image from "./image";
 import GridItem from "./gridItem";
 import Grid from "./grid";
 import ProgressBar from "./progressBar";
+import CheckBox from "./checkBox";
 
 export {
   Box,
@@ -19,5 +20,6 @@ export {
   Image,
   GridItem,
   Grid,
-  ProgressBar
+  ProgressBar,
+  CheckBox
 };

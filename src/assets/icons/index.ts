@@ -25,35 +25,39 @@ import instagram from "./instagram.svg";
 import linkedin from "./linkedin.svg";
 import medium from "./medium.svg";
 import twitter from "./twitter.svg";
+import checked from "./checked.svg";
+import unchecked from "./unchecked.svg";
 
 const Icons = {
-    rocket,
-    blockchain,
-    search,
-    left,
-    right,
-    github,
-    telegram,
-    discord,
-    close,
-    menu,
-    alarm,
-    dropdown,
-    up,
-    proofIconWhite,
-    proofIconBlack,
-    proofIconBlue,
-    proofLogoWhite,
-    proofLogoBlack,
-    proofLogoBlue,
-    star,
-    starBlack,
-    minus,
-    plus,
-    linkedin,
-    medium,
-    instagram,
-    twitter
+  rocket,
+  blockchain,
+  search,
+  left,
+  right,
+  github,
+  telegram,
+  discord,
+  close,
+  menu,
+  alarm,
+  dropdown,
+  up,
+  proofIconWhite,
+  proofIconBlack,
+  proofIconBlue,
+  proofLogoWhite,
+  proofLogoBlack,
+  proofLogoBlue,
+  star,
+  starBlack,
+  minus,
+  plus,
+  linkedin,
+  medium,
+  instagram,
+  twitter,
+  checked,
+  unchecked
 };
 
 export default Icons;
