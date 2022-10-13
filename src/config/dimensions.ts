@@ -52,10 +52,10 @@ export const Z_INDEX_LEVELS = {
   LOWEST: 0,
   VERY_LOW: 1,
   LOW: 2,
-  NORMAL: 10,
-  MEDIUM: 50,
-  HIGH: 100,
-  VERY_HIGH: 500,
-  SUPER: 1000,
-  MAXIMUM: 2000
+  NORMAL: 3,
+  MEDIUM: 4,
+  HIGH: 5,
+  VERY_HIGH: 6,
+  SUPER: 7,
+  MAXIMUM: 8
 };
