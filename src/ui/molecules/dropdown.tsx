@@ -1,22 +1,25 @@
+import { Icon } from "ui/atoms";
 import React, { useState } from "react";
-import { Box, Flex, Text, Grid, GridItem, Icon } from "ui/atoms";
-import { SearchInput, Button } from "ui/molecules";
+import { Box, Flex, Text, Grid, GridItem } from "ui/atoms";
+import { SearchInput, Button, NavItem } from "ui/molecules";
 import { COLORS } from "config/colors";
 import Icons from "assets/icons";
 import { Z_INDEX_LEVELS } from "config/dimensions";
+import { useNavigate } from "react-router-dom";
 
 interface IDataProps {
   title: string;
-  amount: number;
+  url: string;
 }
 
 interface IDropDownProps {
-  data?: Array<IDataProps>;
+  data: Array<IDataProps>;
   direction?: "left" | "right";
   top?: number | "auto";
   border?: boolean;
   title?: string;
   menuWidth?: number;
+  baseUrl?: string;
 }
 
 const DropDown: React.FC<IDropDownProps> = ({
@@ -25,10 +28,12 @@ const DropDown: React.FC<IDropDownProps> = ({
   top = -12,
   border = false,
   title = "Category",
-  menuWidth = 260
+  menuWidth = 260,
+  baseUrl = ""
 }) => {
   const [selectedItems, setSelectedItems] = useState<Array<IDataProps>>(data);
   const [collapsed, setCollapsed] = useState<boolean>(true);
+  const navigate = useNavigate();
   return (
     <Box
       position="absolute"
@@ -49,6 +54,12 @@ const DropDown: React.FC<IDropDownProps> = ({
           width={100}
           onClick={() => {
             setCollapsed(!collapsed);
+
+            if (data.length === 0) {
+              if (baseUrl.length > 0) {
+                window.location.replace(baseUrl);
+              }
+            }
           }}
           onMouseEnter={() => {
             setCollapsed(false);
@@ -59,7 +70,11 @@ const DropDown: React.FC<IDropDownProps> = ({
         >
           <Flex gap={menuWidth >= 300 ? 15 : 5} justifyContent="flex-start">
             <Flex justifyContent="space-around" gap={10}>
-              <Text type="plain" fontWeight={600} color={COLORS.DARK_THEME_WHITE}>
+              <Text
+                type="plain"
+                fontWeight={600}
+                color={COLORS.DARK_THEME_WHITE}
+              >
                 {title}
               </Text>
               {selectedItems.length > 0 && (
@@ -79,7 +94,7 @@ const DropDown: React.FC<IDropDownProps> = ({
                 <></>
               )}
             </Flex>
-            <Icon icon={Icons.dropdown} />
+            {data.length > 0 && <Icon icon={Icons.dropdown} />}
           </Flex>
         </Box>
         <Box
@@ -96,7 +111,7 @@ const DropDown: React.FC<IDropDownProps> = ({
             <Icon icon={Icons.up} />
           </Box>
         )} */}
-        {!collapsed && (
+        {!collapsed && data.length > 0 && (
           <Box
             padding={20}
             marginTop={-5}
@@ -112,8 +127,15 @@ const DropDown: React.FC<IDropDownProps> = ({
               setCollapsed(true);
             }}
           >
-            <SearchInput size="small" placeholder="Input category here" />
             <Box>
+              <Flex flexDirection="column" gap={10}>
+                {data.map((item, index) => {
+                  return <NavItem url={item.url}>{item.title}</NavItem>;
+                })}
+              </Flex>
+            </Box>
+            {/* <SearchInput size="small" placeholder="Input category here" /> */}
+            {/* <Box>
               <Box paddingVertical={5} />
               <Box paddingVertical={15}>
                 <Text color={COLORS.GRAY_DARK} type="paragraph">
@@ -158,7 +180,7 @@ const DropDown: React.FC<IDropDownProps> = ({
                   Clear Filters
                 </Button>
               </Box>
-            </Box>
+            </Box> */}
           </Box>
         )}
       </Box>
