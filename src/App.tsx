@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Header, Footer } from "ui/organisms";
-import { Home, Audit } from "ui/pages";
+import { Home, Audit, Smart } from "ui/pages";
 import "styles/index.scss";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/audit" element={<Audit />} />
+        <Route path="/smart" element={<Smart />} />
       </Routes>
       <Footer />
     </BrowserRouter>

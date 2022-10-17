@@ -27,6 +27,18 @@ import medium from "./medium.svg";
 import twitter from "./twitter.svg";
 import checked from "./checked.svg";
 import unchecked from "./unchecked.svg";
+import moonLight from "./moon-light.svg";
+import moonDark from "./moon-dark.svg";
+import ethereum from "./ethereum.png";
+import bnb from "./bnb.png";
+import polygon from "./polygon.png";
+import tron from "./tron.png";
+import avalanche from "./avalanche.png";
+import checkedRound from "./checked-round.svg";
+import upMini from "./up-mini.svg";
+import next from "./next.svg";
+import rectangle from "./rectangle.svg";
+import closeBlack from "./closeBlack.svg";
 
 const Icons = {
   rocket,
@@ -57,7 +69,19 @@ const Icons = {
   instagram,
   twitter,
   checked,
-  unchecked
+  unchecked,
+  moonLight,
+  moonDark,
+  ethereum,
+  bnb,
+  polygon,
+  tron,
+  avalanche,
+  checkedRound,
+  upMini,
+  next,
+  rectangle,
+  closeBlack
 };
 
 export default Icons;
