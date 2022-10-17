@@ -18,10 +18,14 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
     contents
   );
   return (
-    <Box width="100%" backgroundColor={COLORS.GREY} cursor>
-      <Flex flexDirection="column" gap={5}>
+    <Box
+      width="100%"
+      backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
+      cursor
+    >
+      <Flex flexDirection="column" gap={10}>
         {content.length === 0 && (
-          <Box backgroundColor={COLORS.WHITE} padding={50}>
+          <Box backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND} padding={50}>
             <Text type="subtitle">"No FAQs"</Text>
           </Box>
         )}
@@ -29,8 +33,8 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
           content.map((contentItem, index) => {
             return (
               <Box
-                backgroundColor={COLORS.WHITE}
-                padding={20}
+                backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}
+                padding={30}
                 onClick={() => {
                   const newContent = content.map((contentItem, idx) => {
                     if (idx === index)
@@ -47,15 +51,17 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
                     <Flex alignItems="center" gap={15}>
                       <Text type="logo" color={COLORS.LIGHT_BLUE}>
                         {!contentItem.collapse ? (
-                          <Icon icon={Icons.minus} size="MEDIUM"></Icon>
+                          <Icon icon={Icons.upMini} size="MEDIUM"></Icon>
                         ) : (
-                          <Icon icon={Icons.plus} size="MEDIUM"></Icon>
+                          <Icon icon={Icons.right} size="MEDIUM"></Icon>
                         )}
                       </Text>
-                      <Text type="undersubtitle" fontWeight={500}>{contentItem.title}</Text>
+                      <Text type="undersubtitle" fontWeight={500} lineHeight={1.3}>
+                        {contentItem.title}
+                      </Text>
                     </Flex>
                     {!contentItem.collapse && (
-                      <Text type="paragraph">{contentItem.content}</Text>
+                      <Text type="paragraph" lineHeight={1.3}>{contentItem.content}</Text>
                     )}
                   </Flex>
                 </Box>
