@@ -82,13 +82,13 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 </Box>
                 <Grid gap={15}>
                   <GridItem columns={6}>
-                    <Text type="plain">Smart Contract Audit</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Smart Contract Audit</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">dApp Audit</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>dApp Audit</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">NFT Audit</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>NFT Audit</Text>
                   </GridItem>
                 </Grid>
               </Box>
@@ -100,13 +100,13 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 </Box>
                 <Grid gap={15}>
                   <GridItem columns={6}>
-                    <Text type="plain">Ethereum</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Ethereum</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">BSC</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>BSC</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">Solana</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Solana</Text>
                   </GridItem>
                 </Grid>
               </Box>
@@ -118,22 +118,22 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 </Box>
                 <Grid gap={15}>
                   <GridItem columns={6}>
-                    <Text type="plain">About</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>About</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">Careers</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Careers</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">Disclaimer</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Disclaimer</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">Cookie Policy</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Cookie Policy</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">Privacy Policy</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Privacy Policy</Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain">Terms and Conditions</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Terms and Conditions</Text>
                   </GridItem>
                 </Grid>
               </Box>
