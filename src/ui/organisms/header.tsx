@@ -89,9 +89,9 @@ const Header = (props: any) => {
                       <DropDown
                         title="Products"
                         data={[
-                          { title: "Smart Contract", amount: 45 },
-                          { title: "dApp", amount: 27 },
-                          { title: "NFT", amount: 210 }
+                          { title: "Smart Contract Audit", url: "security-audit" },
+                          { title: "DApp Audit", url: "dapp-audit" },
+                          { title: "NFT Audit", url: "nft-audit" }
                         ]}
                         direction="left"
                         top={-20}
@@ -101,9 +101,11 @@ const Header = (props: any) => {
                       <DropDown
                         title="Chains"
                         data={[
-                          { title: "Ethereum", amount: 25 },
-                          { title: "Avalanche", amount: 63 },
-                          { title: "Solana", amount: 82 }
+                          { title: "Ethereum", url: "ethereum" },
+                          { title: "BNB", url: "bnb" },
+                          { title: "Avalanche", url: "avalanche" },
+                          { title: "Polygon", url: "polygon" },
+                          { title: "Tron", url: "tron" },
                         ]}
                         direction="left"
                         top={-20}
@@ -112,14 +114,8 @@ const Header = (props: any) => {
                     <Box position="relative">
                       <DropDown
                         title="Company"
-                        data={[
-                          { title: "About", amount: 25 },
-                          { title: "Careers", amount: 63 },
-                          { title: "Disclaimer", amount: 82 },
-                          { title: "Privacy Policy", amount: 82 },
-                          { title: "Cookie Policy", amount: 82 },
-                          { title: "Terms and Conditions", amount: 82 }
-                        ]}
+                        data={[]}
+                        baseUrl="https://caduceuscap.com/company/"
                         direction="left"
                         top={-20}
                       />
@@ -128,12 +124,12 @@ const Header = (props: any) => {
                       <DropDown
                         title="Socials"
                         data={[
-                          { title: "Telegram", amount: 25 },
-                          { title: "Twitter", amount: 63 },
-                          { title: "Medium", amount: 82 },
-                          { title: "LinkedIn", amount: 82 },
-                          { title: "Instagram", amount: 82 },
-                          { title: "Github", amount: 82 }
+                          { title: "Telegram", url: "https://t.me/proofaudit" },
+                          { title: "Twitter", url: "https://twitter.com/proofaudit" },
+                          { title: "Medium", url: "https://medium.com/proofaudit" },
+                          { title: "LinkedIn", url: "https://www.linkedin.com/company/proofaudit/" },
+                          { title: "Instagram", url: "https://www.instagram.com/proof.audit/" },
+                          { title: "Github", url: "https://github.com/proofaudit" }
                         ]}
                         direction="left"
                         top={-20}
