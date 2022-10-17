@@ -16,9 +16,11 @@ const Header = (props: any) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
-    if (props.requestAuditModal)
-      openModal();
-    else closeModal();
+    if (props.requestAuditModal) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
   }, [props.requestAuditModal]);
 
   const openModal = () => {
