@@ -14,10 +14,14 @@ const Audit = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
   return (
     <Page>
-      <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
+      <Box padding={60} backgroundColor={COLORS.DARK_THEME_BLACK} />
+      <ContentWrapper
+        backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
+        backgroundImage={"linear-gradient(#1B00FF70, #16161670)"}
+      >
         <Container>
-          <Box padding={90}></Box>
-          <Box paddingHorizontal={20} paddingVertical={50}>
+          <Box padding={40}></Box>
+          <Box paddingHorizontal={20} paddingVertical={60}>
             <Flex flexDirection="column" alignItems="center" gap={20}>
               <Text center type="sublogo" fontWeight={600}>
                 Industry Leading Web3 Auditor
@@ -91,18 +95,21 @@ const Audit = (props: any) => {
                   titleColor={COLORS.DARK_THEME_WHITE}
                   content="Reduce the risk of vulnerabilities and flaws in your smart contracts through a thorough, peer-reviewed line-by-line code examination."
                   icon
+                  link="security-audit"
                 />
                 <TextBox
                   title="DApp Audit"
                   titleColor={COLORS.DARK_THEME_WHITE}
                   content="Protect your decentralized applications from hacks, exploits and front-running attacks  with our best-in-class auditing methods"
                   icon
+                  link="dapp-audit"
                 />
                 <TextBox
                   title="NFT Audit"
                   titleColor={COLORS.DARK_THEME_WHITE}
                   content="Secure and optimize your Non Fungible Tokens, mitigating weaknesses and making them unsusceptible to non-functionality."
                   icon
+                  link="nft-audit"
                 />
               </Flex>
             </Flex>
