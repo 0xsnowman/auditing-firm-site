@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Flex, Image } from "ui/atoms";
+import { Box, Text, Flex, Image, Icon } from "ui/atoms";
 import Images from "assets/images";
 import { COLORS } from "config/colors";
 import { Z_INDEX_LEVELS } from "config/dimensions";
@@ -23,6 +23,7 @@ interface IPostBoxProps {
   minHeight?: number | string;
   direction?: "left-right" | "right-left" | "up-down" | "down-up";
   leftTextCount?: number | "all";
+  icon?: string;
 }
 
 const PostBox: React.FC<IPostBoxProps> = ({
@@ -36,12 +37,13 @@ const PostBox: React.FC<IPostBoxProps> = ({
   subtitleColor = "black",
   textColor = "black",
   imageColor = "gray",
-  borderRadius = 20,
+  borderRadius = 5,
   subtitleCenter = false,
-  paddingVertical = 10,
-  minHeight = 250,
+  paddingVertical = 0,
+  minHeight = 100,
   direction = "left-right",
-  leftTextCount = 100
+  leftTextCount = 100,
+  icon = ""
 }) => {
   const globalDirection = () => {
     if (direction === "left-right") return "row";
@@ -55,14 +57,19 @@ const PostBox: React.FC<IPostBoxProps> = ({
   return (
     <Box
       borderRadius={borderRadius}
-      backgroundColor={background === "black" ? "#161922" : COLORS.WHITE}
+      backgroundColor={
+        background === "black"
+          ? COLORS.DARK_THEME_GREY_BACKGROUND
+          : COLORS.WHITE
+      }
       position="relative"
+      width="100%"
       height="100%"
       overflowX="hidden"
       overflowY="hidden"
-      paddingHorizontal={20}
+      paddingHorizontal={25}
       paddingVertical={paddingVertical}
-      borderColor={COLORS.GREY}
+      borderColor={COLORS.DARK_THEME_TRANSPARENT}
       borderWidth={border ? 1 : 0}
       minHeight={minHeight}
     >
@@ -71,7 +78,13 @@ const PostBox: React.FC<IPostBoxProps> = ({
         width="100%"
         height="100%"
         justifyContent="space-between"
+        alignItems="center"
       >
+        {icon.length > 0 && (
+          <Box>
+            <Icon icon={icon} size="LARGE" />
+          </Box>
+        )}
         <Box
           width={
             image
@@ -84,19 +97,24 @@ const PostBox: React.FC<IPostBoxProps> = ({
           paddingHorizontal={content.length > 0 ? 20 : 0}
           paddingVertical={content.length > 0 ? 30 : 0}
         >
-          <Flex flexDirection="column">
+          <Flex flexDirection="column" alignItems="flex-start">
             {title.length > 0 && (
               <Text
-                type={deviceWidth > WINDOW_SIZES.SIZE_1024 ? "logo" : "sublogo"}
+                type={
+                  deviceWidth > WINDOW_SIZES.SIZE_1024 ? "paragraph" : "sublogo"
+                }
                 color={titleColor}
+                center
               >
                 {title}
               </Text>
             )}
+            <Box padding={5} />
             {subtitle.length > 0 && (
-              <Box paddingVertical={10}>
+              <Box paddingVertical={20}>
                 <Text
                   type="subtitle"
+                  fontWeight={600}
                   color={subtitleColor}
                   center={subtitleCenter}
                 >
@@ -108,7 +126,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
               content.map((contentItem, index) => {
                 return (
                   <Box paddingVertical={10} key={index}>
-                    <Text type="paragraph" color={textColor}>
+                    <Text type="paragraph" color={textColor} lineHeight={1.5}>
                       {leftTextCount === "all"
                         ? contentItem
                         : contentItem.substr(0, leftTextCount) + " ..."}
