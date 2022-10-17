@@ -35,10 +35,12 @@ interface IBoxProps {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onScroll?: (event: React.UIEvent<HTMLDivElement, UIEvent>) => void;
   hover?: boolean;
   cursor?: boolean;
   zIndex?: number;
   backgroundImage?: string;
+  backgroundSize?: string;
   transition?: number;
 }
 
@@ -51,7 +53,7 @@ const Box: React.FC<IBoxProps> = ({
   maxWidth,
   minHeight,
   display = "block",
-  position = "static",
+  position = "relative",
   backdropFilter = false,
   borderRadius = 0,
   borderWidth = 0,
@@ -76,9 +78,11 @@ const Box: React.FC<IBoxProps> = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  onScroll,
   cursor = false,
   zIndex = "initial",
   backgroundImage = "auto",
+  backgroundSize = "initial",
   transition,
 }) => {
   const backdropFilterClassName = backdropFilter ? "atom-box-backdrop" : "none";
@@ -86,6 +90,7 @@ const Box: React.FC<IBoxProps> = ({
   return (
     <div
       className={["atom-box", className, backdropFilterClassName, cursorClassName].join(" ")}
+      onScroll={onScroll}
       style={{
         display: display,
         position: position,
@@ -101,6 +106,7 @@ const Box: React.FC<IBoxProps> = ({
         borderLeftWidth: borderLeftWidth ? borderLeftWidth : borderWidth,
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: "no-repeat",
+        backgroundSize: backgroundSize,
         borderStyle: borderStyle,
         borderColor: borderColor,
         marginTop: marginTop,
