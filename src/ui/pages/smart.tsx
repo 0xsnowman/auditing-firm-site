@@ -189,7 +189,7 @@ const Smart = (props: any) => {
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
                 <Text center type="sublogo" fontWeight={600}>
-                  Interested in scheduling a security audit with Proof?
+                  Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
                   <Button
@@ -324,7 +324,7 @@ const Smart = (props: any) => {
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
                 <Text center type="sublogo" fontWeight={600}>
-                  Interested in scheduling a security audit with Proof?
+                  Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
                   <Button
@@ -407,7 +407,7 @@ const Smart = (props: any) => {
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
                 <Text center type="sublogo" fontWeight={600}>
-                  Interested in scheduling a security audit with Proof?
+                  Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
                   <Button
@@ -446,6 +446,7 @@ const Smart = (props: any) => {
                   image={false}
                   leftTextCount="all"
                   icon={Icons.checkedRound}
+                  minHeight={150}
                 />
                 <PostBox
                   content={[
@@ -455,6 +456,7 @@ const Smart = (props: any) => {
                   image={false}
                   leftTextCount="all"
                   icon={Icons.checkedRound}
+                  minHeight={150}
                 />
                 <PostBox
                   content={[
@@ -464,6 +466,7 @@ const Smart = (props: any) => {
                   image={false}
                   leftTextCount="all"
                   icon={Icons.checkedRound}
+                  minHeight={150}
                 />
               </Flex>
               <Box padding={20} />
@@ -519,7 +522,7 @@ const Smart = (props: any) => {
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
                 <Text center type="sublogo" fontWeight={600}>
-                  Interested in scheduling a security audit with Proof?
+                  Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
                   <Button
@@ -559,7 +562,7 @@ const Smart = (props: any) => {
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
                 <Text center type="sublogo" fontWeight={600}>
-                  Interested in scheduling a security audit with Proof?
+                  Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
                   <Button
