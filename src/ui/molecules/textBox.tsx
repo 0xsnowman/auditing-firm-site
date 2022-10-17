@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, Flex, Icon } from "ui/atoms";
 import { COLORS } from "config/colors";
 import Icons from "assets/icons";
+import { useNavigate } from "react-router-dom";
 
 interface ITextBoxProps {
   title: string;
@@ -9,6 +10,7 @@ interface ITextBoxProps {
   titleColor?: string;
   backgroundColor?: string;
   icon?: boolean;
+  link?: string;
   minHeight?: string | number;
 }
 
@@ -18,8 +20,10 @@ const TextBox: React.FC<ITextBoxProps> = ({
   titleColor = COLORS.DARK_THEME_BLACK,
   backgroundColor = COLORS.DARK_THEME_GREY_BACKGROUND,
   icon = false,
+  link = "",
   minHeight = "auto"
 }) => {
+  const navigate = useNavigate();
   return (
     <Box
       borderWidth={0}
@@ -51,7 +55,17 @@ const TextBox: React.FC<ITextBoxProps> = ({
             </Text>
           </Flex>
           {icon && <Box padding={15} backgroundColor="transparent"></Box>}
-          {icon && <Icon icon={Icons.next} size="LARGE"></Icon>}{" "}
+          {icon && (
+            <Box cursor>
+              <Icon
+                icon={Icons.next}
+                size="LARGE"
+                onClick={() => {
+                  navigate("/" + link);
+                }}
+              />
+            </Box>
+          )}{" "}
         </Box>
       </Flex>
     </Box>
