@@ -12,6 +12,7 @@ interface IButtonProps {
   pending?: boolean;
   disabled?: boolean;
   fixedWidth?: boolean;
+  width?: string | number;
   oneTimeButton?: boolean;
 }
 
@@ -19,11 +20,12 @@ const Button: React.FC<IButtonProps> = ({
   children,
   backgroundColor = COLORS.DANGER,
   backgroundHoverColor = COLORS.DANGER_LIGHT,
-  color = "white",
+  color = COLORS.DARK_THEME_WHITE,
   onClick = () => {},
   pending,
   disabled,
-  fixedWidth
+  fixedWidth,
+  width = 0
 }) => {
   const [isHover, setIsHover] = React.useState(false);
   return (
@@ -44,7 +46,7 @@ const Button: React.FC<IButtonProps> = ({
         setIsHover(false);
       }}
       style={{
-        width: fixedWidth ? 100 : "initial",
+        width: width ? width : (fixedWidth ? 100 : "fit-content"),
         backgroundColor: !isHover ? backgroundColor : backgroundHoverColor
       }}
     >
