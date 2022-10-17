@@ -64,8 +64,8 @@ const CarouselCard: React.FC<ICarouselCardProps> = ({ title, date, slide }) => {
                   {date}
                 </Text>
                 <Flex justifyContent="space-around" gap={5}>
-                  <Tip color="black">Security</Tip>
-                  <Tip color="black">Bug</Tip>
+                  <Tip color={COLORS.BLACK}>Security</Tip>
+                  <Tip color={COLORS.BLACK}>Bug</Tip>
                 </Flex>
               </Flex>
             </Flex>
