@@ -1,11 +1,11 @@
 import { Icon } from "ui/atoms";
 import React, { useState } from "react";
-import { Box, Flex, Text, Grid, GridItem } from "ui/atoms";
-import { SearchInput, Button, NavItem } from "ui/molecules";
+import { Box, Flex, Text } from "ui/atoms";
+import { NavItem } from "ui/molecules";
 import { COLORS } from "config/colors";
 import Icons from "assets/icons";
 import { Z_INDEX_LEVELS } from "config/dimensions";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 interface IDataProps {
   title: string;
@@ -31,9 +31,10 @@ const DropDown: React.FC<IDropDownProps> = ({
   menuWidth = 260,
   baseUrl = ""
 }) => {
-  const [selectedItems, setSelectedItems] = useState<Array<IDataProps>>(data);
+  const [selectedItems] = useState<Array<IDataProps>>(data);
   const [collapsed, setCollapsed] = useState<boolean>(true);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   return (
     <Box
       position="absolute"
