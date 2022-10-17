@@ -87,6 +87,13 @@ const Box: React.FC<IBoxProps> = ({
 }) => {
   const backdropFilterClassName = backdropFilter ? "atom-box-backdrop" : "none";
   const cursorClassName = cursor ? "atom-box-cursor" : "none";
+
+  const isBackgroundImageUrl = (url: string) => {
+    if (url.includes(",") || !url.includes("."))
+      return false;
+    return true;
+  };
+
   return (
     <div
       className={["atom-box", className, backdropFilterClassName, cursorClassName].join(" ")}
@@ -104,7 +111,7 @@ const Box: React.FC<IBoxProps> = ({
         borderRightWidth: borderRightWidth ? borderRightWidth : borderWidth,
         borderBottomWidth: borderBottomWidth ? borderBottomWidth : borderWidth,
         borderLeftWidth: borderLeftWidth ? borderLeftWidth : borderWidth,
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: isBackgroundImageUrl(backgroundImage) ? `url(${backgroundImage})` : backgroundImage,
         backgroundRepeat: "no-repeat",
         backgroundSize: backgroundSize,
         borderStyle: borderStyle,
