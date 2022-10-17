@@ -6,17 +6,17 @@ interface INavItem {
   url?: string;
 }
 
-const NavItem: React.FC<INavItem> = ({
-  children,
-  onClick,
-  url = "#"
-}) => {
+const NavItem: React.FC<INavItem> = ({ children, onClick, url = "#" }) => {
   return (
-    <div
-      className="molecule-navitem"
-      onClick={onClick}
-    >
-      <a href={url} target="_blank" rel="noreferrer">
+    <div className="molecule-navitem" onClick={onClick}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        style={{
+          fontWeight: 600
+        }}
+      >
         {children}
       </a>
     </div>
