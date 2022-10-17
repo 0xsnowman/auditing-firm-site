@@ -1,125 +1,154 @@
 import React from "react";
-import { Flex, Text, Container, Box, Icon } from "ui/atoms";
-import { Page, CarouselCard, Carousel, Table, SearchInput } from "ui/molecules";
+import { Flex, Text, Container, Box, Icon, ContentWrapper } from "ui/atoms";
+import { Page, TextBox, Button, Table } from "ui/molecules";
 import { COLORS } from "config/colors";
 import Icons from "assets/icons";
-import Images from "assets/images";
+import { connect } from "react-redux";
+import { changeTheme } from "redux/actions/theme";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import { WINDOW_SIZES } from "config/dimensions";
+import { changeAuditModalOpened } from "redux/actions/requestAuditModal";
 // import contractData from "assets/json/contracts.json";
 
-const Audit = () => {
+const Audit = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
   return (
     <Page>
-      <Container>
-        <Flex flexDirection="column" gap={40}>
-          <Flex flexDirection="column" gap={5}>
-            <Text color="black" type="logo">
-              Proof Audit
-            </Text>
-            <Text color={COLORS.GRAY_DARK} type="subtitle">
-              Provable trust For All
-            </Text>
-          </Flex>
-          <Flex
-            gap={30}
-            className="page-home__blogcarousel"
-            justifyContent="space-between"
-          >
-            <Box width={deviceWidth > WINDOW_SIZES.SIZE_768 ? "38%" : "100%"}>
-              <Flex flexDirection="column" gap={40}>
-                <Box
-                  paddingHorizontal={15}
-                  paddingVertical={25}
-                  borderColor={COLORS.GRAY}
-                  borderWidth={1}
-                  borderRadius={20}
-                  backgroundColor="white"
+      <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
+        <Container>
+          <Box padding={90}></Box>
+          <Box paddingHorizontal={20} paddingVertical={50}>
+            <Flex flexDirection="column" alignItems="center" gap={20}>
+              <Text center type="sublogo" fontWeight={600}>
+                Industry Leading Web3 Auditor
+              </Text>
+              <Text center type="subtitle">
+                Accelerating the security of Web3
+              </Text>
+              <Box padding={20}>
+                <Button
+                  backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
+                  backgroundHoverColor={COLORS.DROPDOWN_HOVER}
+                  onClick={() => {
+                    props.changeAuditModalOpened(!props.auditModalOpened);
+                  }}
                 >
-                  <Flex className="page-home__blogcarousel__dash">
-                    <Box
-                      borderRightWidth={
-                        deviceWidth > WINDOW_SIZES.SIZE_464 ? 2 : 0
-                      }
-                      borderBottomWidth={
-                        deviceWidth < WINDOW_SIZES.SIZE_464 ? 2 : 0
-                      }
-                      borderColor={COLORS.GREY}
-                      padding={20}
-                    >
-                      <Flex flexDirection="column" gap={20}>
-                        <Icon icon={Icons.rocket} size="MEDIUM" />
-                        <Flex>
-                          <Flex flexDirection="column" gap={5}>
-                            <Text color={COLORS.GRAY_DARK} type="paragraph">
-                              Projects audited
-                            </Text>
-                            <Text type="title">1206</Text>
-                            <Text color={COLORS.GRAY_DARK} type="plain">
-                              Since Jun 2021
-                            </Text>
-                          </Flex>
-                          <Box padding={5} />
-                        </Flex>
-                      </Flex>
-                    </Box>
-                    <Box padding={20}>
-                      <Flex>
-                        <Box padding={5} />
-                        <Flex flexDirection="column" gap={20}>
-                          <Icon icon={Icons.blockchain} size="MEDIUM" />
-
-                          <Flex flexDirection="column" gap={5}>
-                            <Text color={COLORS.GRAY_DARK} type="paragraph">
-                              Different Blockchains
-                            </Text>
-                            <Text type="title">18</Text>
-                            <Text color={COLORS.GRAY_DARK} type="plain">
-                              Supported by Caduceus
-                            </Text>
-                          </Flex>
-                        </Flex>
-                      </Flex>
-                    </Box>
-                  </Flex>
-                </Box>
-                <SearchInput placeholder="Input search text here" />
+                  Request An Audit
+                </Button>
+              </Box>
+            </Flex>
+          </Box>
+        </Container>
+      </ContentWrapper>
+      <ContentWrapper backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}>
+        <Container>
+          <Box paddingHorizontal={20} paddingVertical={30}>
+            <Flex flexDirection="column" alignItems="center" gap={20}>
+              <Text
+                center
+                type={
+                  deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "sublogo"
+                }
+                fontWeight={600}
+              >
+                SUPPORTED CHAINS
+              </Text>
+              <Box padding={3}></Box>
+              <Flex
+                gap={30}
+                justifyContent="center"
+                flexDirection={
+                  deviceWidth > WINDOW_SIZES.SIZE_1280 ? "row" : "column"
+                }
+              >
+                <Icon icon={Icons.ethereum} size="EXTRA_SUPER_LARGE"></Icon>
+                <Icon icon={Icons.bnb} size="EXTRA_SUPER_LARGE"></Icon>
+                <Icon icon={Icons.polygon} size="EXTRA_SUPER_LARGE"></Icon>
+                <Icon icon={Icons.tron} size="EXTRA_SUPER_LARGE"></Icon>
+                <Icon icon={Icons.avalanche} size="EXTRA_SUPER_LARGE"></Icon>
               </Flex>
-            </Box>
-            <Box
-              width={deviceWidth > WINDOW_SIZES.SIZE_768 ? "58%" : "100%"}
-              height="100%"
-              borderRadius={20}
-              borderColor={COLORS.GRAY}
-              borderWidth={2}
-              overflowX="hidden"
-              overflowY="hidden"
-            >
-              <Carousel>
-                <CarouselCard
-                  title="Hal Finney and Blockchain Hacking"
-                  date="Apr 2022"
-                  slide={Images.slide1}
+            </Flex>
+          </Box>
+        </Container>
+      </ContentWrapper>
+      <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
+        <Container>
+          <Box padding={30}></Box>
+          <Box paddingHorizontal={20} paddingVertical={50}>
+            <Flex flexDirection="column" alignItems="center" gap={20}>
+              <Text center type="sublogo" fontWeight={600}>
+                Explore Our Services
+              </Text>
+              <Box padding={10}></Box>
+              <Flex
+                gap={30}
+                flexDirection={
+                  deviceWidth > WINDOW_SIZES.SIZE_1280 ? "row" : "column"
+                }
+              >
+                <TextBox
+                  title="Avoid erros"
+                  titleColor={COLORS.DARK_THEME_WHITE}
+                  content="Reduce the risk of vulnerabilities and flaws in your smart contracts through a thorough, peer-reviewed line-by-line code examination."
+                  icon
                 />
-                <CarouselCard
-                  title="Proof Audit Mechanism"
-                  date="Jun 2022"
-                  slide={Images.slide2}
+                <TextBox
+                  title="DApp Audit"
+                  titleColor={COLORS.DARK_THEME_WHITE}
+                  content="Protect your decentralized applications from hacks, exploits and front-running attacks  with our best-in-class auditing methods"
+                  icon
                 />
-                <CarouselCard
-                  title="The future of blockchain"
-                  date="Aug 2022"
-                  slide={Images.slide2}
+                <TextBox
+                  title="NFT Audit"
+                  titleColor={COLORS.DARK_THEME_WHITE}
+                  content="Secure and optimize your Non Fungible Tokens, mitigating weaknesses and making them unsusceptible to non-functionality."
+                  icon
                 />
-              </Carousel>
-            </Box>
-          </Flex>
+              </Flex>
+            </Flex>
+          </Box>
+        </Container>
+      </ContentWrapper>
+      <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND_DARK}>
+        <Container>
           <Table />
-        </Flex>
-      </Container>
+        </Container>
+      </ContentWrapper>
+      <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
+        <Container>
+          <Box padding={30}></Box>
+          <Box paddingHorizontal={20} paddingVertical={50}>
+            <Flex flexDirection="column" alignItems="center" gap={20}>
+              <Text center type="sublogo" fontWeight={600}>
+                Does your Web3 project need a Proof Audit?
+              </Text>
+              <Box padding={20}>
+                <Button
+                  backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
+                  backgroundHoverColor={COLORS.DROPDOWN_HOVER}
+                  onClick={() => {
+                    props.changeAuditModalOpened(!props.auditModalOpened);
+                  }}
+                >
+                  Request An Audit
+                </Button>
+              </Box>
+            </Flex>
+          </Box>
+        </Container>
+      </ContentWrapper>
     </Page>
   );
 };
 
-export default Audit;
+const mapStateToProps = (state: any) => {
+  return {
+    theme: state.ThemeReducer.theme,
+    requestAuditModal: state.RequestAuditModalReducer.auditModalOpened
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { changeTheme: changeTheme, changeAuditModalOpened: changeAuditModalOpened }
+)(Audit);
