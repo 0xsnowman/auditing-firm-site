@@ -18,6 +18,7 @@ import PostBox from "./postBox";
 import TextBox from "./textBox";
 import MileStone from "./milestone";
 import Accordian from "./accordian";
+import Bell from "./bell";
 
 export {
   Accordian,
@@ -40,4 +41,5 @@ export {
   PostBox,
   TextBox,
   MileStone,
+  Bell
 };
