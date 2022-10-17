@@ -5,9 +5,7 @@ import {
   Icon,
   Text,
   Grid,
-  GridItem,
-  TextArea,
-  Input
+  GridItem
 } from "ui/atoms";
 import { Button, AlarmNotifier } from "ui/molecules";
 import Icons from "assets/icons";
@@ -17,7 +15,6 @@ import { connect } from "react-redux";
 import { changeTheme } from "redux/actions/theme";
 import { changeAuditModalOpened } from "redux/actions/requestAuditModal";
 import useWindowDimensions from "hooks/useWindowDimensions";
-import { WINDOW_SIZES } from "config/dimensions";
 
 interface IMobileMenuProps {
   type?: "news" | "menu";
