@@ -1,4 +1,5 @@
 import React from "react";
+import { COLORS } from "config/colors";
 
 interface IInputProps {
   className?: string;
@@ -31,7 +32,8 @@ const Input: React.FC<IInputProps> = ({
         style={{
           width: width,
           padding: padding,
-          border: border
+          border: border,
+          color: COLORS.DARK_THEME_WHITE
         }}
         onChange={onChange}
         placeholder={placeholder}
