@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, Icon, Box, Flex } from "ui/atoms";
 import { PADDING, BORDER_RADIUS } from "config/dimensions";
+import { COLORS } from "config/colors";
 
 interface IIconButtonProps {
   children: string;
@@ -59,13 +60,13 @@ const IconButton: React.FC<IIconButtonProps> = ({
           {isIconLeft ? (
             <>
               <Icon icon={icon} size="MEDIUM" />
-              <Text type="button" color="white">
+              <Text type="button" color={COLORS.WHITE}>
                 {children ? children : ""}
               </Text>
             </>
           ) : (
             <>
-              <Text type="button" color="white">
+              <Text type="button" color={COLORS.WHITE}>
                 {children ? children : ""}
               </Text>
               <Icon icon={icon} size="MEDIUM" />
