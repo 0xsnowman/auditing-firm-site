@@ -1,5 +1,7 @@
 import React from "react";
 
+import { COLORS } from "config/colors";
+
 interface ITextProps {
   children: React.ReactNode;
   className?: string;
@@ -16,7 +18,7 @@ const Text: React.FC<ITextProps> = ({
   children,
   className,
   type = "plain",
-  color,
+  color = COLORS.DARK_THEME_WHITE,
   fontWeight = 400,
   center,
   lineHeight = "auto",
