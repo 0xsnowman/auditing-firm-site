@@ -54,12 +54,12 @@ const Home = () => {
                 investment decisions. A smart contract audit eliminates these
                 flaws.`
             ]}
-            titleColor="white"
-            subtitleColor="#EEE"
-            textColor="#EEE"
+            titleColor={COLORS.WHITE}
+            subtitleColor={COLORS.GRAY_LIGHT}
+            textColor={COLORS.GRAY_LIGHT}
             paddingVertical={30}
             minHeight="auto"
-            imageColor="blue"
+            imageColor={COLORS.BLUE}
             leftTextCount="all"
             direction={
               deviceWidth > WINDOW_SIZES.SIZE_1024 ? "left-right" : "up-down"
@@ -92,7 +92,7 @@ const Home = () => {
             background="white"
             paddingVertical={15}
             minHeight="auto"
-            imageColor="gray"
+            imageColor={COLORS.GRAY}
             direction={
               deviceWidth > WINDOW_SIZES.SIZE_1024 ? "left-right" : "up-down"
             }
@@ -327,7 +327,7 @@ const Home = () => {
               "• Detailed suggestions on how to fix identified issues",
               "• Smart contract rating according to documentation quality, code quality, architecture quality, and security."
             ]}
-            textColor="#222"
+            textColor={COLORS.DARK}
             paddingVertical={0}
             leftTextCount={200}
             background="white"
