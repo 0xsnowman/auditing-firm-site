@@ -37,12 +37,6 @@ const DropDown: React.FC<IDropDownProps> = ({
       right={direction === "right" ? 0 : "auto"}
       zIndex={Z_INDEX_LEVELS.MAXIMUM}
       paddingVertical={1}
-      onMouseEnter={() => {
-        setCollapsed(false);
-      }}
-      onMouseLeave={() => {
-        setCollapsed(true);
-      }}
     >
       <Box position="relative" width={menuWidth}>
         <Box
@@ -56,10 +50,16 @@ const DropDown: React.FC<IDropDownProps> = ({
           onClick={() => {
             setCollapsed(!collapsed);
           }}
+          onMouseEnter={() => {
+            setCollapsed(false);
+          }}
+          onMouseLeave={() => {
+            setCollapsed(true);
+          }}
         >
           <Flex gap={menuWidth >= 300 ? 15 : 5} justifyContent="flex-start">
             <Flex justifyContent="space-around" gap={10}>
-              <Text type="plain" fontWeight={600} color={COLORS.BLACK}>
+              <Text type="plain" fontWeight={600} color={COLORS.DARK_THEME_WHITE}>
                 {title}
               </Text>
               {selectedItems.length > 0 && (
@@ -82,7 +82,15 @@ const DropDown: React.FC<IDropDownProps> = ({
             <Icon icon={Icons.dropdown} />
           </Flex>
         </Box>
-        <Box paddingVertical={10} />
+        <Box
+          paddingVertical={10}
+          onMouseEnter={() => {
+            setCollapsed(false);
+          }}
+          onMouseLeave={() => {
+            setCollapsed(true);
+          }}
+        />
         {/* {!collapsed && (
           <Box paddingHorizontal={30} marginTop={-5}>
             <Icon icon={Icons.up} />
@@ -92,13 +100,19 @@ const DropDown: React.FC<IDropDownProps> = ({
           <Box
             padding={20}
             marginTop={-5}
-            backgroundColor={COLORS.WHITE}
+            backgroundColor={COLORS.DARK_THEME_BLACK}
             borderRadius={15}
             borderColor={COLORS.GREY}
             borderWidth={2}
             zIndex={Z_INDEX_LEVELS.MAXIMUM}
+            onMouseEnter={() => {
+              setCollapsed(false);
+            }}
+            onMouseLeave={() => {
+              setCollapsed(true);
+            }}
           >
-            <SearchInput size="small" placeholder="Input category here"/>
+            <SearchInput size="small" placeholder="Input category here" />
             <Box>
               <Box paddingVertical={5} />
               <Box paddingVertical={15}>
@@ -119,7 +133,7 @@ const DropDown: React.FC<IDropDownProps> = ({
                             backgroundColor={COLORS.GREY}
                             borderRadius={5}
                           >
-                            <Text type="plain">{dataItem.amount}</Text>
+                            <Text type="plain" color={COLORS.DARK_THEME_BLACK}>{dataItem.amount}</Text>
                           </Box>
                         </Flex>
                       </GridItem>
@@ -135,8 +149,8 @@ const DropDown: React.FC<IDropDownProps> = ({
                 />
                 <Box paddingVertical={5} />
                 <Button
-                  backgroundColor="#0085FF"
-                  backgroundHoverColor="#0066DD"
+                  backgroundColor={COLORS.TYPICAL_BLUE}
+                  backgroundHoverColor={COLORS.DROPDOWN_HOVER}
                   onClick={() => {
                     setSelectedItems([]);
                   }}
