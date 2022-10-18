@@ -30,7 +30,7 @@ import { fixedScrollBarLeftCalculate } from "config/formulas";
 
 const Polygon = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
-  
+
   return (
     <Page backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
       <Flex flexDirection="column" gap={0} alignItems="center">
@@ -51,10 +51,12 @@ const Polygon = (props: any) => {
                 <Text center type="sublogo" fontWeight={600}>
                   Polygon Smart Contract Audit
                 </Text>
-                <Text center type="paragraph">
-                  Fortify your Polygon projects against exploits and hold your
-                  code to industry accepted standards.
-                </Text>
+                <Box maxWidth={960}>
+                  <Text center type="subtitle" lineHeight={1.5}>
+                    Fortify your Polygon projects against exploits and hold your
+                    code to industry accepted standards.
+                  </Text>
+                </Box>
                 <Box padding={20}>
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
@@ -77,9 +79,7 @@ const Polygon = (props: any) => {
                 <Text
                   center
                   type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "title"
+                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "title"
                   }
                   fontWeight={600}
                 >

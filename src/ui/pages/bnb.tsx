@@ -30,7 +30,7 @@ import { fixedScrollBarLeftCalculate } from "config/formulas";
 
 const BNB = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
-  
+
   return (
     <Page backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
       <Flex flexDirection="column" gap={0} alignItems="center">
@@ -51,10 +51,12 @@ const BNB = (props: any) => {
                 <Text center type="sublogo" fontWeight={600}>
                   BNB Chain Smart Contract Audit
                 </Text>
-                <Text center type="paragraph">
-                  Protect your users with a full analysis of each line of your
-                  BNB smart contract code by Proof.
-                </Text>
+                <Box maxWidth={960}>
+                  <Text center type="subtitle" lineHeight={1.5}>
+                    Protect your users with a full analysis of each line of your
+                    BNB smart contract code by Proof.
+                  </Text>
+                </Box>
                 <Box padding={20}>
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
@@ -77,9 +79,7 @@ const BNB = (props: any) => {
                 <Text
                   center
                   type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "title"
+                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "title"
                   }
                   fontWeight={600}
                 >

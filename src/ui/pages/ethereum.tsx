@@ -30,7 +30,7 @@ import { fixedScrollBarLeftCalculate } from "config/formulas";
 
 const Ethereum = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
-  
+
   return (
     <Page backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
       <Flex flexDirection="column" gap={0} alignItems="center">
@@ -51,10 +51,12 @@ const Ethereum = (props: any) => {
                 <Text center type="sublogo" fontWeight={600}>
                   Ethereum Smart Contract Audit
                 </Text>
-                <Text center type="paragraph">
-                  Give your Ethereum smart contract absolute fortification
-                  against rising hacks and exploits.
-                </Text>
+                <Box maxWidth={960}>
+                  <Text center type="subtitle" lineHeight={1.5}>
+                    Give your Ethereum smart contract absolute fortification
+                    against rising hacks and exploits.
+                  </Text>
+                </Box>
                 <Box padding={20}>
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
@@ -77,9 +79,7 @@ const Ethereum = (props: any) => {
                 <Text
                   center
                   type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "title"
+                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "title"
                   }
                   fontWeight={600}
                 >

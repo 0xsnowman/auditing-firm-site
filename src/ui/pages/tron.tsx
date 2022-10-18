@@ -30,7 +30,7 @@ import { fixedScrollBarLeftCalculate } from "config/formulas";
 
 const Tron = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
-  
+
   return (
     <Page backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
       <Flex flexDirection="column" gap={0} alignItems="center">
@@ -51,10 +51,12 @@ const Tron = (props: any) => {
                 <Text center type="sublogo" fontWeight={600}>
                   Tron Smart Contract Audit
                 </Text>
-                <Text center type="paragraph">
-                  Thorough code review and analysis to find and fix all
-                  weaknesses in your Tron project.
-                </Text>
+                <Box maxWidth={960}>
+                  <Text center type="subtitle" lineHeight={1.5}>
+                    Thorough code review and analysis to find and fix all
+                    weaknesses in your Tron project.
+                  </Text>
+                </Box>
                 <Box padding={20}>
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
@@ -77,9 +79,7 @@ const Tron = (props: any) => {
                 <Text
                   center
                   type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "title"
+                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "title"
                   }
                   fontWeight={600}
                 >

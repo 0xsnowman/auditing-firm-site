@@ -30,7 +30,7 @@ import { fixedScrollBarLeftCalculate } from "config/formulas";
 
 const DApp = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
-  
+
   return (
     <Page backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
       <Flex flexDirection="column" gap={0} alignItems="center">
@@ -51,11 +51,13 @@ const DApp = (props: any) => {
                 <Text center type="sublogo" fontWeight={600}>
                   Proofing DApps
                 </Text>
-                <Text center type="paragraph">
-                  Review and optimize off-chain components of your Decentralized
-                  Applications to remove the risk of vulnerabilities in
-                  blockchain interactions.
-                </Text>
+                <Box maxWidth={960}>
+                  <Text center type="subtitle" lineHeight={1.5}>
+                    Review and optimize off-chain components of your
+                    Decentralized Applications to remove the risk of
+                    vulnerabilities in blockchain interactions.
+                  </Text>
+                </Box>
                 <Box padding={20}>
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
@@ -78,9 +80,7 @@ const DApp = (props: any) => {
                 <Text
                   center
                   type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "title"
+                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "title"
                   }
                   fontWeight={600}
                 >

@@ -50,10 +50,12 @@ const Avalanche = (props: any) => {
                 <Text center type="sublogo" fontWeight={600}>
                   Avalanche Smart Contract Audit
                 </Text>
-                <Text center type="paragraph">
-                  Reinforce security and elevate the trust of your Avalanche
-                  project with an industry-class audit.
-                </Text>
+                <Box maxWidth={960}>
+                  <Text center type="subtitle" lineHeight={1.5}>
+                    Reinforce security and elevate the trust of your Avalanche
+                    project with an industry-class audit.
+                  </Text>
+                </Box>
                 <Box padding={20}>
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
@@ -76,9 +78,7 @@ const Avalanche = (props: any) => {
                 <Text
                   center
                   type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "title"
+                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "title"
                   }
                   fontWeight={600}
                 >

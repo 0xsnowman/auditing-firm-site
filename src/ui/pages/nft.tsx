@@ -30,7 +30,7 @@ import { fixedScrollBarLeftCalculate } from "config/formulas";
 
 const NFT = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
-  
+
   return (
     <Page backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
       <Flex flexDirection="column" gap={0} alignItems="center">
@@ -51,10 +51,12 @@ const NFT = (props: any) => {
                 <Text center type="sublogo" fontWeight={600}>
                   Proofing NFTs
                 </Text>
-                <Text center type="paragraph">
-                  Ensure the quality and security of your Non Fungible Tokens
-                  prior to deploying them immutably on the blockchain forever.
-                </Text>
+                <Box maxWidth={960}>
+                  <Text center type="subtitle" lineHeight={1.5}>
+                    Ensure the quality and security of your Non Fungible Tokens
+                    prior to deploying them immutably on the blockchain forever.
+                  </Text>
+                </Box>
                 <Box padding={20}>
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
@@ -77,9 +79,7 @@ const NFT = (props: any) => {
                 <Text
                   center
                   type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "title"
+                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "title"
                   }
                   fontWeight={600}
                 >
