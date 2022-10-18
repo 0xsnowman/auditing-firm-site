@@ -33,7 +33,8 @@ const TextArea: React.FC<ITextAreaProps> = ({
         style={{
           width: width,
           padding: padding,
-          border: border
+          border: border,
+          fontSize: 15,
         }}
         placeholder={placeholder}
         onKeyPress={evt => {

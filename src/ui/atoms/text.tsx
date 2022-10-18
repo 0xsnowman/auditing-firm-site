@@ -5,7 +5,7 @@ import { COLORS } from "config/colors";
 interface ITextProps {
   children: React.ReactNode;
   className?: string;
-  type?: "logo" | "sublogo" | "title" | "subtitle" | "undersubtitle" | "paragraph" | "button" | "plain" | "tiny";
+  type?: "logo" | "sublogo" | "title" | "subtitle" | "undersubtitle" | "paragraph" | "button" | "plain" | "tiny" | "header";
   color?: string;
   colorPrimary?: boolean;
   fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
@@ -33,7 +33,8 @@ const Text: React.FC<ITextProps> = ({
     plain: "atom-text-plain",
     sublogo: "atom-text-sublogo",
     undersubtitle: "atom-text-undersubtitle",
-    tiny: "atom-text-tiny"
+    tiny: "atom-text-tiny",
+    header: "atom-text-header",
   };
   return (
     <div

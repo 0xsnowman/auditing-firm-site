@@ -7,25 +7,30 @@
   }
 
   &-sublogo {
-    font-size: 48px;
+    font-size: 50px;
     font-weight: bolder;
   }
 
   &-title {
-    font-size: 32px;
+    font-size: 39px;
     font-weight: bolder;
   }
 
   &-subtitle {
-    font-size: 24px;
+    font-size: 21px;
   }
 
   &-undersubtitle {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  &-header {
+    font-size: 16px;
+    line-height: 20px;
   }
 
   &-paragraph {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 20px;
   }
 
@@ -38,7 +43,7 @@
   }
 
   &-button {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
   }
 }

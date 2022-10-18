@@ -39,6 +39,7 @@ import upMini from "./up-mini.svg";
 import next from "./next.svg";
 import rectangle from "./rectangle.svg";
 import closeBlack from "./closeBlack.svg";
+import notification from "./notification.svg";
 
 const Icons = {
   rocket,
@@ -81,7 +82,8 @@ const Icons = {
   upMini,
   next,
   rectangle,
-  closeBlack
+  closeBlack,
+  notification
 };
 
 export default Icons;

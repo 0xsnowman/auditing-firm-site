@@ -33,7 +33,8 @@ const Input: React.FC<IInputProps> = ({
           width: width,
           padding: padding,
           border: border,
-          color: COLORS.DARK_THEME_WHITE
+          fontSize: 15,
+          color: COLORS.DARK_THEME_BLACK
         }}
         onChange={onChange}
         placeholder={placeholder}

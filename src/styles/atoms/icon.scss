@@ -7,10 +7,10 @@
   transition: 0.5s ease;
   object-fit: contain;
   user-select: none;
-
-  &-large {
-    width: 32px;
-    height: 32px;
+  
+  &-small {
+    width: 16px;
+    height: 16px;
   }
 
   &-medium {
@@ -18,13 +18,18 @@
     height: 24px;
   }
 
-  &-small {
-    width: 16px;
-    height: 16px;
+  &-uppermedium {
+    width: 28px;
+    height: 28px;
+  }
+  
+  &-large {
+    width: 32px;
+    height: 32px;
   }
 
   &-superlarge {
-    width: 192px;
+    width: 178px;
     height: 48px;
   }
 

@@ -32,6 +32,7 @@ interface IBoxProps {
   overflowX?: "initial" | "hidden" | "scroll" | "auto";
   overflowY?: "initial" | "hidden" | "scroll" | "auto";
   marginTop?: string | number;
+  marginLeft?: string | number;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -41,7 +42,7 @@ interface IBoxProps {
   zIndex?: number;
   backgroundImage?: string;
   backgroundSize?: string;
-  transition?: number;
+  transition?: number | string;
 }
 
 const Box: React.FC<IBoxProps> = ({
@@ -75,6 +76,7 @@ const Box: React.FC<IBoxProps> = ({
   overflowX = "initial",
   overflowY = "initial",
   marginTop = 0,
+  marginLeft = 0,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -117,6 +119,7 @@ const Box: React.FC<IBoxProps> = ({
         borderStyle: borderStyle,
         borderColor: borderColor,
         marginTop: marginTop,
+        marginLeft: marginLeft,
         padding: padding
           ? `${padding}px`
           : `${paddingVertical}px ${paddingHorizontal}px`,
@@ -132,7 +135,7 @@ const Box: React.FC<IBoxProps> = ({
         boxShadow: boxShadow,
         backdropFilter: backdropFilter ? "blur(10px)" : "none",
         zIndex: zIndex,
-        transition: transition + 's'
+        transition: transition + 's',
       }}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
