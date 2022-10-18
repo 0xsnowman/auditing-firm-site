@@ -9,11 +9,13 @@ import Icons from "assets/icons";
 import { WINDOW_SIZES, Z_INDEX_LEVELS } from "config/dimensions";
 import { COLORS } from "config/colors";
 import Modal from "react-modal";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (props.requestAuditModal) {
@@ -34,8 +36,9 @@ const Header = (props: any) => {
   };
   const customStyles: Modal.Styles = {
     content: {
-      left: deviceWidth > WINDOW_SIZES.SIZE_768 ? "30%" : "5%",
-      right: deviceWidth > WINDOW_SIZES.SIZE_768 ? "30%" : "5%",
+      top: "7%",
+      left: deviceWidth > WINDOW_SIZES.SIZE_768 ? "35%" : "5%",
+      right: deviceWidth > WINDOW_SIZES.SIZE_768 ? "35%" : "5%",
       bottom: "0%",
       transition: "1s",
       minHeight: 800,
@@ -44,7 +47,8 @@ const Header = (props: any) => {
       border: "none",
       borderRadius: 3,
       padding: 0,
-      zIndex: 2000
+      zIndex: 2000,
+      height: "fit-content",
     },
     overlay: {
       position: "fixed",
@@ -64,7 +68,7 @@ const Header = (props: any) => {
     <>
       <Box
         className="organism-header"
-        paddingVertical={30}
+        paddingVertical={20}
         backgroundColor={COLORS.DARK_THEME_BLACK_TRANSPARENT}
         zIndex={Z_INDEX_LEVELS.MAXIMUM}
         width="100%"
@@ -74,11 +78,15 @@ const Header = (props: any) => {
           <Box position="relative">
             <Flex justifyContent="space-between" alignItems="center">
               <Flex gap={50}>
-                {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
-                  <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
-                ) : (
-                  <Icon icon={Icons.proofIconWhite} size="LARGE" />
-                )}
+                <Box onClick={() => {
+                  navigate("/#");
+                }}>
+                  {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
+                    <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
+                  ) : (
+                    <Icon icon={Icons.proofIconWhite} size="LARGE" />
+                  )}
+                </Box>
                 {deviceWidth > WINDOW_SIZES.SIZE_1280 && (
                   <Flex
                     gap={110}
@@ -87,9 +95,12 @@ const Header = (props: any) => {
                   >
                     <Box position="relative">
                       <DropDown
-                        title="Products"
+                        title="Solutions"
                         data={[
-                          { title: "Smart Contract Audit", url: "security-audit" },
+                          {
+                            title: "Smart Contract Audit",
+                            url: "security-audit"
+                          },
                           { title: "DApp Audit", url: "dapp-audit" },
                           { title: "NFT Audit", url: "nft-audit" }
                         ]}
@@ -105,7 +116,7 @@ const Header = (props: any) => {
                           { title: "BNB", url: "bnb" },
                           { title: "Avalanche", url: "avalanche" },
                           { title: "Polygon", url: "polygon" },
-                          { title: "Tron", url: "tron" },
+                          { title: "Tron", url: "tron" }
                         ]}
                         direction="left"
                         top={-20}
@@ -125,11 +136,26 @@ const Header = (props: any) => {
                         title="Socials"
                         data={[
                           { title: "Telegram", url: "https://t.me/proofaudit" },
-                          { title: "Twitter", url: "https://twitter.com/proofaudit" },
-                          { title: "Medium", url: "https://medium.com/proofaudit" },
-                          { title: "LinkedIn", url: "https://www.linkedin.com/company/proofaudit/" },
-                          { title: "Instagram", url: "https://www.instagram.com/proof.audit/" },
-                          { title: "Github", url: "https://github.com/proofaudit" }
+                          {
+                            title: "Twitter",
+                            url: "https://twitter.com/proofaudit"
+                          },
+                          {
+                            title: "Medium",
+                            url: "https://medium.com/proofaudit"
+                          },
+                          {
+                            title: "LinkedIn",
+                            url: "https://www.linkedin.com/company/proofaudit/"
+                          },
+                          {
+                            title: "Instagram",
+                            url: "https://www.instagram.com/proof.audit/"
+                          },
+                          {
+                            title: "Github",
+                            url: "https://github.com/proofaudit"
+                          }
                         ]}
                         direction="left"
                         top={-20}
@@ -145,7 +171,7 @@ const Header = (props: any) => {
                 )}
               </Flex>
               {deviceWidth > WINDOW_SIZES.SIZE_1280 && (
-                <Flex gap={30} alignItems="center">
+                <Flex gap={40} alignItems="center">
                   {/* <SearchInput size="small" /> */}
                   <Box
                     cursor
@@ -161,6 +187,7 @@ const Header = (props: any) => {
                   <Button
                     backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
                     backgroundHoverColor={COLORS.DROPDOWN_HOVER}
+                    shadow={false}
                     onClick={openModal}
                   >
                     Request An Audit
@@ -301,6 +328,7 @@ const Header = (props: any) => {
               <Button
                 backgroundColor={COLORS.DARK_THEME_BUTTON_BLUE}
                 backgroundHoverColor={COLORS.DARK_THEME_BUTTON_BLUE}
+                shadow={false}
               >
                 Submit
               </Button>

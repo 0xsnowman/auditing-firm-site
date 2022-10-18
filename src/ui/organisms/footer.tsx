@@ -30,11 +30,11 @@ const Footer = () => {
           >
             <Flex flex={2} flexDirection="column">
               {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
-                <Icon icon={Icons.proofLogoWhite} size="EXTRA_SUPER_LARGE" />
-              ) : (
                 <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
+              ) : (
+                <Icon icon={Icons.proofLogoWhite} size="LARGE" />
               )}
-              <Box maxWidth="400px">
+              <Box maxWidth="400px" paddingVertical={20}>
                 <Text color={COLORS.DARK_THEME_WHITE} type="subtitle">
                   Industry-leading Smart Contract Authentication
                 </Text>
@@ -46,17 +46,17 @@ const Footer = () => {
               className="organism-footer__connection-list__details"
             >
               <Flex flex={1} flexDirection="column" gap={15}>
-                <Box paddingVertical={30}>
+                <Box paddingVertical={10}>
                   <Text type="paragraph" color={COLORS.WHITE} fontWeight={600}>
-                    Products
+                    Solutions
                   </Text>
                 </Box>
-                <NavItem>Smart Contract Audit</NavItem>
-                <NavItem>dApp Audit</NavItem>
-                <NavItem>NFT Audit</NavItem>
+                <NavItem url={"/security-audit"}>Smart Contract Audit</NavItem>
+                <NavItem url={"/dapp-audit"}>dApp Audit</NavItem>
+                <NavItem url={"/nft-audit"}>NFT Audit</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={15}>
-                <Box paddingVertical={30}>
+                <Box paddingVertical={10}>
                   <Text type="paragraph" color={COLORS.WHITE} fontWeight={600}>
                     Company
                   </Text>
@@ -69,7 +69,7 @@ const Footer = () => {
                 <NavItem>Terms and Conditions</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={17}>
-                <Box paddingVertical={30}>
+                <Box paddingVertical={10}>
                   <Text type="paragraph" color={COLORS.WHITE} fontWeight={600}>
                     Socials
                   </Text>
