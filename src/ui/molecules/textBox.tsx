@@ -29,31 +29,31 @@ const TextBox: React.FC<ITextBoxProps> = ({
       borderWidth={0}
       borderColor={COLORS.GREY}
       backgroundColor={COLORS.DARK_THEME_TRANSPARENT}
-      borderRadius={12}
+      borderRadius={0}
       width="100%"
     >
       <Flex flexDirection="column" height="100%">
         <Box
           backgroundColor={backgroundColor}
-          borderRadius={10}
+          borderRadius={0}
           padding={30}
           borderColor={COLORS.GREY}
           borderWidth={0}
           height="100%"
           minHeight={minHeight}
         >
-          <Flex flexDirection="column" gap={30} alignItems="center">
-            <Text type="subtitle" fontWeight={600} color={titleColor}>
-              {title}
-            </Text>
-            <Text
-              lineHeight={1.6}
-              type="paragraph"
-              color={COLORS.DARK_THEME_WHITE}
-            >
-              {content}
-            </Text>
-          </Flex>
+          <Text type="subtitle" fontWeight={600} color={titleColor}>
+            {title}
+          </Text>
+          <Box padding={10}></Box>
+          <Text
+            lineHeight={1.6}
+            type="undersubtitle"
+            color={COLORS.DARK_THEME_WHITE}
+            fontWeight={400}
+          >
+            {content}
+          </Text>
           {icon && <Box padding={15} backgroundColor="transparent"></Box>}
           {icon && (
             <Box cursor>

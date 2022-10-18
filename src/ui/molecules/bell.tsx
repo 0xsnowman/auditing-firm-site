@@ -8,7 +8,7 @@ import Icons from "assets/icons";
 const Bell = () => {
   return (
     <Box position="relative">
-      <Icon icon={Icons.alarm} size="MEDIUM" />
+      <Icon icon={Icons.notification} size="UPPERMEDIUM" />
       <Box position="absolute" top={-2} right={-2}>
         <AlarmNotifier />
       </Box>

@@ -1,11 +1,12 @@
 import { Icon } from "ui/atoms";
 import React, { useState } from "react";
-import { Box, Flex, Text } from "ui/atoms";
+import { Box, Flex, Text, Grid, GridItem } from "ui/atoms";
 import { NavItem } from "ui/molecules";
 import { COLORS } from "config/colors";
 import Icons from "assets/icons";
 import { Z_INDEX_LEVELS } from "config/dimensions";
 // import { useNavigate } from "react-router-dom";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 interface IDataProps {
   title: string;
@@ -33,6 +34,7 @@ const DropDown: React.FC<IDropDownProps> = ({
 }) => {
   const [selectedItems] = useState<Array<IDataProps>>(data);
   const [collapsed, setCollapsed] = useState<boolean>(true);
+  const { deviceWidth } = useWindowDimensions();
   // const navigate = useNavigate();
 
   return (
@@ -43,6 +45,13 @@ const DropDown: React.FC<IDropDownProps> = ({
       right={direction === "right" ? 0 : "auto"}
       zIndex={Z_INDEX_LEVELS.MAXIMUM}
       paddingVertical={1}
+      cursor
+      onMouseEnter={() => {
+        setCollapsed(false);
+      }}
+      onMouseLeave={() => {
+        setCollapsed(true);
+      }}
     >
       <Box position="relative" width={menuWidth}>
         <Box
@@ -62,17 +71,11 @@ const DropDown: React.FC<IDropDownProps> = ({
               }
             }
           }}
-          onMouseEnter={() => {
-            setCollapsed(false);
-          }}
-          onMouseLeave={() => {
-            setCollapsed(true);
-          }}
         >
           <Flex gap={menuWidth >= 300 ? 15 : 5} justifyContent="flex-start">
             <Flex justifyContent="space-around" gap={10}>
               <Text
-                type="plain"
+                type="header"
                 fontWeight={600}
                 color={COLORS.DARK_THEME_WHITE}
               >
@@ -100,12 +103,6 @@ const DropDown: React.FC<IDropDownProps> = ({
         </Box>
         <Box
           paddingVertical={10}
-          onMouseEnter={() => {
-            setCollapsed(false);
-          }}
-          onMouseLeave={() => {
-            setCollapsed(true);
-          }}
         />
         {/* {!collapsed && (
           <Box paddingHorizontal={30} marginTop={-5}>
@@ -113,13 +110,31 @@ const DropDown: React.FC<IDropDownProps> = ({
           </Box>
         )} */}
         {!collapsed && data.length > 0 && (
+          <>
+            <Box
+              width="300px"
+              height="400px"
+              position="absolute"
+              top={0}
+              left={-200}
+            ></Box>
+            <Box marginLeft={-50} marginTop={-20}>
+              <Icon icon={Icons.up} size="SUPER_LARGE"></Icon>
+            </Box>
+          </>
+        )}
+        {!collapsed && data.length > 0 && (
           <Box
-            padding={20}
-            marginTop={-5}
+            padding={40}
+            marginTop={-25}
             backgroundColor={COLORS.DARK_THEME_BLACK}
             borderRadius={15}
             borderColor={COLORS.GREY}
             borderWidth={2}
+            width={`calc(${deviceWidth}px - 200px)`}
+            position="fixed"
+            top={120}
+            left={100}
             zIndex={Z_INDEX_LEVELS.MAXIMUM}
             onMouseEnter={() => {
               setCollapsed(false);
@@ -128,12 +143,26 @@ const DropDown: React.FC<IDropDownProps> = ({
               setCollapsed(true);
             }}
           >
-            <Box>
-              <Flex flexDirection="column" gap={10}>
+            <Box width="100%">
+              <Text
+                type="title"
+                fontWeight={600}
+                color={COLORS.DARK_THEME_WHITE}
+              >
+                {title}
+              </Text>
+              <Box padding={30} />
+              <Grid gap={30}>
                 {data.map((item, index) => {
-                  return <NavItem url={item.url}>{item.title}</NavItem>;
+                  return (
+                    <GridItem columns={6} key={index}>
+                      <NavItem url={item.url} key={index} fontSize={18}>
+                        {item.title}
+                      </NavItem>
+                    </GridItem>
+                  );
                 })}
-              </Flex>
+              </Grid>
             </Box>
             {/* <SearchInput size="small" placeholder="Input category here" /> */}
             {/* <Box>

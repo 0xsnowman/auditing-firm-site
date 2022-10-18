@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Flex,
-  Icon,
-  Text,
-  Grid,
-  GridItem
-} from "ui/atoms";
+import { Box, Flex, Icon, Text, Grid, GridItem } from "ui/atoms";
 import { Button, AlarmNotifier } from "ui/molecules";
 import Icons from "assets/icons";
 import { COLORS } from "config/colors";
@@ -15,6 +8,7 @@ import { connect } from "react-redux";
 import { changeTheme } from "redux/actions/theme";
 import { changeAuditModalOpened } from "redux/actions/requestAuditModal";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import { useNavigate } from "react-router-dom";
 
 interface IMobileMenuProps {
   type?: "news" | "menu";
@@ -39,6 +33,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   const { deviceWidth, deviceHeight } = useWindowDimensions();
   const [subMenuTitle, setSubMenuTitle] = useState<string>("");
   const [subMenuList, setSubMenuList] = useState<Array<ISubMenuItem>>([]);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -77,18 +72,24 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
               <Box>
                 <Box paddingVertical={20}>
                   <Text color={COLORS.GRAY_DARK} type="paragraph">
-                    Products
+                    Solutions
                   </Text>
                 </Box>
                 <Grid gap={15}>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Smart Contract Audit</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Smart Contract Audit
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>dApp Audit</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      dApp Audit
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>NFT Audit</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      NFT Audit
+                    </Text>
                   </GridItem>
                 </Grid>
               </Box>
@@ -100,13 +101,19 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 </Box>
                 <Grid gap={15}>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Ethereum</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Ethereum
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>BSC</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      BSC
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Solana</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Solana
+                    </Text>
                   </GridItem>
                 </Grid>
               </Box>
@@ -118,22 +125,34 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 </Box>
                 <Grid gap={15}>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>About</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      About
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Careers</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Careers
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Disclaimer</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Disclaimer
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Cookie Policy</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Cookie Policy
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Privacy Policy</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Privacy Policy
+                    </Text>
                   </GridItem>
                   <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>Terms and Conditions</Text>
+                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
+                      Terms and Conditions
+                    </Text>
                   </GridItem>
                 </Grid>
               </Box>
@@ -181,9 +200,12 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 onClick={() => {
                   setSubMenuTitle("Solutions");
                   setSubMenuList([
-                    { subTitle: "Smart Contract Audit", link: "audit" },
-                    { subTitle: "DApp Audit", link: "audit" },
-                    { subTitle: "NFT Audit", link: "audit" }
+                    {
+                      subTitle: "Smart Contract Audit",
+                      link: "security-audit"
+                    },
+                    { subTitle: "DApp Audit", link: "dapp-audit" },
+                    { subTitle: "NFT Audit", link: "nft-audit" }
                   ]);
                   setSubMenuCollapsed(!subMenuCollapsed);
                 }}
@@ -201,11 +223,11 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 onClick={() => {
                   setSubMenuTitle("Chains");
                   setSubMenuList([
-                    { subTitle: "Ethereum", link: "audit" },
-                    { subTitle: "BNB Chain", link: "audit" },
-                    { subTitle: "Avalanche", link: "audit" },
-                    { subTitle: "Polygon", link: "audit" },
-                    { subTitle: "Tron", link: "audit" }
+                    { subTitle: "Ethereum", link: "ethereum" },
+                    { subTitle: "BNB Chain", link: "bnb" },
+                    { subTitle: "Avalanche", link: "avalanche" },
+                    { subTitle: "Polygon", link: "polygon" },
+                    { subTitle: "Tron", link: "tron" }
                   ]);
                   setSubMenuCollapsed(!subMenuCollapsed);
                 }}
@@ -221,7 +243,9 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 width="100%"
                 padding={20}
                 onClick={() => {
-                  // Going to Company Link directly
+                  setCollapsed(true);
+                  setSubMenuCollapsed(true);
+                  navigate("https://caduceuscap.com/company/");
                 }}
               >
                 <Flex justifyContent="space-between">
@@ -236,12 +260,27 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 onClick={() => {
                   setSubMenuTitle("Socials");
                   setSubMenuList([
-                    { subTitle: "Telegram", link: "audit" },
-                    { subTitle: "Twitter", link: "audit" },
-                    { subTitle: "Medium", link: "audit" },
-                    { subTitle: "LinkedIn", link: "audit" },
-                    { subTitle: "Instagram", link: "audit" },
-                    { subTitle: "Github", link: "audit" }
+                    { subTitle: "Telegram", link: "https://t.me/proofaudit" },
+                    {
+                      subTitle: "Twitter",
+                      link: "https://twitter.com/proofaudit"
+                    },
+                    {
+                      subTitle: "Medium",
+                      link: "https://medium.com/proofaudit"
+                    },
+                    {
+                      subTitle: "LinkedIn",
+                      link: "https://www.linkedin.com/company/proofaudit/"
+                    },
+                    {
+                      subTitle: "Instagram",
+                      link: "https://www.instagram.com/proof.audit/"
+                    },
+                    {
+                      subTitle: "Github",
+                      link: "https://github.com/proofaudit"
+                    }
                   ]);
                   setSubMenuCollapsed(!subMenuCollapsed);
                 }}
@@ -323,7 +362,16 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                   </Box>
                   {subMenuList.map((subMenuItem, index) => {
                     return (
-                      <Box width="100%" padding={20} key={index}>
+                      <Box
+                        width="100%"
+                        padding={20}
+                        key={index}
+                        onClick={() => {
+                          setCollapsed(true);
+                          setSubMenuCollapsed(true);
+                          navigate(subMenuItem.link);
+                        }}
+                      >
                         <Flex
                           justifyContent="space-between"
                           alignItems="center"

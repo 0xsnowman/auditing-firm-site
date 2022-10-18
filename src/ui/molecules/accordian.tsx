@@ -47,7 +47,7 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
                 key={index}
               >
                 <Box transition={1} cursor>
-                  <Flex gap={20} flexDirection="column" justifyContent="center">
+                  <Flex gap={0} flexDirection="column" justifyContent="center">
                     <Flex alignItems="center" gap={15}>
                       <Text type="logo" color={COLORS.LIGHT_BLUE}>
                         {!contentItem.collapse ? (
@@ -56,13 +56,25 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
                           <Icon icon={Icons.right} size="MEDIUM"></Icon>
                         )}
                       </Text>
-                      <Text type="undersubtitle" fontWeight={500} lineHeight={1.3}>
+                      <Text
+                        type="subtitle"
+                        fontWeight={600}
+                        lineHeight={1.3}
+                      >
                         {contentItem.title}
                       </Text>
                     </Flex>
-                    {!contentItem.collapse && (
-                      <Text type="paragraph" lineHeight={1.3}>{contentItem.content}</Text>
-                    )}
+                    <Box
+                      overflowX="hidden"
+                      overflowY="hidden"
+                      maxHeight={!contentItem.collapse ? "200px" : "0px"}
+                      transition={0.4}
+                    >
+                      <Box padding={15} />
+                      <Text type="undersubtitle" lineHeight={1.3}>
+                        {contentItem.content}
+                      </Text>
+                    </Box>
                   </Flex>
                 </Box>
               </Box>

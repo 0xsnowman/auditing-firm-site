@@ -22,7 +22,7 @@ const Table = () => {
     <Flex flexDirection="column">
       <Box paddingVertical={30}>
         <Text
-          type="sublogo"
+          type="title"
           fontWeight={600}
           color={COLORS.DARK_THEME_WHITE}
           center
