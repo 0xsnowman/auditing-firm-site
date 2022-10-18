@@ -25,63 +25,19 @@ import { WINDOW_SIZES } from "config/dimensions";
 import { connect } from "react-redux";
 import { changeTheme } from "redux/actions/theme";
 import { changeAuditModalOpened } from "redux/actions/requestAuditModal";
+import { faqData } from "config/faqs";
+import { fixedScrollBarLeftCalculate } from "config/formulas";
 
 const Tron = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
-  const faqData = [
-    {
-      title: "What are smart contracts?",
-      content: `A smart contract, like any contract, establishes the terms of an agreement. But unlike a traditional contract, a smart contract’s terms are executed as code running on a blockchain like Ethereum. Smart contracts allow developers to build apps that take advantage of blockchain security, reliability, and accessibility while offering sophisticated peer-to-peer functionality`,
-      collapse: true
-    },
-    {
-      title: "Why do web3 projects rely on smart contracts?",
-      content: `Smart contracts allow developers to build a wide variety of decentralized apps and tokens. They’re used in everything from new financial tools to logistics and game experiences, and they’re stored on a blockchain like any other crypto transaction. Once a smart-contract app has been added to the blockchain, it generally can’t be reversed or changed (although there are some exceptions).`,
-      collapse: true
-    },
-    {
-      title: "What is a smart contract audit?",
-      content: `A smart contract audit is a process whereby a third party or exchange analyzes a smart contract code behind a token or DeFi protocol. The audit confirms to the public that your contract contains no mechanisms and loopholes to steal investors’ funds.`,
-      collapse: true
-    },
-    {
-      title: "What benefits does a company get upon passing a contract audit?",
-      content: `Smart contract auditing enables businesses to find and eliminate smart contract vulnerabilities to exploit attackers who can cause serious damage to the business and its customers. Passing an audit also serves as a confirmation of the company's credibility to potential partners and investors.`,
-      collapse: true
-    },
-    {
-      title:
-        "Will I get recommendations on how to address detected issues after an audit?",
-      content: `Yes, our expert auditors will provide you with a comprehensive list of suggested fixes for any vulnerabilities detected in your smart contract.`,
-      collapse: true
-    },
-    {
-      title: "What is the duration of a smart contract audit?",
-      content: `A smart contract audit can take anywhere from 1 to 7 business days to complete depending on the complexity and length of the smart contract`,
-      collapse: true
-    }
-  ];
-  const fixedScrollBarLeftCalculate = () => {
-    if (deviceWidth > 1800) {
-      return `calc(${(deviceWidth - 1400) / 2}px + 32px)`;
-    } else if (deviceWidth > 1200) {
-      return `calc(${(deviceWidth - 1150) / 2}px + 32px)`;
-    } else if (deviceWidth > 900) {
-      return `calc(${(deviceWidth - 860) / 2}px + 32px)`;
-    } else if (deviceWidth > 464) {
-      return 34 + 20;
-    } else if (deviceWidth > 342) {
-      return 32 + 20;
-    }
-    return 32;
-  };
+  
   return (
     <Page backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
       <Flex flexDirection="column" gap={0} alignItems="center">
         <Box
           position="fixed"
           top={105}
-          left={fixedScrollBarLeftCalculate()}
+          left={fixedScrollBarLeftCalculate(deviceWidth)}
           width={6}
           height="250px"
           zIndex={Z_INDEX_LEVELS.VERY_LOW}
@@ -123,7 +79,7 @@ const Tron = (props: any) => {
                   type={
                     deviceWidth > WINDOW_SIZES.SIZE_1280
                       ? "paragraph"
-                      : "sublogo"
+                      : "title"
                   }
                   fontWeight={600}
                 >
@@ -152,7 +108,7 @@ const Tron = (props: any) => {
             <Box padding={30}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text center type="title" fontWeight={600}>
                   Protect your Tron project from vulnerabilities
                 </Text>
                 <Box padding={10}></Box>
@@ -189,7 +145,7 @@ const Tron = (props: any) => {
             <Box padding={30}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text center type="title" fontWeight={600}>
                   Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
@@ -212,7 +168,7 @@ const Tron = (props: any) => {
             <Box padding={30}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text center type="title" fontWeight={600}>
                   Benefits of Proof Smart Contract Audit
                 </Text>
                 <Grid gap={20}>
@@ -324,7 +280,7 @@ const Tron = (props: any) => {
             <Box padding={30}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text center type="title" fontWeight={600}>
                   Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
@@ -345,7 +301,7 @@ const Tron = (props: any) => {
         <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
           <Container>
             <Box padding={30}></Box>
-            <Text center type="sublogo" fontWeight={600}>
+            <Text center type="title" fontWeight={600}>
               How It Works
             </Text>
             <Box padding={30}></Box>
@@ -364,6 +320,7 @@ const Tron = (props: any) => {
                       "You submit the required documentation and get a free preliminary audit, including an estimation of the full audit scope, timeline, and price."
                     ]}
                     direction="vertical"
+                    boundary="first"
                   />
                   <MileStone
                     value={2}
@@ -391,6 +348,7 @@ const Tron = (props: any) => {
                       "Integrate Proof audit into your website. Your audit will be mentioned on the Proof-owned and partner media"
                     ]}
                     direction="vertical"
+                    boundary="last"
                   />
                 </Flex>
               </Box>
@@ -407,7 +365,7 @@ const Tron = (props: any) => {
             <Box padding={30}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text center type="title" fontWeight={600}>
                   Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
@@ -429,7 +387,7 @@ const Tron = (props: any) => {
           <Box padding={30}></Box>
           <Box paddingHorizontal={20} paddingVertical={50}>
             <Flex flexDirection="column" alignItems="center" gap={20}>
-              <Text center type="sublogo" fontWeight={600}>
+              <Text center type="title" fontWeight={600}>
                 Why does an Audit Report include?
               </Text>
               <Flex
@@ -471,7 +429,7 @@ const Tron = (props: any) => {
                 />
               </Flex>
               <Box padding={20} />
-              <Text center type="sublogo" fontWeight={600}>
+              <Text center type="title" fontWeight={600}>
                 What do you get after an audit?
               </Text>
               <Grid gap={20}>
@@ -522,7 +480,7 @@ const Tron = (props: any) => {
             <Box padding={30}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text center type="title" fontWeight={600}>
                   Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
@@ -546,7 +504,7 @@ const Tron = (props: any) => {
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
                 <Box padding={5}>
-                  <Text type="sublogo" fontWeight={600} center>
+                  <Text type="title" fontWeight={600} center>
                     FAQ
                   </Text>
                 </Box>
@@ -562,7 +520,7 @@ const Tron = (props: any) => {
             <Box padding={30}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text center type="title" fontWeight={600}>
                   Interested in a Proof security audit?
                 </Text>
                 <Box padding={20}>
