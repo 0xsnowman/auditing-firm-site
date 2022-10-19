@@ -10,7 +10,11 @@ import {
   BNB,
   Avalanche,
   Polygon,
-  Tron
+  Tron,
+  Company,
+  Disclaimer,
+  Privacy,
+  Terms
 } from "ui/pages";
 import "styles/index.scss";
 
@@ -28,6 +32,10 @@ function App() {
         <Route path="/avalanche" element={<Avalanche />} />
         <Route path="/polygon" element={<Polygon />} />
         <Route path="/tron" element={<Tron />} />
+        <Route path="/company" element={<Company />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
       <Footer />
     </BrowserRouter>

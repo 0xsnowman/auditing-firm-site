@@ -4,8 +4,14 @@
   padding-left: 70px;
   padding-right: 70px;
   background-color: transparent;
-  min-width: 388px;
-  max-width: calc(100% - 140px);
+  min-width: 320px;
+  @media only screen and (min-width: 464px) {
+    max-width: calc(100% - 140px);
+  }
+  @media only screen and (max-width: 464px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   // @media only screen and (min-width: 900px) {
   //   max-width: 860px;

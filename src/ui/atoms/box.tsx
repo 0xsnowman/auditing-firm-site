@@ -27,7 +27,7 @@ interface IBoxProps {
   borderLeftWidth?: number;
   paddingVertical?: number;
   paddingHorizontal?: number;
-  padding?: number;
+  padding?: number | string;
   top?: string | number;
   right?: string | number;
   bottom?: string | number;

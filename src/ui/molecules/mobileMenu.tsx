@@ -245,7 +245,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                 onClick={() => {
                   setCollapsed(true);
                   setSubMenuCollapsed(true);
-                  navigate("https://caduceuscap.com/company/");
+                  navigate("/company/");
                 }}
               >
                 <Flex justifyContent="space-between">

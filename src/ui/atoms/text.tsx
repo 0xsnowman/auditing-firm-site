@@ -5,13 +5,29 @@ import { COLORS } from "config/colors";
 interface ITextProps {
   children: React.ReactNode;
   className?: string;
-  type?: "logo" | "sublogo" | "title" | "uppersubtitle" | "subtitle" | "undersubtitle" | "paragraph" | "button" | "plain" | "tiny" | "header";
+  type?:
+    | "logo"
+    | "sublogo"
+    | "title"
+    | "uppersubtitle"
+    | "subtitle"
+    | "undersubtitle"
+    | "paragraph"
+    | "button"
+    | "plain"
+    | "tiny"
+    | "header";
   color?: string;
   colorPrimary?: boolean;
   fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
   lineHeight?: string | number;
   center?: boolean;
   right?: boolean;
+  justify?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  noWrap?: boolean;
+  category?: "p" | "span";
 }
 
 const Text: React.FC<ITextProps> = ({
@@ -22,7 +38,12 @@ const Text: React.FC<ITextProps> = ({
   fontWeight = 400,
   center,
   lineHeight = "auto",
-  right
+  right,
+  justify,
+  italic = false,
+  underline = false,
+  noWrap = false,
+  category = "p"
 }) => {
   const classNames = {
     logo: "atom-text-logo",
@@ -35,20 +56,50 @@ const Text: React.FC<ITextProps> = ({
     sublogo: "atom-text-sublogo",
     undersubtitle: "atom-text-undersubtitle",
     tiny: "atom-text-tiny",
-    header: "atom-text-header",
+    header: "atom-text-header"
   };
-  return (
+  return category === "p" ? (
     <div
       className={["atom-text", className, classNames[type]].join(" ")}
       style={{
         color: color,
         lineHeight: lineHeight,
         fontWeight: fontWeight,
-        textAlign: center ? "center" : right ? "right" : "left"
+        textAlign: center
+          ? "center"
+          : right
+          ? "right"
+          : justify
+          ? "justify"
+          : "left",
+        textDecoration: underline ? "underline" : "initial",
+        fontStyle: italic ? "italic" : "initial",
+        whiteSpace: noWrap ? "nowrap" : "initial"
       }}
     >
       {children}
     </div>
+  ) : (
+    <span
+      className={["atom-text", className, classNames[type]].join(" ")}
+      style={{
+        color: color,
+        lineHeight: lineHeight,
+        fontWeight: fontWeight,
+        textAlign: center
+          ? "center"
+          : right
+          ? "right"
+          : justify
+          ? "justify"
+          : "left",
+        textDecoration: underline ? "underline" : "initial",
+        fontStyle: italic ? "italic" : "initial",
+        whiteSpace: noWrap ? "nowrap" : "initial"
+      }}
+    >
+      {children}
+    </span>
   );
 };
 
