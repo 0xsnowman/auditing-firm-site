@@ -154,8 +154,6 @@ const DropDown: React.FC<IDropDownProps> = ({
                       <Box
                         backgroundColor={COLORS.DARK_THEME_TRANSPARENT}
                         backgroundHoverColor="grey"
-                        borderColor={"white"}
-                        borderWidth={2}
                         cursor
                         width="100%"
                         onClick={() => {
