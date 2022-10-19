@@ -23,4 +23,12 @@
   &-backdrop {
     -webkit-backdrop-filter: blur(10px);
   }
+
+  &-hoverColor {
+    &-grey {
+      &:hover {
+        background-color: red;
+      }
+    }
+  }
 }

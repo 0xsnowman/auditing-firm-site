@@ -4,6 +4,7 @@
   padding-left: 20px;
   padding-right: 20px;
   background-color: transparent;
+  min-width: 388px;
 
   @media only screen and (min-width: 900px) {
     max-width: 860px;
@@ -12,6 +13,9 @@
     max-width: 1150px;
   }
   @media only screen and (min-width: 1800px) {
-    max-width: 1350px;
+    max-width: 1450px;
+  }
+  @media only screen and (min-width: 2400px) {
+    max-width: 1800px;
   }
 }

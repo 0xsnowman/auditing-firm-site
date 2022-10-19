@@ -40,6 +40,7 @@ import next from "./next.svg";
 import rectangle from "./rectangle.svg";
 import closeBlack from "./closeBlack.svg";
 import notification from "./notification.svg";
+import ethereumSvg from "./ethereum.svg";
 
 const Icons = {
   rocket,
@@ -83,7 +84,8 @@ const Icons = {
   next,
   rectangle,
   closeBlack,
-  notification
+  notification,
+  ethereumSvg,
 };
 
 export default Icons;
