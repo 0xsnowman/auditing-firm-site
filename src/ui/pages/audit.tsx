@@ -34,11 +34,16 @@ const Audit = (props: any) => {
                 Industry Leading Web3 Auditor
               </Text>
               <Flex>
-                <Text center type="subtitle">
+                <Text center type="uppersubtitle">
                   Accelerating the&nbsp;
                 </Text>
-                <Text center type="subtitle" fontWeight={600}>security&nbsp;</Text>
-                <Text center type="subtitle"> of Web3</Text>
+                <Text center type="uppersubtitle" fontWeight={600}>
+                  security&nbsp;
+                </Text>
+                <Text center type="uppersubtitle">
+                  {" "}
+                  of Web3
+                </Text>
               </Flex>
               <Box padding={20}>
                 <Button
@@ -60,34 +65,25 @@ const Audit = (props: any) => {
         <Container>
           <Box paddingHorizontal={20} paddingVertical={30}>
             <Flex flexDirection="column" alignItems="center" gap={20}>
-              <Text
-                center
-                type={
-                  deviceWidth > WINDOW_SIZES.SIZE_1280 ? "paragraph" : "sublogo"
-                }
-                fontWeight={600}
-              >
+              <Text center type="paragraph" fontWeight={600}>
                 SUPPORTED CHAINS
               </Text>
               <Box padding={3}></Box>
-              {/* <Flex
-                gap={30}
-                justifyContent="center"
-                flexDirection={
-                  deviceWidth > WINDOW_SIZES.SIZE_1280 ? "row" : "column"
-                }
+              <Box
+                width="100%"
+                height="100%"
+                borderRadius={20}
+                overflowX="hidden"
+                overflowY="hidden"
               >
-                <Icon icon={Icons.ethereum} size="EXTRA_SUPER_LARGE"></Icon>
-                <Icon icon={Icons.bnb} size="EXTRA_SUPER_LARGE"></Icon>
-                <Icon icon={Icons.polygon} size="EXTRA_SUPER_LARGE"></Icon>
-                <Icon icon={Icons.tron} size="EXTRA_SUPER_LARGE"></Icon>
-                <Icon icon={Icons.avalanche} size="EXTRA_SUPER_LARGE"></Icon>
-              </Flex> */}
-              <Carousel>
-                <CarouselCard slide={Icons.ethereum} />
-                <CarouselCard slide={Icons.ethereum} />
-                <CarouselCard slide={Icons.ethereum} />
-              </Carousel>
+                <Carousel>
+                  <CarouselCard slide={Icons.ethereum} />
+                  <CarouselCard slide={Icons.bnb} />
+                  <CarouselCard slide={Icons.avalanche} />
+                  <CarouselCard slide={Icons.polygon} />
+                  <CarouselCard slide={Icons.tron} />
+                </Carousel>
+              </Box>
             </Flex>
           </Box>
         </Container>

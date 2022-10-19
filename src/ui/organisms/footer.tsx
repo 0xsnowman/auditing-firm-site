@@ -5,9 +5,11 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import Icons from "assets/icons";
 import { COLORS } from "config/colors";
 import { WINDOW_SIZES, Z_INDEX_LEVELS } from "config/dimensions";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const { deviceWidth } = useWindowDimensions();
+  const navigate = useNavigate();
   return (
     <Box
       className="organism-footer"
@@ -29,11 +31,17 @@ const Footer = () => {
             className="organism-footer__connection-list"
           >
             <Flex flex={2} flexDirection="column">
-              {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
-                <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
-              ) : (
-                <Icon icon={Icons.proofLogoWhite} size="LARGE" />
-              )}
+              <Box
+                onClick={() => {
+                  navigate("/#");
+                }}
+              >
+                {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
+                  <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
+                ) : (
+                  <Icon icon={Icons.proofLogoWhite} size="UPPERLARGE" />
+                )}
+              </Box>
               <Box maxWidth="400px" paddingVertical={20}>
                 <Text color={COLORS.DARK_THEME_WHITE} type="subtitle">
                   Industry-leading Smart Contract Authentication
@@ -58,15 +66,29 @@ const Footer = () => {
               <Flex flex={1} flexDirection="column" gap={15}>
                 <Box paddingVertical={10}>
                   <Text type="paragraph" color={COLORS.WHITE} fontWeight={600}>
+                    Chains
+                  </Text>
+                </Box>
+                <NavItem url={"/ethereum"}>Ethereum</NavItem>
+                <NavItem url={"/bnb"}>BNB</NavItem>
+                <NavItem url={"/avalanche"}>Avalanche</NavItem>
+                <NavItem url={"/polygon"}>Polygon</NavItem>
+                <NavItem url={"/tron"}>Tron</NavItem>
+              </Flex>
+              <Flex flex={1} flexDirection="column" gap={15}>
+                <Box paddingVertical={10} onClick={() => {
+                  window.location.replace("https://caduceuscap.com/company/");
+                }}>
+                  <Text type="paragraph" color={COLORS.WHITE} fontWeight={600}>
                     Company
                   </Text>
                 </Box>
-                <NavItem>About</NavItem>
-                <NavItem>Careers</NavItem>
-                <NavItem>Disclaimer</NavItem>
-                <NavItem>Privacy Policy</NavItem>
-                <NavItem>Cookie Policy</NavItem>
-                <NavItem>Terms and Conditions</NavItem>
+                <NavItem url={"https://caduceuscap.com/company/"}>About</NavItem>
+                {/* <NavItem>Careers</NavItem> */}
+                <NavItem url={"https://caduceuscap.com/disclaimer/"}>Disclaimer</NavItem>
+                <NavItem url={"https://caduceuscap.com/privacy/"}>Privacy Policy</NavItem>
+                {/* <NavItem>Cookie Policy</NavItem> */}
+                <NavItem url={"https://caduceuscap.com/terms/"}>Terms</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={17}>
                 <Box paddingVertical={10}>

@@ -18,9 +18,9 @@ const CarouselCard: React.FC<ICarouselCardProps> = ({ /*title, date, */slide }) 
   return (
     <Box
       className="molecule-carouselcard"
-      backgroundColor={COLORS.WHITE}
-      width="300px"
-      height="300px"
+      backgroundColor={COLORS.DARK_THEME_TRANSPARENT}
+      width="auto"
+      height="auto"
     >
       <Icon icon={slide} size="SUPER_LARGE"></Icon>
     </Box>

@@ -126,7 +126,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
               content.map((contentItem, index) => {
                 return (
                   <Box paddingVertical={10} key={index}>
-                    <Text type="paragraph" color={textColor} lineHeight={1.5}>
+                    <Text type="undersubtitle" color={textColor} lineHeight={1.5}>
                       {leftTextCount === "all"
                         ? contentItem
                         : contentItem.substr(0, leftTextCount) + " ..."}

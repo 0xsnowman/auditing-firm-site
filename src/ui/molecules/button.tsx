@@ -4,7 +4,7 @@ import { COLORS } from "config/colors";
 import { Animations } from "assets";
 
 interface IButtonProps {
-  children: string;
+  children: string | React.ReactNode;
   backgroundColor?: string;
   backgroundHoverColor?: string;
   color?: string;
