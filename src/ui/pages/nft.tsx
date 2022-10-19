@@ -310,7 +310,7 @@ const NFT = (props: any) => {
         <Container>
           <Box paddingHorizontal={20} paddingVertical={0} overflowY="hidden">
             <Flex flexDirection="column" alignItems="center" gap={20}>
-              <Box paddingVertical={0}>
+              <Box paddingVertical={0} width="100%">
                 <Flex flexDirection="column">
                   <MileStone
                     value={1}
