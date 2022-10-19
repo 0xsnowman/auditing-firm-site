@@ -10,7 +10,13 @@ interface IBoxProps {
   className?: string;
   backdropFilter?: boolean;
   display?: "block" | "inline-block";
-  position?: "static" | "absolute" | "relative" | "fixed" | "sticky" | "initial";
+  position?:
+    | "static"
+    | "absolute"
+    | "relative"
+    | "fixed"
+    | "sticky"
+    | "initial";
   borderRadius?: number;
   borderWidth?: number;
   borderStyle?: "solid" | "dashed";
@@ -27,6 +33,7 @@ interface IBoxProps {
   bottom?: string | number;
   left?: string | number;
   backgroundColor?: string;
+  backgroundHoverColor?: "transparent" | "grey" | "white" | "black";
   backgroundPrimary?: boolean;
   boxShadow?: string;
   overflowX?: "initial" | "hidden" | "scroll" | "auto";
@@ -72,6 +79,7 @@ const Box: React.FC<IBoxProps> = ({
   bottom = "auto",
   left = "auto",
   backgroundColor,
+  backgroundHoverColor = "transparent",
   boxShadow,
   overflowX = "initial",
   overflowY = "initial",
@@ -85,20 +93,31 @@ const Box: React.FC<IBoxProps> = ({
   zIndex = "initial",
   backgroundImage = "auto",
   backgroundSize = "initial",
-  transition,
+  transition
 }) => {
   const backdropFilterClassName = backdropFilter ? "atom-box-backdrop" : "none";
   const cursorClassName = cursor ? "atom-box-cursor" : "none";
+  const backgroundHoverColorClassNames = {
+    transparent: "atom-box-hoverColor-transparent",
+    grey: "atom-box-hoverColor-grey",
+    black: "atom-box-hoverColor-black",
+    white: "atom-box-hoverColor-white"
+  };
 
   const isBackgroundImageUrl = (url: string) => {
-    if (url.includes(",") || !url.includes("."))
-      return false;
+    if (url.includes(",") || !url.includes(".")) return false;
     return true;
   };
 
   return (
     <div
-      className={["atom-box", className, backdropFilterClassName, cursorClassName].join(" ")}
+      className={[
+        "atom-box",
+        className,
+        backdropFilterClassName,
+        cursorClassName,
+        backgroundHoverColorClassNames[backgroundHoverColor]
+      ].join(" ")}
       onScroll={onScroll}
       style={{
         display: display,
@@ -113,7 +132,9 @@ const Box: React.FC<IBoxProps> = ({
         borderRightWidth: borderRightWidth ? borderRightWidth : borderWidth,
         borderBottomWidth: borderBottomWidth ? borderBottomWidth : borderWidth,
         borderLeftWidth: borderLeftWidth ? borderLeftWidth : borderWidth,
-        backgroundImage: isBackgroundImageUrl(backgroundImage) ? `url(${backgroundImage})` : backgroundImage,
+        backgroundImage: isBackgroundImageUrl(backgroundImage)
+          ? `url(${backgroundImage})`
+          : backgroundImage,
         backgroundRepeat: "no-repeat",
         backgroundSize: backgroundSize,
         borderStyle: borderStyle,
@@ -135,7 +156,7 @@ const Box: React.FC<IBoxProps> = ({
         boxShadow: boxShadow,
         backdropFilter: backdropFilter ? "blur(10px)" : "none",
         zIndex: zIndex,
-        transition: transition + 's',
+        transition: transition + "s"
       }}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
