@@ -13,10 +13,10 @@ const Footer = () => {
   return (
     <Box
       className="organism-footer"
-      paddingHorizontal={30}
-      paddingVertical={60}
-      backgroundColor={COLORS.DARK_THEME_BLACK}
+      backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}
       zIndex={Z_INDEX_LEVELS.LOW}
+      width="100%"
+      paddingVertical={90}
     >
       <Container>
         <Flex
@@ -43,7 +43,7 @@ const Footer = () => {
                 )}
               </Box>
               <Box maxWidth="400px" paddingVertical={20}>
-                <Text color={COLORS.DARK_THEME_WHITE} type="subtitle">
+                <Text color={COLORS.DARK_THEME_WHITE} type="subtitle" fontWeight={600}>
                   Industry-leading Smart Contract Authentication
                 </Text>
               </Box>
@@ -83,12 +83,12 @@ const Footer = () => {
                     Company
                   </Text>
                 </Box>
-                <NavItem url={"https://caduceuscap.com/company/"}>About</NavItem>
+                <NavItem url={"/company"}>About</NavItem>
                 {/* <NavItem>Careers</NavItem> */}
-                <NavItem url={"https://caduceuscap.com/disclaimer/"}>Disclaimer</NavItem>
-                <NavItem url={"https://caduceuscap.com/privacy/"}>Privacy Policy</NavItem>
+                <NavItem url={"/disclaimer/"}>Disclaimer</NavItem>
+                <NavItem url={"/privacy/"}>Privacy Policy</NavItem>
                 {/* <NavItem>Cookie Policy</NavItem> */}
-                <NavItem url={"https://caduceuscap.com/terms/"}>Terms</NavItem>
+                <NavItem url={"/terms/"}>Terms</NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={17}>
                 <Box paddingVertical={10}>

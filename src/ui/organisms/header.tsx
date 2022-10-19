@@ -89,7 +89,7 @@ const Header = (props: any) => {
                 </Box>
                 {deviceWidth > WINDOW_SIZES.SIZE_1280 && (
                   <Flex
-                    gap={110}
+                    gap={140}
                     alignItems="center"
                     justifyContent="space-around"
                   >
@@ -126,7 +126,7 @@ const Header = (props: any) => {
                       <DropDown
                         title="Company"
                         data={[]}
-                        baseUrl="https://caduceuscap.com/company/"
+                        baseUrl="/company"
                         direction="left"
                         top={-20}
                       />
