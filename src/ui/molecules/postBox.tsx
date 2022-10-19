@@ -10,6 +10,18 @@ interface IPostBoxProps {
   title?: string;
   subtitle?: string;
   content?: string[];
+  titleType?:
+    | "logo"
+    | "sublogo"
+    | "title"
+    | "uppersubtitle"
+    | "subtitle"
+    | "undersubtitle"
+    | "paragraph"
+    | "button"
+    | "plain"
+    | "tiny"
+    | "header";
   background?: "black" | "white";
   border?: boolean;
   image?: boolean;
@@ -24,6 +36,7 @@ interface IPostBoxProps {
   direction?: "left-right" | "right-left" | "up-down" | "down-up";
   leftTextCount?: number | "all";
   icon?: string;
+  iconPosition?: "upper" | "middle" | "low";
 }
 
 const PostBox: React.FC<IPostBoxProps> = ({
@@ -43,7 +56,9 @@ const PostBox: React.FC<IPostBoxProps> = ({
   minHeight = 100,
   direction = "left-right",
   leftTextCount = 100,
-  icon = ""
+  icon = "",
+  titleType = "paragraph",
+  iconPosition = "middle"
 }) => {
   const globalDirection = () => {
     if (direction === "left-right") return "row";
@@ -78,10 +93,24 @@ const PostBox: React.FC<IPostBoxProps> = ({
         width="100%"
         height="100%"
         justifyContent="space-between"
-        alignItems="center"
+        alignItems={
+          iconPosition === "middle"
+            ? "center"
+            : iconPosition === "upper"
+            ? "flex-start"
+            : "flex-end"
+        }
       >
         {icon.length > 0 && (
-          <Box>
+          <Box
+            marginTop={
+              iconPosition === "middle"
+                ? 0
+                : iconPosition === "upper"
+                ? 30
+                : -30
+            }
+          >
             <Icon icon={icon} size="LARGE" />
           </Box>
         )}
@@ -101,8 +130,13 @@ const PostBox: React.FC<IPostBoxProps> = ({
             {title.length > 0 && (
               <Text
                 type={
-                  deviceWidth > WINDOW_SIZES.SIZE_1024 ? "paragraph" : "sublogo"
+                  titleType === "paragraph"
+                    ? deviceWidth > WINDOW_SIZES.SIZE_1024
+                      ? titleType
+                      : "sublogo"
+                    : titleType
                 }
+                fontWeight={titleType === "paragraph" ? 400 : 600}
                 color={titleColor}
                 center
               >
@@ -126,7 +160,11 @@ const PostBox: React.FC<IPostBoxProps> = ({
               content.map((contentItem, index) => {
                 return (
                   <Box paddingVertical={10} key={index}>
-                    <Text type="undersubtitle" color={textColor} lineHeight={1.5}>
+                    <Text
+                      type="undersubtitle"
+                      color={textColor}
+                      lineHeight={1.5}
+                    >
                       {leftTextCount === "all"
                         ? contentItem
                         : contentItem.substr(0, leftTextCount) + " ..."}
