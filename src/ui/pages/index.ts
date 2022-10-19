@@ -7,6 +7,10 @@ import BNB from "./bnb";
 import Avalanche from "./avalanche";
 import Polygon from "./polygon";
 import Tron from "./tron";
+import Company from "./company";
+import Disclaimer from "./disclaimer";
+import Privacy from "./privacy";
+import Terms from "./terms";
 
 export {
     Audit,
@@ -17,5 +21,9 @@ export {
     BNB,
     Avalanche,
     Polygon,
-    Tron
+    Tron,
+    Company,
+    Disclaimer,
+    Privacy,
+    Terms,
 };
