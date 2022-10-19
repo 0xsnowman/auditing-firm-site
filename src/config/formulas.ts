@@ -1,8 +1,12 @@
 export const fixedScrollBarLeftCalculate = (deviceWidth: number) => {
   if (deviceWidth > 2400) {
-    return `calc(${(deviceWidth - 1800) / 2}px + 41px)`;
+    return `calc(${(deviceWidth - 2300) / 2}px + 41px)`;
   } else if (deviceWidth > 1800) {
-    return `calc(${(deviceWidth - 1450) / 2}px + 41px)`;
+    return `calc(${(deviceWidth - 1720) / 2}px + 41px)`;
+  } else if (deviceWidth > 1620) {
+    return `calc(${(deviceWidth - 1540) / 2}px + 78px)`;
+  } else if (deviceWidth > 1500) {
+    return `calc(${(deviceWidth - 1440) / 2}px + 41px)`;
   } else if (deviceWidth > 1200) {
     return `calc(${(deviceWidth - 1150) / 2}px + 41px)`;
   } else if (deviceWidth > 900) {

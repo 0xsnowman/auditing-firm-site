@@ -12,10 +12,16 @@
   @media only screen and (min-width: 1200px) {
     max-width: 1150px;
   }
+  @media only screen and (min-width: 1500px) {
+    max-width: 1440px;
+  }
+  @media only screen and (min-width: 1620px) {
+    max-width: 1540px;
+  }
   @media only screen and (min-width: 1800px) {
-    max-width: 1450px;
+    max-width: 1720px;
   }
   @media only screen and (min-width: 2400px) {
-    max-width: 1800px;
+    max-width: 2300px;
   }
 }
