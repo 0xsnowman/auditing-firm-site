@@ -94,7 +94,8 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyShield}
+                      iconPadding
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -110,7 +111,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyArt}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -126,7 +127,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyStar}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -142,7 +143,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyTarget}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -158,7 +159,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyEye}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -174,7 +175,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyDoubleCircle}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -190,7 +191,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyRound}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -206,7 +207,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyChess}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -222,7 +223,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyZen}
                       minHeight={150}
                       iconPosition="upper"
                     />
@@ -238,7 +239,7 @@ const Company = (props: any) => {
                       textColor={COLORS.DARK_THEME_WHITE}
                       image={false}
                       leftTextCount="all"
-                      icon={Icons.checkedRound}
+                      icon={Icons.companyUp}
                       minHeight={150}
                       iconPosition="upper"
                     />
