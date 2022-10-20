@@ -96,19 +96,22 @@ const DApp = (props: any) => {
                   overflowY="hidden"
                 >
                   <Marquee gradient={false} speed={50}>
-                    <Flex width="100%" gap={80}>
-                      <Icon icon={Icons.ethereum} size="SUPER_LARGE" />
-                      <Icon icon={Icons.bnb} size="SUPER_LARGE" />
-                      <Icon icon={Icons.avalanche} size="SUPER_LARGE" />
-                      <Icon icon={Icons.polygon} size="SUPER_LARGE" />
-                      <Icon icon={Icons.tron} size="SUPER_LARGE" />
-                      <Icon icon={Icons.ethereum} size="SUPER_LARGE" />
-                      <Icon icon={Icons.bnb} size="SUPER_LARGE" />
-                      <Icon icon={Icons.avalanche} size="SUPER_LARGE" />
-                      <Icon icon={Icons.polygon} size="SUPER_LARGE" />
-                      <Icon icon={Icons.tron} size="SUPER_LARGE" />
-                      <Box padding={10} />
-                    </Flex>
+                    {/* <Flex width="100%" gap={80}> */}
+                    {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => {
+                      return (
+                        <Box key={index}>
+                          <Flex gap={50}>
+                            <Icon icon={Icons.ethereum} size="SUPER_LARGE" />
+                            <Icon icon={Icons.bnb} size="SUPER_LARGE" />
+                            <Icon icon={Icons.avalanche} size="SUPER_LARGE" />
+                            <Icon icon={Icons.polygon} size="SUPER_LARGE" />
+                            <Icon icon={Icons.tron} size="SUPER_LARGE" />
+                            <Box />
+                          </Flex>
+                        </Box>
+                      );
+                    })}
+                    {/* </Flex> */}
                   </Marquee>
                 </Box>
               </Flex>
