@@ -34,14 +34,16 @@ const Audit = (props: any) => {
                 Industry Leading Web3 Auditor
               </Text>
               <Flex>
-                <Text center type="uppersubtitle">
+                <Text center type="uppersubtitle" category="span">
                   Accelerating the&nbsp;
-                </Text>
-                <Text center type="uppersubtitle" fontWeight={600}>
-                  security&nbsp;
-                </Text>
-                <Text center type="uppersubtitle">
-                  {" "}
+                  <Text
+                    center
+                    type="uppersubtitle"
+                    fontWeight={600}
+                    category="span"
+                  >
+                    security&nbsp;
+                  </Text>
                   of Web3
                 </Text>
               </Flex>
