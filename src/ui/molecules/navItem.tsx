@@ -5,13 +5,15 @@ interface INavItem {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   url?: string;
   fontSize?: string | number;
+  fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800;
 }
 
 const NavItem: React.FC<INavItem> = ({
   children,
   onClick,
   url = "#",
-  fontSize = "15px"
+  fontSize = "15px",
+  fontWeight = 600,
 }) => {
   return (
     <div className="molecule-navitem" onClick={onClick}>
@@ -20,7 +22,7 @@ const NavItem: React.FC<INavItem> = ({
         target="_blank"
         rel="noreferrer"
         style={{
-          fontWeight: 600,
+          fontWeight: fontWeight,
           fontSize: fontSize
         }}
       >
