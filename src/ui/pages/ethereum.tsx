@@ -5,11 +5,12 @@ import {
   Text,
   Container,
   ContentWrapper,
-  Icon,
   Grid,
   GridItem
 } from "ui/atoms";
 import {
+  Carousel,
+  CarouselCard,
   Page,
   Button,
   TextBox,
@@ -86,19 +87,21 @@ const Ethereum = (props: any) => {
                   SUPPORTED CHAINS
                 </Text>
                 <Box padding={3}></Box>
-                <Flex
-                  gap={30}
-                  justifyContent="center"
-                  flexDirection={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280 ? "row" : "column"
-                  }
+                <Box
+                  width="100%"
+                  height="100%"
+                  borderRadius={20}
+                  overflowX="hidden"
+                  overflowY="hidden"
                 >
-                  <Icon icon={Icons.ethereum} size="EXTRA_SUPER_LARGE"></Icon>
-                  <Icon icon={Icons.bnb} size="EXTRA_SUPER_LARGE"></Icon>
-                  <Icon icon={Icons.polygon} size="EXTRA_SUPER_LARGE"></Icon>
-                  <Icon icon={Icons.tron} size="EXTRA_SUPER_LARGE"></Icon>
-                  <Icon icon={Icons.avalanche} size="EXTRA_SUPER_LARGE"></Icon>
-                </Flex>
+                  <Carousel>
+                    <CarouselCard slide={Icons.ethereum} />
+                    <CarouselCard slide={Icons.bnb} />
+                    <CarouselCard slide={Icons.avalanche} />
+                    <CarouselCard slide={Icons.polygon} />
+                    <CarouselCard slide={Icons.tron} />
+                  </Carousel>
+                </Box>
               </Flex>
             </Box>
           </Container>
