@@ -65,7 +65,7 @@ const TextBox: React.FC<ITextBoxProps> = ({
                 }}
               />
             </Box>
-          )}{" "}
+          )}
         </Box>
       </Flex>
     </Box>
