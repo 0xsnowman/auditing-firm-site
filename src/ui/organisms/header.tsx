@@ -125,7 +125,7 @@ const Header = (props: any) => {
                         top={-20}
                       />
                     </Box>
-                    <Box position="relative" left={110}>
+                    <Box position="relative" left={105}>
                       <DropDown
                         title="Chains"
                         data={[
@@ -169,7 +169,7 @@ const Header = (props: any) => {
                         top={-20}
                       />
                     </Box>
-                    <Box position="relative" left={200}>
+                    <Box position="relative" left={190}>
                       <DropDown
                         title="Company"
                         data={[]}
@@ -178,7 +178,7 @@ const Header = (props: any) => {
                         top={-20}
                       />
                     </Box>
-                    <Box position="relative" left={300}>
+                    <Box position="relative" left={280}>
                       <DropDown
                         title="Socials"
                         data={[
