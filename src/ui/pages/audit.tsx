@@ -1,13 +1,6 @@
 import React from "react";
-import { Flex, Text, Container, Box, ContentWrapper } from "ui/atoms";
-import {
-  Page,
-  TextBox,
-  Button,
-  Table,
-  Carousel,
-  CarouselCard
-} from "ui/molecules";
+import { Flex, Text, Container, Box, ContentWrapper, Icon } from "ui/atoms";
+import { Page, TextBox, Button, Table } from "ui/molecules";
 import { COLORS } from "config/colors";
 import Icons from "assets/icons";
 import { connect } from "react-redux";
@@ -15,6 +8,7 @@ import { changeTheme } from "redux/actions/theme";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import { WINDOW_SIZES } from "config/dimensions";
 import { changeAuditModalOpened } from "redux/actions/requestAuditModal";
+import Marquee from "react-fast-marquee";
 // import contractData from "assets/json/contracts.json";
 
 const Audit = (props: any) => {
@@ -78,13 +72,21 @@ const Audit = (props: any) => {
                 overflowX="hidden"
                 overflowY="hidden"
               >
-                <Carousel>
-                  <CarouselCard slide={Icons.ethereum} />
-                  <CarouselCard slide={Icons.bnb} />
-                  <CarouselCard slide={Icons.avalanche} />
-                  <CarouselCard slide={Icons.polygon} />
-                  <CarouselCard slide={Icons.tron} />
-                </Carousel>
+                <Marquee gradient={false} speed={50}>
+                  <Flex width="100%" gap={80}>
+                    <Icon icon={Icons.ethereum} size="SUPER_LARGE" />
+                    <Icon icon={Icons.bnb} size="SUPER_LARGE" />
+                    <Icon icon={Icons.avalanche} size="SUPER_LARGE" />
+                    <Icon icon={Icons.polygon} size="SUPER_LARGE" />
+                    <Icon icon={Icons.tron} size="SUPER_LARGE" />
+                    <Icon icon={Icons.ethereum} size="SUPER_LARGE" />
+                    <Icon icon={Icons.bnb} size="SUPER_LARGE" />
+                    <Icon icon={Icons.avalanche} size="SUPER_LARGE" />
+                    <Icon icon={Icons.polygon} size="SUPER_LARGE" />
+                    <Icon icon={Icons.tron} size="SUPER_LARGE" />
+                    <Box padding={10} />
+                  </Flex>
+                </Marquee>
               </Box>
             </Flex>
           </Box>
@@ -111,6 +113,7 @@ const Audit = (props: any) => {
                   content="Reduce the risk of vulnerabilities and flaws in your smart contracts through a thorough, peer-reviewed line-by-line code examination."
                   icon
                   link="security-audit"
+                  hoverBorder
                 />
                 <TextBox
                   title="DApp Audit"
@@ -118,6 +121,7 @@ const Audit = (props: any) => {
                   content="Protect your decentralized applications from hacks, exploits and front-running attacks  with our best-in-class auditing methods"
                   icon
                   link="dapp-audit"
+                  hoverBorder
                 />
                 <TextBox
                   title="NFT Audit"
@@ -125,6 +129,7 @@ const Audit = (props: any) => {
                   content="Secure and optimize your Non Fungible Tokens, mitigating weaknesses and making them unsusceptible to non-functionality."
                   icon
                   link="nft-audit"
+                  hoverBorder
                 />
               </Flex>
             </Flex>
