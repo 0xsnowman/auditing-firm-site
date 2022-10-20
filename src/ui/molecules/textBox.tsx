@@ -12,6 +12,7 @@ interface ITextBoxProps {
   icon?: boolean;
   link?: string;
   minHeight?: string | number;
+  hoverBorder?: boolean;
 }
 
 const TextBox: React.FC<ITextBoxProps> = ({
@@ -21,7 +22,8 @@ const TextBox: React.FC<ITextBoxProps> = ({
   backgroundColor = COLORS.DARK_THEME_GREY_BACKGROUND,
   icon = false,
   link = "",
-  minHeight = "auto"
+  minHeight = "auto",
+  hoverBorder = false,
 }) => {
   const navigate = useNavigate();
   return (
@@ -29,8 +31,15 @@ const TextBox: React.FC<ITextBoxProps> = ({
       borderWidth={0}
       borderColor={COLORS.GREY}
       backgroundColor={COLORS.DARK_THEME_TRANSPARENT}
+      backgroundHoverBorderColor={hoverBorder ? "blue" : "transparent"}
       borderRadius={0}
       width="100%"
+      cursor
+      onClick={() => {
+        if (icon) {
+          navigate("/" + link);
+        }
+      }}
     >
       <Flex flexDirection="column" height="100%">
         <Box
