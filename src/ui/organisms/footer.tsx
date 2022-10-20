@@ -43,7 +43,11 @@ const Footer = () => {
                 )}
               </Box>
               <Box maxWidth="400px" paddingVertical={20}>
-                <Text color={COLORS.DARK_THEME_WHITE} type="subtitle" fontWeight={600}>
+                <Text
+                  color={COLORS.DARK_THEME_WHITE}
+                  type="subtitle"
+                  fontWeight={600}
+                >
                   Industry-leading Smart Contract Authentication
                 </Text>
               </Box>
@@ -59,9 +63,15 @@ const Footer = () => {
                     Solutions
                   </Text>
                 </Box>
-                <NavItem url={"/security-audit"}>Smart Contract Audit</NavItem>
-                <NavItem url={"/dapp-audit"}>dApp Audit</NavItem>
-                <NavItem url={"/nft-audit"}>NFT Audit</NavItem>
+                <NavItem fontWeight={400} url={"/security-audit"}>
+                  Smart Contract Audit
+                </NavItem>
+                <NavItem fontWeight={400} url={"/dapp-audit"}>
+                  dApp Audit
+                </NavItem>
+                <NavItem fontWeight={400} url={"/nft-audit"}>
+                  NFT Audit
+                </NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={15}>
                 <Box paddingVertical={10}>
@@ -69,26 +79,47 @@ const Footer = () => {
                     Chains
                   </Text>
                 </Box>
-                <NavItem url={"/ethereum"}>Ethereum</NavItem>
-                <NavItem url={"/bnb"}>BNB</NavItem>
-                <NavItem url={"/avalanche"}>Avalanche</NavItem>
-                <NavItem url={"/polygon"}>Polygon</NavItem>
-                <NavItem url={"/tron"}>Tron</NavItem>
+                <NavItem fontWeight={400} url={"/ethereum"}>
+                  Ethereum
+                </NavItem>
+                <NavItem fontWeight={400} url={"/bnb"}>
+                  BNB
+                </NavItem>
+                <NavItem fontWeight={400} url={"/avalanche"}>
+                  Avalanche
+                </NavItem>
+                <NavItem fontWeight={400} url={"/polygon"}>
+                  Polygon
+                </NavItem>
+                <NavItem fontWeight={400} url={"/tron"}>
+                  Tron
+                </NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={15}>
-                <Box paddingVertical={10} onClick={() => {
-                  window.location.replace("https://caduceuscap.com/company/");
-                }}>
+                <Box
+                  paddingVertical={10}
+                  onClick={() => {
+                    window.location.replace("https://caduceuscap.com/company/");
+                  }}
+                >
                   <Text type="paragraph" color={COLORS.WHITE} fontWeight={600}>
                     Company
                   </Text>
                 </Box>
-                <NavItem url={"/company"}>About</NavItem>
+                <NavItem fontWeight={400} url={"/company"}>
+                  About
+                </NavItem>
                 {/* <NavItem>Careers</NavItem> */}
-                <NavItem url={"/disclaimer/"}>Disclaimer</NavItem>
-                <NavItem url={"/privacy/"}>Privacy Policy</NavItem>
+                <NavItem fontWeight={400} url={"/disclaimer/"}>
+                  Disclaimer
+                </NavItem>
+                <NavItem fontWeight={400} url={"/privacy/"}>
+                  Privacy Policy
+                </NavItem>
                 {/* <NavItem>Cookie Policy</NavItem> */}
-                <NavItem url={"/terms/"}>Terms</NavItem>
+                <NavItem fontWeight={400} url={"/terms/"}>
+                  Terms
+                </NavItem>
               </Flex>
               <Flex flex={1} flexDirection="column" gap={17}>
                 <Box paddingVertical={10}>
@@ -96,50 +127,62 @@ const Footer = () => {
                     Socials
                   </Text>
                 </Box>
-                <NavItem url={"https://t.me/proofaudit"}>
+                <NavItem fontWeight={400} url={"https://t.me/proofaudit"}>
                   <Flex gap={10}>
                     <Icon icon={Icons.telegram} size="SMALL" />
-                    <Text color={COLORS.GRAY} type="plain" fontWeight={600}>
+                    <Text color={COLORS.GRAY} type="plain" fontWeight={400}>
                       Telegram
                     </Text>
                   </Flex>
                 </NavItem>
-                <NavItem url={"https://twitter.com/proofaudit"}>
+                <NavItem
+                  fontWeight={400}
+                  url={"https://twitter.com/proofaudit"}
+                >
                   <Flex gap={10}>
                     <Icon icon={Icons.twitter} size="SMALL" />
-                    <Text color={COLORS.GRAY} type="plain" fontWeight={600}>
+                    <Text color={COLORS.GRAY} type="plain" fontWeight={400}>
                       Twitter
                     </Text>
                   </Flex>
                 </NavItem>
-                <NavItem url={"https://medium.com/@proofaudit"}>
+                <NavItem
+                  fontWeight={400}
+                  url={"https://medium.com/@proofaudit"}
+                >
                   <Flex gap={10}>
                     <Icon icon={Icons.medium} size="SMALL" />
-                    <Text color={COLORS.GRAY} type="plain" fontWeight={600}>
+                    <Text color={COLORS.GRAY} type="plain" fontWeight={400}>
                       Medium
                     </Text>
                   </Flex>
                 </NavItem>
-                <NavItem url={"https://www.linkedin.com/company/proofaudit/"}>
+                <NavItem
+                  fontWeight={400}
+                  url={"https://www.linkedin.com/company/proofaudit/"}
+                >
                   <Flex gap={10}>
                     <Icon icon={Icons.linkedin} size="SMALL" />
-                    <Text color={COLORS.GRAY} type="plain" fontWeight={600}>
+                    <Text color={COLORS.GRAY} type="plain" fontWeight={400}>
                       LinkedIn
                     </Text>
                   </Flex>
                 </NavItem>
-                <NavItem url={"https://www.instagram.com/proof.audit/"}>
+                <NavItem
+                  fontWeight={400}
+                  url={"https://www.instagram.com/proof.audit/"}
+                >
                   <Flex gap={10}>
                     <Icon icon={Icons.instagram} size="SMALL" />
-                    <Text color={COLORS.GRAY} type="plain" fontWeight={600}>
+                    <Text color={COLORS.GRAY} type="plain" fontWeight={400}>
                       Instagram
                     </Text>
                   </Flex>
                 </NavItem>
-                <NavItem url={"https://github.com/proofaudit"}>
+                <NavItem fontWeight={400} url={"https://github.com/proofaudit"}>
                   <Flex gap={10}>
                     <Icon icon={Icons.github} size="SMALL" />
-                    <Text color={COLORS.GRAY} type="plain" fontWeight={600}>
+                    <Text color={COLORS.GRAY} type="plain" fontWeight={400}>
                       Github
                     </Text>
                   </Flex>

@@ -48,7 +48,7 @@ const Header = (props: any) => {
       borderRadius: 3,
       padding: 0,
       zIndex: 2000,
-      height: "fit-content",
+      height: "fit-content"
     },
     overlay: {
       position: "fixed",
@@ -78,9 +78,11 @@ const Header = (props: any) => {
           <Box position="relative">
             <Flex justifyContent="space-between" alignItems="center">
               <Flex gap={50}>
-                <Box onClick={() => {
-                  navigate("/#");
-                }}>
+                <Box
+                  onClick={() => {
+                    navigate("/#");
+                  }}
+                >
                   {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
                     <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
                   ) : (
@@ -89,7 +91,7 @@ const Header = (props: any) => {
                 </Box>
                 {deviceWidth > WINDOW_SIZES.SIZE_1280 && (
                   <Flex
-                    gap={140}
+                    gap={0}
                     alignItems="center"
                     justifyContent="space-around"
                   >
@@ -99,30 +101,75 @@ const Header = (props: any) => {
                         data={[
                           {
                             title: "Smart Contract Audit",
-                            url: "security-audit"
+                            content:
+                              "Smart contract flaws can cost projects money, reputation and time.",
+                            url: "security-audit",
+                            icon: Icons.smartContractAudit
                           },
-                          { title: "DApp Audit", url: "dapp-audit" },
-                          { title: "NFT Audit", url: "nft-audit" }
+                          {
+                            title: "DApp Audit",
+                            content:
+                              "Review and optimize off-chain components of your Decentralized Applications.",
+                            url: "dapp-audit",
+                            icon: Icons.dappAduit
+                          },
+                          {
+                            title: "NFT Audit",
+                            content:
+                              "Ensure the quality and security of your Non Fungible Tokens prior to deploying.",
+                            url: "nft-audit",
+                            icon: Icons.nftAudit
+                          }
                         ]}
                         direction="left"
                         top={-20}
                       />
                     </Box>
-                    <Box position="relative">
+                    <Box position="relative" left={110}>
                       <DropDown
                         title="Chains"
                         data={[
-                          { title: "Ethereum", url: "ethereum" },
-                          { title: "BNB", url: "bnb" },
-                          { title: "Avalanche", url: "avalanche" },
-                          { title: "Polygon", url: "polygon" },
-                          { title: "Tron", url: "tron" }
+                          {
+                            title: "Ethereum",
+                            content:
+                              "Give your Ethereum smart contract absolute fortification against rising hacks and exploits.",
+                            url: "ethereum",
+                            icon: Icons.ethChain
+                          },
+                          {
+                            title: "BNB",
+                            content:
+                              "Protect your users with a full analysis of each line of your BNB smart contract code.",
+                            url: "bnb",
+                            icon: Icons.bnbChain
+                          },
+                          {
+                            title: "Avalanche",
+                            content:
+                              "Reinforce security and elevate the trust of your Avalanche project with an industry-class audit.",
+                            url: "avalanche",
+                            icon: Icons.avaxChain
+                          },
+                          {
+                            title: "Polygon",
+                            content:
+                              "Fortify your Polygon projects against exploits and hold your code to industry standards.",
+                            url: "polygon",
+                            icon: Icons.polygonChain
+                          },
+                          {
+                            title: "Tron",
+                            content:
+                              "Thorough code review and analysis to find and fix all weaknesses in your Tron project.",
+                            url: "tron",
+                            icon: Icons.tronChain
+                          }
                         ]}
                         direction="left"
                         top={-20}
                       />
                     </Box>
-                    <Box position="relative">
+                    <Box position="relative" left={200}>
                       <DropDown
                         title="Company"
                         data={[]}
@@ -131,30 +178,45 @@ const Header = (props: any) => {
                         top={-20}
                       />
                     </Box>
-                    <Box position="relative">
+                    <Box position="relative" left={300}>
                       <DropDown
                         title="Socials"
                         data={[
-                          { title: "Telegram", url: "https://t.me/proofaudit" },
+                          {
+                            title: "Telegram",
+                            content: "Stay updated on Telegram.",
+                            url: "https://t.me/proofaudit",
+                            icon: Icons.telegramSocial
+                          },
                           {
                             title: "Twitter",
-                            url: "https://twitter.com/proofaudit"
+                            content: "Join the conversation on Twitter.",
+                            url: "https://twitter.com/proofaudit",
+                            icon: Icons.twitterSocial
                           },
                           {
                             title: "Medium",
-                            url: "https://medium.com/proofaudit"
+                            content: "Read our latest posts on Medium.",
+                            url: "https://medium.com/proofaudit",
+                            icon: Icons.mediumSocial
                           },
                           {
                             title: "LinkedIn",
-                            url: "https://www.linkedin.com/company/proofaudit/"
+                            content: "Connect with us on LinkedIn.",
+                            url: "https://www.linkedin.com/company/proofaudit/",
+                            icon: Icons.linkedinSocial
                           },
                           {
                             title: "Instagram",
-                            url: "https://www.instagram.com/proof.audit/"
+                            content: "Follow us on Instagram.",
+                            url: "https://www.instagram.com/proof.audit/",
+                            icon: Icons.instagramSocial
                           },
                           {
                             title: "Github",
-                            url: "https://github.com/proofaudit"
+                            content: "Check out our Github.",
+                            url: "https://github.com/proofaudit",
+                            icon: Icons.githubSocial
                           }
                         ]}
                         direction="left"
