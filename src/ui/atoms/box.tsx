@@ -34,6 +34,7 @@ interface IBoxProps {
   left?: string | number;
   backgroundColor?: string;
   backgroundHoverColor?: "transparent" | "grey" | "white" | "black";
+  backgroundHoverBorderColor?: "transparent" | "blue";
   backgroundPrimary?: boolean;
   boxShadow?: string;
   overflowX?: "initial" | "hidden" | "scroll" | "auto";
@@ -80,6 +81,7 @@ const Box: React.FC<IBoxProps> = ({
   left = "auto",
   backgroundColor,
   backgroundHoverColor = "transparent",
+  backgroundHoverBorderColor = "transparent",
   boxShadow,
   overflowX = "initial",
   overflowY = "initial",
@@ -103,6 +105,10 @@ const Box: React.FC<IBoxProps> = ({
     black: "atom-box-hoverColor-black",
     white: "atom-box-hoverColor-white"
   };
+  const backgroundHoverBorderColorClassNames = {
+    transparent: "atom-box-hoverBorderColor-transparent",
+    blue: "atom-box-hoverBorderColor-blue",
+  };
 
   const isBackgroundImageUrl = (url: string) => {
     if (url.includes(",") || !url.includes(".")) return false;
@@ -116,7 +122,8 @@ const Box: React.FC<IBoxProps> = ({
         className,
         backdropFilterClassName,
         cursorClassName,
-        backgroundHoverColorClassNames[backgroundHoverColor]
+        backgroundHoverColorClassNames[backgroundHoverColor],
+        backgroundHoverBorderColorClassNames[backgroundHoverBorderColor],
       ].join(" ")}
       onScroll={onScroll}
       style={{
