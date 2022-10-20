@@ -147,13 +147,14 @@ const DropDown: React.FC<IDropDownProps> = ({
                 {title}
               </Text>
               <Box padding={30} />
-              <Grid gap={30}>
+              <Grid gap={10}>
                 {data.map((item, index) => {
                   return (
                     <GridItem columns={6} key={index}>
                       <Box
                         backgroundColor={COLORS.DARK_THEME_TRANSPARENT}
                         backgroundHoverColor="grey"
+                        padding={30}
                         cursor
                         width="100%"
                         onClick={() => {
@@ -211,7 +212,7 @@ const DropDown: React.FC<IDropDownProps> = ({
                 <Text color={COLORS.GRAY_DARK} type="paragraph">
                   {title}
                 </Text>
-              </Box>{" "}
+              </Box>
               <Box overflowY="scroll" maxHeight={500} paddingHorizontal={10}>
                 <Grid gap={13}>
                   {data.map((dataItem, index) => {
