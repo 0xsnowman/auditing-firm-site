@@ -6,11 +6,10 @@ import {
   Container,
   ContentWrapper,
   Grid,
-  GridItem
+  GridItem,
+  Icon
 } from "ui/atoms";
 import {
-  Carousel,
-  CarouselCard,
   Page,
   Button,
   TextBox,
@@ -28,6 +27,7 @@ import { changeTheme } from "redux/actions/theme";
 import { changeAuditModalOpened } from "redux/actions/requestAuditModal";
 import { faqData } from "config/faqs";
 import { fixedScrollBarLeftCalculate } from "config/formulas";
+import Marquee from "react-fast-marquee";
 
 const NFT = (props: any) => {
   const { deviceWidth } = useWindowDimensions();
@@ -94,13 +94,21 @@ const NFT = (props: any) => {
                   overflowX="hidden"
                   overflowY="hidden"
                 >
-                  <Carousel>
-                    <CarouselCard slide={Icons.ethereum} />
-                    <CarouselCard slide={Icons.bnb} />
-                    <CarouselCard slide={Icons.avalanche} />
-                    <CarouselCard slide={Icons.polygon} />
-                    <CarouselCard slide={Icons.tron} />
-                  </Carousel>
+                  <Marquee gradient={false} speed={50}>
+                    <Flex width="100%" gap={80}>
+                      <Icon icon={Icons.ethereum} size="SUPER_LARGE" />
+                      <Icon icon={Icons.bnb} size="SUPER_LARGE" />
+                      <Icon icon={Icons.avalanche} size="SUPER_LARGE" />
+                      <Icon icon={Icons.polygon} size="SUPER_LARGE" />
+                      <Icon icon={Icons.tron} size="SUPER_LARGE" />
+                      <Icon icon={Icons.ethereum} size="SUPER_LARGE" />
+                      <Icon icon={Icons.bnb} size="SUPER_LARGE" />
+                      <Icon icon={Icons.avalanche} size="SUPER_LARGE" />
+                      <Icon icon={Icons.polygon} size="SUPER_LARGE" />
+                      <Icon icon={Icons.tron} size="SUPER_LARGE" />
+                      <Box padding={10} />
+                    </Flex>
+                  </Marquee>
                 </Box>
               </Flex>
             </Box>
