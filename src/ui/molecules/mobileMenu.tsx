@@ -44,7 +44,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
               ? Icons.menu
               : !collapsed
               ? Icons.close
-              : Icons.alarm
+              : Icons.bell
           }
           size="MEDIUM"
           onClick={() => {
