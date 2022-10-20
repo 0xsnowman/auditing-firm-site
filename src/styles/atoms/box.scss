@@ -26,8 +26,9 @@
 
   &-hoverColor {
     &-grey {
+      transition: 0.4s;
       &:hover {
-        background-color: red;
+        background-color: #17151F !important;
       }
     }
   }
