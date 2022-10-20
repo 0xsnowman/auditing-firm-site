@@ -36,6 +36,7 @@ interface IPostBoxProps {
   direction?: "left-right" | "right-left" | "up-down" | "down-up";
   leftTextCount?: number | "all";
   icon?: string;
+  iconPadding?: boolean;
   iconPosition?: "upper" | "middle" | "low";
 }
 
@@ -57,6 +58,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
   direction = "left-right",
   leftTextCount = 100,
   icon = "",
+  iconPadding = false,
   titleType = "paragraph",
   iconPosition = "middle"
 }) => {
@@ -110,8 +112,11 @@ const PostBox: React.FC<IPostBoxProps> = ({
                 ? 30
                 : -30
             }
+            backgroundColor="#1B00FF"
+            borderRadius={50}
+            padding={5}
           >
-            <Icon icon={icon} size="LARGE" />
+            <Icon icon={icon} size="MEDIUM" />
           </Box>
         )}
         <Box
