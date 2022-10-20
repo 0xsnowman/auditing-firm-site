@@ -11,7 +11,7 @@ const AlarmNotifier = () => {
         width={10}
         height={10}
         backgroundColor={COLORS.ALARM}
-        boxShadow="5px 5px 20px white"
+        // boxShadow="5px 5px 20px white"
       />
     </Box>
   );
