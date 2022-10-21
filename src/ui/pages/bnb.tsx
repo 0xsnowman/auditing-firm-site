@@ -49,7 +49,13 @@ const BNB = (props: any) => {
             <Box padding={90}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text center type="sublogo" fontWeight={600}>
+                <Text
+                  center
+                  type={
+                    deviceWidth >= WINDOW_SIZES.SIZE_768 ? "sublogo" : "title"
+                  }
+                  fontWeight={600}
+                >
                   BNB Chain Smart Contract Audit
                 </Text>
                 <Box maxWidth={960}>
