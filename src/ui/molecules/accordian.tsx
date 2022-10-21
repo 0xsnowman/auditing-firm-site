@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Box, Flex, Text, Icon } from "ui/atoms";
 import { COLORS } from "config/colors";
 import Icons from "assets/icons";
+import useWindowDimensions from "hooks/useWindowDimensions";
+import { WINDOW_SIZES } from "config/dimensions";
 
 interface IAccordianContentTypes {
   title: string;
@@ -17,6 +19,7 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
   const [content, setContent] = useState<Array<IAccordianContentTypes>>(
     contents
   );
+  const { deviceWidth } = useWindowDimensions();
   return (
     <Box
       width="100%"
@@ -56,22 +59,24 @@ const Accordian: React.FC<IAccordianProps> = ({ contents }) => {
                           <Icon icon={Icons.right} size="MEDIUM"></Icon>
                         )}
                       </Text>
-                      <Text
-                        type="subtitle"
-                        fontWeight={600}
-                        lineHeight={1.3}
-                      >
+                      <Text type="undersubtitle" fontWeight={600} lineHeight={1.3}>
                         {contentItem.title}
                       </Text>
                     </Flex>
                     <Box
                       overflowX="hidden"
                       overflowY="hidden"
-                      maxHeight={!contentItem.collapse ? "200px" : "0px"}
+                      maxHeight={
+                        !contentItem.collapse
+                          ? deviceWidth > WINDOW_SIZES.SIZE_768
+                            ? "200px"
+                            : "350px"
+                          : "0px"
+                      }
                       transition={0.4}
                     >
                       <Box padding={15} />
-                      <Text type="undersubtitle" lineHeight={1.3}>
+                      <Text type="paragraph" lineHeight={1.3}>
                         {contentItem.content}
                       </Text>
                     </Box>
