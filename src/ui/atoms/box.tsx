@@ -7,6 +7,7 @@ interface IBoxProps {
   maxHeight?: string | number;
   maxWidth?: string | number;
   minHeight?: string | number;
+  minWidth?: string | number;
   className?: string;
   backdropFilter?: boolean;
   display?: "block" | "inline-block";
@@ -61,6 +62,7 @@ const Box: React.FC<IBoxProps> = ({
   maxHeight,
   maxWidth,
   minHeight,
+  minWidth,
   display = "block",
   position = "relative",
   backdropFilter = false,
@@ -134,6 +136,7 @@ const Box: React.FC<IBoxProps> = ({
         maxHeight: maxHeight ? maxHeight : "auto",
         maxWidth: maxWidth ? maxWidth : "auto",
         minHeight: minHeight ? minHeight : "auto",
+        minWidth: minWidth ? minWidth : "auto",
         borderRadius: borderRadius,
         borderTopWidth: borderTopWidth ? borderTopWidth : borderWidth,
         borderRightWidth: borderRightWidth ? borderRightWidth : borderWidth,
