@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Box, Flex, Icon, Text, Grid, GridItem } from "ui/atoms";
+import { Box, Flex, Icon, Text } from "ui/atoms";
 import { Button, AlarmNotifier } from "ui/molecules";
 import Icons from "assets/icons";
 import { COLORS } from "config/colors";
-import { Z_INDEX_LEVELS } from "config/dimensions";
+import { Z_INDEX_LEVELS, WINDOW_SIZES } from "config/dimensions";
 import { connect } from "react-redux";
 import { changeTheme } from "redux/actions/theme";
 import { changeAuditModalOpened } from "redux/actions/requestAuditModal";
@@ -40,135 +40,94 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
       <Box zIndex={Z_INDEX_LEVELS.MAXIMUM} cursor>
         <Icon
           icon={
-            type === "menu"
-              ? Icons.menu
-              : !collapsed
-              ? Icons.close
-              : Icons.bell
+            type === "menu" ? Icons.menu : !collapsed ? Icons.close : Icons.bell
           }
           size="MEDIUM"
           onClick={() => {
             setCollapsed(!collapsed);
           }}
         />
-        {hasDeals && (
+        {hasDeals && type === "news" && collapsed && (
           <Box position="absolute" top={0} right={-1}>
             <AlarmNotifier />
           </Box>
         )}
         {!collapsed && type === "news" && (
-          <Box
-            position="absolute"
-            right={-5}
-            top={50}
-            width={300}
-            backgroundColor={COLORS.WHITE}
-            padding={30}
-            borderRadius={15}
-            borderColor={COLORS.GRAY}
-            borderWidth={1}
-          >
-            <Flex flexDirection="column" gap={30}>
-              <Box>
-                <Box paddingVertical={20}>
-                  <Text color={COLORS.GRAY_DARK} type="paragraph">
-                    Solutions
-                  </Text>
+          <>
+            <Box position="absolute" right={-75} top={25}>
+              <Icon icon={Icons.up} size="SUPER_LARGE" />
+            </Box>
+            <Box
+              width={deviceWidth > WINDOW_SIZES.SIZE_464 ? "400px" : "300px"}
+              position="absolute"
+              top={60}
+              right={deviceWidth > WINDOW_SIZES.SIZE_464 ? -100 : -55}
+              borderRadius={10}
+              backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}
+              paddingVertical={20}
+            >
+              <Box paddingHorizontal={30}>
+                <Text type="undersubtitle" fontWeight={600}>
+                  What's New
+                </Text>
+              </Box>
+              <Box padding={10} />
+              <Box
+                borderColor={COLORS.DARK_THEME_BORDER}
+                borderTopWidth={1}
+                paddingVertical={10}
+                paddingHorizontal={30}
+              >
+                <Box padding={10} />
+                <Text type="undersubtitle" fontWeight={600}>
+                  Twitter Feeds in the Token Project Watchlist - 14/10/2022
+                </Text>
+                <Box paddingVertical={15}>
+                  <Text type="plain">6 days ago</Text>
                 </Box>
-                <Grid gap={15}>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Smart Contract Audit
+                <Text type="paragraph">
+                  The enhanced Token Project Watchlist allows Account Holders to
+                  view project’s twitter feeds within their watchlist. Stay up
+                  to date on project developments with the latest tweets.
+                </Text>
+                <Box cursor>
+                  <Box padding={10} />
+                  <Flex justifyContent="flex-end">
+                    <Text underline type="plain" fontWeight={600}>
+                      View it here
                     </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      dApp Audit
-                    </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      NFT Audit
-                    </Text>
-                  </GridItem>
-                </Grid>
-              </Box>
-              <Box>
-                <Box paddingVertical={20}>
-                  <Text color={COLORS.GRAY_DARK} type="paragraph">
-                    Chains
-                  </Text>
+                  </Flex>
                 </Box>
-                <Grid gap={15}>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Ethereum
-                    </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      BSC
-                    </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Solana
-                    </Text>
-                  </GridItem>
-                </Grid>
               </Box>
-              <Box>
-                <Box paddingVertical={20}>
-                  <Text color={COLORS.GRAY_DARK} type="paragraph">
-                    Companies
-                  </Text>
+              <Box
+                borderColor={COLORS.DARK_THEME_BORDER}
+                borderTopWidth={1}
+                paddingVertical={10}
+                paddingHorizontal={30}
+              >
+                <Box padding={10} />
+                <Text type="undersubtitle" fontWeight={600}>
+                  Twitter Feeds in the Token Project Watchlist - 14/10/2022
+                </Text>
+                <Box paddingVertical={15}>
+                  <Text type="plain">6 days ago</Text>
                 </Box>
-                <Grid gap={15}>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      About
+                <Text type="paragraph">
+                  The enhanced Token Project Watchlist allows Account Holders to
+                  view project’s twitter feeds within their watchlist. Stay up
+                  to date on project developments with the latest tweets.
+                </Text>
+                <Box cursor>
+                  <Box padding={10} />
+                  <Flex justifyContent="flex-end">
+                    <Text underline type="plain" fontWeight={600}>
+                      View it here
                     </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Careers
-                    </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Disclaimer
-                    </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Cookie Policy
-                    </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Privacy Policy
-                    </Text>
-                  </GridItem>
-                  <GridItem columns={6}>
-                    <Text type="plain" color={COLORS.DARK_THEME_BLACK}>
-                      Terms and Conditions
-                    </Text>
-                  </GridItem>
-                </Grid>
+                  </Flex>
+                </Box>
               </Box>
-              <Box>
-                <Button
-                  backgroundColor={COLORS.TYPICAL_BLUE}
-                  backgroundHoverColor={COLORS.DROPDOWN_HOVER}
-                  onClick={() => {
-                    alert("[Button] [Request a Quote] clicked");
-                  }}
-                >
-                  Request a Quote
-                </Button>
-              </Box>
-            </Flex>
-          </Box>
+            </Box>
+          </>
         )}
         {!collapsed && type === "menu" && (
           <Box
@@ -182,8 +141,8 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
           >
             <Box
               position="absolute"
-              top={20}
-              right={20}
+              top={40}
+              right={40}
               cursor
               zIndex={Z_INDEX_LEVELS.MAXIMUM}
               onClick={() => {
@@ -320,16 +279,16 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
             padding={2}
           >
             <Flex width="100%" height="100%">
-              <Box
+              {/* <Box
                 width="30%"
                 backgroundColor={COLORS.DARK_THEME_BLACK_TRANSPARENT}
                 height="100%"
                 onClick={() => {
                   setSubMenuCollapsed(true);
                 }}
-              ></Box>
+              ></Box> */}
               <Box
-                width="70%"
+                width="100%"
                 backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}
               >
                 <Box padding={30} />
@@ -351,7 +310,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                         <Icon icon={Icons.left} />
                       </Flex>
                       <Flex flex={1} justifyContent="center">
-                        <Text type="paragraph" fontWeight={600} center>
+                        <Text type="undersubtitle" fontWeight={600} center>
                           {subMenuTitle}
                         </Text>
                       </Flex>
