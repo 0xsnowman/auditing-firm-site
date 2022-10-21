@@ -44,9 +44,7 @@ const Table = () => {
             <Flex
               gap={0}
               justifyContent={
-                deviceWidth > WINDOW_SIZES.SIZE_768
-                  ? "space-between"
-                  : "center"
+                deviceWidth > WINDOW_SIZES.SIZE_768 ? "space-between" : "center"
               }
             >
               <Box
@@ -439,13 +437,14 @@ const Table = () => {
                     backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
                     paddingVertical={0}
                   >
-                    <Box height={5} />
-
+                    <Box height={0} />
                     <Grid alignCenter gap={0}>
                       <GridItem columns={2} minWidth={60}>
                         <Box
                           backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                          paddingVertical={10}
+                          padding={15}
+                          borderBottomWidth={2}
+                          borderColor={COLORS.DARK_THEME_BORDER}
                           minWidth={100}
                         >
                           <Text
@@ -457,12 +456,15 @@ const Table = () => {
                           >
                             Trust Score
                           </Text>
+                          <Box height={3} />
                         </Box>
                       </GridItem>
                       <GridItem columns={2} minWidth={60}>
                         <Box
                           backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                          padding={10}
+                          padding={15}
+                          borderBottomWidth={2}
+                          borderColor={COLORS.DARK_THEME_BORDER}
                         >
                           <Text
                             noWrap
@@ -473,12 +475,15 @@ const Table = () => {
                           >
                             Links
                           </Text>
+                          <Box height={3} />
                         </Box>
                       </GridItem>
                       <GridItem columns={2} minWidth={60}>
                         <Box
                           backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                          padding={10}
+                          padding={15}
+                          borderBottomWidth={2}
+                          borderColor={COLORS.DARK_THEME_BORDER}
                         >
                           <Text
                             noWrap
@@ -489,12 +494,15 @@ const Table = () => {
                           >
                             Contract
                           </Text>
+                          <Box height={3} />
                         </Box>
                       </GridItem>
                       <GridItem columns={2} minWidth={60}>
                         <Box
                           backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                          padding={10}
+                          padding={15}
+                          borderBottomWidth={2}
+                          borderColor={COLORS.DARK_THEME_BORDER}
                         >
                           <Text
                             noWrap
@@ -505,12 +513,15 @@ const Table = () => {
                           >
                             Chain
                           </Text>
+                          <Box height={3} />
                         </Box>
                       </GridItem>
                       <GridItem columns={2} minWidth={60}>
                         <Box
                           backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                          padding={10}
+                          padding={15}
+                          borderBottomWidth={2}
+                          borderColor={COLORS.DARK_THEME_BORDER}
                         >
                           <Text
                             noWrap
@@ -521,12 +532,15 @@ const Table = () => {
                           >
                             Category
                           </Text>
+                          <Box height={3} />
                         </Box>
                       </GridItem>
                       <GridItem columns={2} minWidth={60}>
                         <Box
                           backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                          padding={10}
+                          padding={15}
+                          borderBottomWidth={2}
+                          borderColor={COLORS.DARK_THEME_BORDER}
                         >
                           <Text
                             noWrap
@@ -537,14 +551,15 @@ const Table = () => {
                           >
                             Audit
                           </Text>
+                          <Box height={3} />
                         </Box>
                       </GridItem>
                     </Grid>
-                    <Box paddingVertical={4} />
-                    <Box
+                    {/* <Box paddingVertical={4} /> */}
+                    {/* <Box
                       paddingVertical={1}
                       backgroundColor={COLORS.DARK_THEME_BORDER}
-                    />
+                    /> */}
                   </Box>
                 </Box>
                 <Flex flexDirection="column" gap={3}>
