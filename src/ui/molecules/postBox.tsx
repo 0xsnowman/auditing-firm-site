@@ -3,8 +3,8 @@ import { Box, Text, Flex, Image, Icon } from "ui/atoms";
 import Images from "assets/images";
 import { COLORS } from "config/colors";
 import { Z_INDEX_LEVELS } from "config/dimensions";
-import useWindowDimensions from "hooks/useWindowDimensions";
-import { WINDOW_SIZES } from "config/dimensions";
+// import useWindowDimensions from "hooks/useWindowDimensions";
+// import { WINDOW_SIZES } from "config/dimensions";
 
 interface IPostBoxProps {
   title?: string;
@@ -69,7 +69,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
     if (direction === "down-up") return "column-reverse";
     return "row";
   };
-  const { deviceWidth } = useWindowDimensions();
+  // const { deviceWidth } = useWindowDimensions();
 
   return (
     <Box
@@ -136,12 +136,13 @@ const PostBox: React.FC<IPostBoxProps> = ({
               <Text
                 type={
                   titleType === "paragraph"
-                    ? deviceWidth > WINDOW_SIZES.SIZE_1024
-                      ? titleType
-                      : "sublogo"
+                    // ? deviceWidth > WINDOW_SIZES.SIZE_1024
+                    //   ? titleType
+                    //   : "sublogo"
+                    ? titleType
                     : titleType
                 }
-                fontWeight={titleType === "paragraph" ? 400 : 600}
+                fontWeight={titleType === "paragraph" ? 600 : 600}
                 color={titleColor}
                 center
               >
@@ -150,7 +151,7 @@ const PostBox: React.FC<IPostBoxProps> = ({
             )}
             <Box padding={5} />
             {subtitle.length > 0 && (
-              <Box paddingVertical={20}>
+              <Box paddingVertical={5}>
                 <Text
                   type="subtitle"
                   fontWeight={600}
