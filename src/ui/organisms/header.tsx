@@ -257,7 +257,7 @@ const Header = (props: any) => {
                 </Flex>
               )}
               {deviceWidth <= WINDOW_SIZES.SIZE_1280 && (
-                <Flex gap={15}>
+                <Flex gap={15} alignItems="center">
                   <MobileMenu type="news" />
                   <MobileMenu />
                 </Flex>
