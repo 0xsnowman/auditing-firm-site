@@ -38,11 +38,12 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   return (
     <>
       <Box zIndex={Z_INDEX_LEVELS.MAXIMUM} cursor>
+        {type === "menu" && <Box padding={2} />}
         <Icon
           icon={
             type === "menu" ? Icons.menu : !collapsed ? Icons.close : Icons.bell
           }
-          size="MEDIUM"
+          size={type === "news" && collapsed ? "UPPERMEDIUM" : "MEDIUM"}
           onClick={() => {
             setCollapsed(!collapsed);
           }}
@@ -54,14 +55,20 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
         )}
         {!collapsed && type === "news" && (
           <>
-            <Box position="absolute" right={-75} top={25}>
+            <Box position="absolute" right={-75} top={30}>
               <Icon icon={Icons.up} size="SUPER_LARGE" />
             </Box>
             <Box
-              width={deviceWidth > WINDOW_SIZES.SIZE_464 ? "400px" : "300px"}
+              width={
+                deviceWidth > WINDOW_SIZES.SIZE_464
+                  ? "400px"
+                  : deviceWidth >= WINDOW_SIZES.SIZE_375
+                  ? "310px"
+                  : "260px"
+              }
               position="absolute"
               top={60}
-              right={deviceWidth > WINDOW_SIZES.SIZE_464 ? -100 : -55}
+              right={deviceWidth > WINDOW_SIZES.SIZE_464 ? -100 : -30}
               borderRadius={10}
               backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}
               paddingVertical={20}
@@ -141,9 +148,10 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
           >
             <Box
               position="absolute"
-              top={40}
-              right={40}
+              top={0}
+              right={0}
               cursor
+              padding={40}
               zIndex={Z_INDEX_LEVELS.MAXIMUM}
               onClick={() => {
                 setCollapsed(true);
@@ -328,7 +336,12 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
                         onClick={() => {
                           setCollapsed(true);
                           setSubMenuCollapsed(true);
-                          navigate(subMenuItem.link);
+
+                          if (subMenuItem.link.startsWith("https")) {
+                            window.location.replace(subMenuItem.link);
+                          } else {
+                            navigate(subMenuItem.link);
+                          }
                         }}
                       >
                         <Flex
