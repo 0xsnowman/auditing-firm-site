@@ -46,20 +46,14 @@ const NFT = (props: any) => {
         />
         <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
           <Container>
-            <Box padding={90}></Box>
+            <Box padding={deviceWidth > WINDOW_SIZES.SIZE_768 ? 90 : 50}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text
-                  center
-                  type={
-                    deviceWidth >= WINDOW_SIZES.SIZE_768 ? "sublogo" : "title"
-                  }
-                  fontWeight={600}
-                >
+                <Text center type={"sublogo"} fontWeight={600}>
                   Proofing NFTs
                 </Text>
                 <Box maxWidth={960}>
-                  <Text center type="subtitle" lineHeight={1.5}>
+                  <Text center type="uppersubtitle" lineHeight={1.5}>
                     Ensure the quality and security of your Non Fungible Tokens
                     prior to deploying them immutably on the blockchain forever.
                   </Text>

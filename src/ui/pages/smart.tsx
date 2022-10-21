@@ -46,20 +46,14 @@ const Smart = (props: any) => {
         />
         <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
           <Container>
-            <Box padding={90}></Box>
+            <Box padding={deviceWidth > WINDOW_SIZES.SIZE_768 ? 90 : 50}></Box>
             <Box paddingHorizontal={20} paddingVertical={50}>
               <Flex flexDirection="column" alignItems="center" gap={20}>
-                <Text
-                  center
-                  type={
-                    deviceWidth >= WINDOW_SIZES.SIZE_768 ? "sublogo" : "title"
-                  }
-                  fontWeight={600}
-                >
+                <Text center type={"sublogo"} fontWeight={600}>
                   Proofing Smart Contracts
                 </Text>
                 <Box maxWidth={960}>
-                  <Text center type="subtitle" lineHeight={1.5}>
+                  <Text center type="uppersubtitle">
                     Smart contract flaws can cost projects money, reputation and
                     time. A smart contract audit eliminates these flaws.
                   </Text>
@@ -83,15 +77,7 @@ const Smart = (props: any) => {
           <Container>
             <Box paddingHorizontal={20} paddingVertical={30}>
               <Flex alignItems="center" gap={20} flexDirection="column">
-                <Text
-                  center
-                  type={
-                    deviceWidth > WINDOW_SIZES.SIZE_1280
-                      ? "paragraph"
-                      : "sublogo"
-                  }
-                  fontWeight={600}
-                >
+                <Text center type="paragraph" fontWeight={600}>
                   SUPPORTED CHAINS
                 </Text>
                 <Box padding={3}></Box>

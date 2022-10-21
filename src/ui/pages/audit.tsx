@@ -24,13 +24,7 @@ const Audit = (props: any) => {
           <Box padding={40}></Box>
           <Box paddingHorizontal={20} paddingVertical={60}>
             <Flex flexDirection="column" alignItems="center" gap={30}>
-              <Text
-                center
-                type={
-                  deviceWidth >= WINDOW_SIZES.SIZE_768 ? "sublogo" : "title"
-                }
-                fontWeight={600}
-              >
+              <Text center type={"sublogo"} fontWeight={600}>
                 Industry Leading Web3 Auditor
               </Text>
               <Flex>
@@ -104,9 +98,12 @@ const Audit = (props: any) => {
       <ContentWrapper backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
         <Container>
           <Box padding={30}></Box>
-          <Box paddingHorizontal={20} paddingVertical={50}>
+          <Box
+            paddingHorizontal={deviceWidth > WINDOW_SIZES.SIZE_768 ? 20 : 35}
+            paddingVertical={50}
+          >
             <Flex flexDirection="column" alignItems="center" gap={20}>
-              <Text center type="title" fontWeight={600}>
+              <Text center type="sublogo" fontWeight={600}>
                 Explore Our Services
               </Text>
               <Box padding={10}></Box>
