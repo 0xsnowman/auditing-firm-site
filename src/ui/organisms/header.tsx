@@ -83,7 +83,7 @@ const Header = (props: any) => {
                     navigate("/#");
                   }}
                 >
-                  {deviceWidth > WINDOW_SIZES.SIZE_375 ? (
+                  {deviceWidth > WINDOW_SIZES.SIZE_768 ? (
                     <Icon icon={Icons.proofLogoWhite} size="SUPER_LARGE" />
                   ) : (
                     <Icon icon={Icons.proofIconWhite} size="LARGE" />
