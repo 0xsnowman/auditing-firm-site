@@ -11,7 +11,7 @@ const Icon: React.FC<IIconProps> = ({
   icon,
   size = "SMALL",
   className,
-  onClick
+  onClick,
 }) => {
   const classNames = {
     LARGE: "atom-icon-large",
