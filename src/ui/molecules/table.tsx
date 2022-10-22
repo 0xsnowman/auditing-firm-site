@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flex, Box, Text, Grid, GridItem, Icon, ProgressBar } from "ui/atoms";
+import { Flex, Box, Text, Grid, GridItem, Icon } from "ui/atoms";
 import { ProgressSpinner, AddressLabel, SearchInput } from "ui/molecules";
 import { COLORS } from "config/colors";
 import useWindowDimensions from "hooks/useWindowDimensions";
@@ -11,9 +11,15 @@ const Table = () => {
   const { deviceWidth } = useWindowDimensions();
   const [progress] = useState<number>(75);
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
+  const [pageIndexRange] = useState<number>(100);
+  const [reduceMark, setReduceMark] = useState<string>("reduce");
   const totalItemCount = 100;
   const itemCountPerPage = 10;
   // const [entireRowChecked, setEntireRowChecked] = useState<boolean>(false);
+
+  // const classifyRange = () => {
+  //   if ()
+  // }
 
   return (
     <Flex flexDirection="column">
@@ -423,7 +429,9 @@ const Table = () => {
                 </Flex>
               </Box>
               <Box
-                overflowX="scroll"
+                overflowX={
+                  deviceWidth > WINDOW_SIZES.SIZE_1024 ? "hidden" : "scroll"
+                }
                 width={
                   deviceWidth > WINDOW_SIZES.SIZE_464
                     ? deviceWidth > WINDOW_SIZES.SIZE_1024
@@ -687,11 +695,15 @@ const Table = () => {
             </Flex>
             <Box padding={10} />
             <Box backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
-              <Flex alignItems="center" gap={40} justifyContent="center">
+              <Flex
+                alignItems="center"
+                gap={deviceWidth > WINDOW_SIZES.SIZE_768 ? 40 : 10}
+                justifyContent="center"
+              >
                 <Box
                   backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
                   borderColor={COLORS.BLACK}
-                  borderWidth={1}
+                  // borderWidth={1}
                   padding={10}
                   borderRadius={30}
                   onClick={() => {
@@ -703,27 +715,95 @@ const Table = () => {
                   <Icon icon={Icons.left} />
                 </Box>
                 <Flex gap={7} alignItems="center">
-                  <Text noWrap type="plain">
-                    01
-                  </Text>
-                  <Box
-                    width={
-                      deviceWidth > WINDOW_SIZES.SIZE_320 ? "100px" : "50px"
-                    }
-                  >
-                    <ProgressBar
-                      range={totalItemCount / itemCountPerPage}
-                      value={currentPageIndex + 1}
-                    />
-                  </Box>
-                  <Text noWrap type="plain">
-                    10
-                  </Text>
+                  {[0, 1, 2, 3].map((item, index) => {
+                    return (
+                      <Box
+                        width={deviceWidth > WINDOW_SIZES.SIZE_768 ? 25 : 15}
+                        height={deviceWidth > WINDOW_SIZES.SIZE_768 ? 25 : 15}
+                        borderRadius={10}
+                        backgroundColor={
+                          currentPageIndex === index
+                            ? COLORS.DARK_THEME_BORDER
+                            : COLORS.DARK_THEME_TRANSPARENT
+                        }
+                        onClick={() => {
+                          setCurrentPageIndex(index);
+                        }}
+                      >
+                        <Flex
+                          justifyContent="center"
+                          height="100%"
+                          alignItems="center"
+                        >
+                          <Text noWrap>{index + 1}</Text>
+                        </Flex>
+                      </Box>
+                    );
+                  })}
+                  {
+                    <Box
+                      width={25}
+                      height={25}
+                      borderRadius={10}
+                      cursor
+                      onMouseEnter={() => {
+                        if (
+                          pageIndexRange - currentPageIndex >
+                          currentPageIndex
+                        ) {
+                          setReduceMark("right");
+                        } else {
+                          setReduceMark("left");
+                        }
+                      }}
+                      onMouseLeave={() => {
+                        setReduceMark("reduce");
+                      }}
+                      // backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND_DARK}
+                    >
+                      <Flex
+                        justifyContent="center"
+                        height="100%"
+                        alignItems="center"
+                      >
+                        <Text noWrap>
+                          {reduceMark === "reduce"
+                            ? "..."
+                            : reduceMark === "left"
+                            ? "<<"
+                            : ">>"}
+                        </Text>
+                      </Flex>
+                    </Box>
+                  }
+                  {
+                    <Box
+                      width={25}
+                      height={25}
+                      borderRadius={10}
+                      backgroundColor={
+                        currentPageIndex === pageIndexRange - 1
+                          ? COLORS.DARK_THEME_BORDER
+                          : COLORS.DARK_THEME_TRANSPARENT
+                      }
+                      onClick={() => {
+                        setCurrentPageIndex(pageIndexRange - 1);
+                      }}
+                    >
+                      <Flex
+                        justifyContent="center"
+                        height="100%"
+                        alignItems="center"
+                      >
+                        <Text noWrap>{pageIndexRange}</Text>
+                      </Flex>
+                    </Box>
+                  }
                 </Flex>
                 <Box
                   backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
                   borderColor={COLORS.BLACK}
-                  borderWidth={1}
+                  // borderWidth={1}
                   padding={10}
                   borderRadius={30}
                   onClick={() => {
