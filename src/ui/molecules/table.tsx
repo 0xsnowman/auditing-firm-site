@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Flex, Box, Text, Grid, GridItem, Icon } from "ui/atoms";
-import { ProgressSpinner, AddressLabel, SearchInput } from "ui/molecules";
+import {
+  ProgressSpinner,
+  AddressLabel,
+  SearchInput,
+  Paginator,
+} from "ui/molecules";
 import { COLORS } from "config/colors";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import { WINDOW_SIZES } from "config/dimensions";
@@ -694,131 +699,24 @@ const Table = () => {
               </Box>
             </Flex>
             <Box padding={10} />
-            <Box backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}>
-              <Flex
-                alignItems="center"
-                gap={deviceWidth > WINDOW_SIZES.SIZE_768 ? 40 : 10}
-                justifyContent="center"
-              >
-                <Box
-                  backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                  borderColor={COLORS.BLACK}
-                  // borderWidth={1}
-                  padding={10}
-                  borderRadius={30}
-                  onClick={() => {
-                    if (currentPageIndex > 0) {
-                      setCurrentPageIndex(currentPageIndex - 1);
-                    }
-                  }}
-                >
-                  <Icon icon={Icons.left} />
-                </Box>
-                <Flex gap={7} alignItems="center">
-                  {[0, 1, 2, 3].map((item, index) => {
-                    return (
-                      <Box
-                        width={deviceWidth > WINDOW_SIZES.SIZE_768 ? 25 : 15}
-                        height={deviceWidth > WINDOW_SIZES.SIZE_768 ? 25 : 15}
-                        borderRadius={10}
-                        backgroundColor={
-                          currentPageIndex === index
-                            ? COLORS.DARK_THEME_BORDER
-                            : COLORS.DARK_THEME_TRANSPARENT
-                        }
-                        onClick={() => {
-                          setCurrentPageIndex(index);
-                        }}
-                      >
-                        <Flex
-                          justifyContent="center"
-                          height="100%"
-                          alignItems="center"
-                        >
-                          <Text noWrap>{index + 1}</Text>
-                        </Flex>
-                      </Box>
-                    );
-                  })}
-                  {
-                    <Box
-                      width={25}
-                      height={25}
-                      borderRadius={10}
-                      cursor
-                      onMouseEnter={() => {
-                        if (
-                          pageIndexRange - currentPageIndex >
-                          currentPageIndex
-                        ) {
-                          setReduceMark("right");
-                        } else {
-                          setReduceMark("left");
-                        }
-                      }}
-                      onMouseLeave={() => {
-                        setReduceMark("reduce");
-                      }}
-                      // backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND_DARK}
-                    >
-                      <Flex
-                        justifyContent="center"
-                        height="100%"
-                        alignItems="center"
-                      >
-                        <Text noWrap>
-                          {reduceMark === "reduce"
-                            ? "..."
-                            : reduceMark === "left"
-                            ? "<<"
-                            : ">>"}
-                        </Text>
-                      </Flex>
-                    </Box>
-                  }
-                  {
-                    <Box
-                      width={25}
-                      height={25}
-                      borderRadius={10}
-                      backgroundColor={
-                        currentPageIndex === pageIndexRange - 1
-                          ? COLORS.DARK_THEME_BORDER
-                          : COLORS.DARK_THEME_TRANSPARENT
-                      }
-                      onClick={() => {
-                        setCurrentPageIndex(pageIndexRange - 1);
-                      }}
-                    >
-                      <Flex
-                        justifyContent="center"
-                        height="100%"
-                        alignItems="center"
-                      >
-                        <Text noWrap>{pageIndexRange}</Text>
-                      </Flex>
-                    </Box>
-                  }
-                </Flex>
-                <Box
-                  backgroundColor={COLORS.DARK_THEME_GRAY_BACKGROUND}
-                  borderColor={COLORS.BLACK}
-                  // borderWidth={1}
-                  padding={10}
-                  borderRadius={30}
-                  onClick={() => {
-                    if (
-                      (currentPageIndex + 1) * itemCountPerPage <
-                      totalItemCount
-                    ) {
-                      setCurrentPageIndex(currentPageIndex + 1);
-                    }
-                  }}
-                >
-                  <Icon icon={Icons.right} />
-                </Box>
-              </Flex>
-            </Box>
+            <Flex justifyContent="center">
+              <Paginator />
+            </Flex>
+            {/* <Paginator
+              paramCurrentPageIndex={currentPageIndex}
+              range={pageIndexRange}
+              setPageIndex={setCurrentPageIndex}
+              onLeftClick={() => {
+                if (currentPageIndex > 0) {
+                  setCurrentPageIndex(currentPageIndex - 1);
+                }
+              }}
+              onRightClick={() => {
+                if (currentPageIndex < pageIndexRange - 1) {
+                  setCurrentPageIndex(currentPageIndex + 1);
+                }
+              }}
+            /> */}
           </Flex>
         </Box>
       </Box>
