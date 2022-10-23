@@ -59,3 +59,8 @@ export const Z_INDEX_LEVELS = {
   SUPER: 7,
   MAXIMUM: 8
 };
+
+export const PAGINATOR_ARROW = {
+  left: -1,
+  right: -2,
+}
