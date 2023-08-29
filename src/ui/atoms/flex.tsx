@@ -3,7 +3,7 @@ import React from "react";
 interface IFlexProps {
   children: React.ReactNode;
   className?: string;
-  flexDirection?: "row" | "column";
+  flexDirection?: "row" | "column" | "row-reverse" | "column-reverse";
   alignItems?:
     | "flex-start"
     | "center"
@@ -17,11 +17,13 @@ interface IFlexProps {
     | "flex-end"
     | "space-between"
     | "space-around"
+    | "space-evenly"
     | "initial";
   width?: number | "100%";
   height?: number | "100%";
   gap?: number;
   flex?: number;
+  zIndex?: number;
 }
 
 const Flex: React.FC<IFlexProps> = ({
@@ -34,6 +36,7 @@ const Flex: React.FC<IFlexProps> = ({
   height,
   gap,
   flex,
+  zIndex = "initial"
 }) => {
   return (
     <div
@@ -48,6 +51,7 @@ const Flex: React.FC<IFlexProps> = ({
         boxSizing: "border-box",
         gap: gap,
         flex: flex,
+        zIndex: zIndex
       }}
     >
       {children}

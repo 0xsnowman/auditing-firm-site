@@ -3,16 +3,16 @@ import React from "react";
 interface IImageProps {
   image: string;
   className?: string;
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
   objectFit?: "contain" | "cover" | "fill" | "revert" | "scaleDown";
 }
 
 const Image: React.FC<IImageProps> = ({
   image,
   className,
-  width,
-  height,
+  width = "auto",
+  height = "auto  ",
   objectFit = "contain"
 }) => {
   const objectFitClassNames = {

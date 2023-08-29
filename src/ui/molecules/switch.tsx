@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import { Box, Flex, Text } from "ui/atoms";
-
 import { COLORS } from "config/colors";
 
 const Switch = () => {
@@ -12,7 +10,7 @@ const Switch = () => {
   return (
     <Box
       className="organism-switch"
-      backgroundColor="#2C60E6"
+      backgroundColor={COLORS.SWITCH_BLUE}
       borderRadius={30}
       onClick={() => {
         setSwitchValue(switchValue === "ETH" ? "BSC" : "ETH");
@@ -20,7 +18,7 @@ const Switch = () => {
     >
       <Box
         borderRadius={30}
-        borderColor="#0000"
+        borderColor={COLORS.BLACK}
         paddingVertical={10}
         paddingHorizontal={15}
         position="relative"
@@ -35,9 +33,9 @@ const Switch = () => {
         </Flex>
         <Box
           borderRadius={30}
-          borderColor="#2C60E6"
+          borderColor={COLORS.SWITCH_BLUE}
           borderWidth={2}
-          backgroundColor="#E6E5E4"
+          backgroundColor={COLORS.SWITCH_WHITE}
           boxShadow="0px 0px 10px black"
           position="absolute"
           width="50%"

@@ -1,21 +1,41 @@
 .atom-text {
   transition: 0.4s;
   color: black;
+  
   &-logo {
     font-size: 64px;
     font-weight: bolder;
   }
-  &-title {
-    font-size: 32px;
+
+  &-sublogo {
+    font-size: 50px;
     font-weight: bolder;
   }
 
+  &-title {
+    font-size: 39px;
+    font-weight: bolder;
+  }
+
+  &-uppersubtitle {
+    font-size: 26px;
+  }
+
   &-subtitle {
-    font-size: 24px;
+    font-size: 21px;
+  }
+
+  &-undersubtitle {
+    font-size: 18px;
+  }
+
+  &-header {
+    font-size: 16px;
+    line-height: 20px;
   }
 
   &-paragraph {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 20px;
   }
 
@@ -23,8 +43,63 @@
     font-size: 14px;
   }
 
+  &-tiny {
+    font-size: 11px;
+  }
+
   &-button {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  //////////////  Mobile View  ////////////////
+  &-mobilelogo {
+    font-size: 48px;
+    font-weight: bolder;
+  }
+
+  &-mobilesublogo {
+    font-size: 29px;
+    font-weight: bolder;
+  }
+
+  &-mobiletitle {
+    font-size: 21px;
+    font-weight: bolder;
+  }
+
+  &-mobileuppersubtitle {
+    font-size: 17px;
+  }
+
+  &-mobilesubtitle {
+    font-size: 21px;
+  }
+
+  &-mobileundersubtitle {
+    font-size: 19px;
+  }
+
+  &-mobileheader {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &-mobileparagraph {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  &-mobileplain {
+    font-size: 14px;
+  }
+
+  &-mobiletiny {
+    font-size: 11px;
+  }
+
+  &-mobilebutton {
+    font-size: 14px;
+    font-weight: 600;
   }
 }

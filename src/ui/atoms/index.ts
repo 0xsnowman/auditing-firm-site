@@ -8,6 +8,9 @@ import Image from "./image";
 import GridItem from "./gridItem";
 import Grid from "./grid";
 import ProgressBar from "./progressBar";
+import CheckBox from "./checkBox";
+import ContentWrapper from "./contentWrapper";
+import TextArea from "./textArea";
 
 export {
   Box,
@@ -19,5 +22,8 @@ export {
   Image,
   GridItem,
   Grid,
-  ProgressBar
+  ProgressBar,
+  CheckBox,
+  ContentWrapper,
+  TextArea
 };

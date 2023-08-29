@@ -5,11 +5,12 @@
   justify-content: center;
   align-items: center;
   transition: 0.5s ease;
+  object-fit: contain;
   user-select: none;
-
-  &-large {
-    width: 32px;
-    height: 32px;
+  
+  &-small {
+    width: 16px;
+    height: 16px;
   }
 
   &-medium {
@@ -17,13 +18,27 @@
     height: 24px;
   }
 
-  &-small {
-    width: 16px;
-    height: 16px;
+  &-uppermedium {
+    width: 28px;
+    height: 28px;
+  }
+  
+  &-large {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px;
+    max-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+  }
+
+  &-upperlarge {
+    width: 144px;
+    height: 48px;
   }
 
   &-superlarge {
-    width: 192px;
+    width: 178px;
     height: 48px;
   }
 

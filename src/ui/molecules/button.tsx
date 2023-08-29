@@ -1,11 +1,10 @@
 import React from "react";
-
 import { Text, Icon } from "ui/atoms";
 import { COLORS } from "config/colors";
 import { Animations } from "assets";
 
 interface IButtonProps {
-  children: string;
+  children: string | React.ReactNode;
   backgroundColor?: string;
   backgroundHoverColor?: string;
   color?: string;
@@ -13,24 +12,29 @@ interface IButtonProps {
   pending?: boolean;
   disabled?: boolean;
   fixedWidth?: boolean;
+  width?: string | number;
   oneTimeButton?: boolean;
+  shadow?: boolean;
 }
 
 const Button: React.FC<IButtonProps> = ({
   children,
   backgroundColor = COLORS.DANGER,
   backgroundHoverColor = COLORS.DANGER_LIGHT,
-  color = "white",
+  color = COLORS.DARK_THEME_WHITE,
   onClick = () => {},
   pending,
   disabled,
-  fixedWidth
+  fixedWidth,
+  width = 0,
+  shadow = true,
 }) => {
   const [isHover, setIsHover] = React.useState(false);
   return (
     <div
       className={[
         "molecule-button",
+        shadow ? "molecule-button-shadow" : "molecule-button-nonshadow",
         (disabled) && "molecule-button-disabled"
       ].join(" ")}
       onClick={() => {
@@ -45,14 +49,15 @@ const Button: React.FC<IButtonProps> = ({
         setIsHover(false);
       }}
       style={{
-        width: fixedWidth ? 100 : "initial",
+        width: width ? width : (fixedWidth ? 120 : "fit-content"),
+        padding: "23px 21px 23px 21px",
         backgroundColor: !isHover ? backgroundColor : backgroundHoverColor
       }}
     >
       {pending ? (
         <Icon icon={Animations.loading} size="LARGE" />
       ) : (
-        <Text center color={color} type="button">
+        <Text center color={color} type="button" fontWeight={600}>
           {children}
         </Text>
       )}

@@ -1,8 +1,5 @@
 import React from "react";
-
-// components
 import { Box } from "../atoms";
-
 import { COLORS } from "config/colors";
 
 interface IPageProps {
@@ -13,18 +10,21 @@ interface IPageProps {
     | (boolean | JSX.Element[])[];
   className?: string;
   paddingVertical?: number;
+  backgroundColor?: string;
 }
 
 const Page: React.FC<IPageProps> = ({
   children,
   className,
-  paddingVertical = 120
+  paddingVertical = 0,
+  backgroundColor = COLORS.DARK_THEME_TRANSPARENT
 }) => {
   return (
     <Box
       className={["molecule-page", className].join(" ")}
       paddingVertical={paddingVertical}
-      backgroundColor={COLORS.GREY}
+      backgroundColor={backgroundColor}
+      width="100%"
     >
       {children}
     </Box>

@@ -1,43 +1,54 @@
+import { Icon } from "ui/atoms";
 import React, { useState } from "react";
-
-import { Box, Flex, Text, Grid, GridItem, Icon } from "ui/atoms";
-import { SearchInput, Button } from "ui/molecules";
-
+import { Box, Flex, Text, Grid, GridItem } from "ui/atoms";
+// import { Button } from "ui/molecules";
+import { NavItem } from "ui/molecules";
 import { COLORS } from "config/colors";
-
 import Icons from "assets/icons";
-
 import { Z_INDEX_LEVELS } from "config/dimensions";
+import { useNavigate } from "react-router-dom";
+import useWindowDimensions from "hooks/useWindowDimensions";
+
+interface IDataProps {
+  title: string;
+  content: string;
+  url: string;
+  icon: string;
+}
 
 interface IDropDownProps {
+  data: Array<IDataProps>;
   direction?: "left" | "right";
   top?: number | "auto";
   border?: boolean;
   title?: string;
   menuWidth?: number;
+  baseUrl?: string;
 }
 
 const DropDown: React.FC<IDropDownProps> = ({
+  data = [],
   direction = "left",
   top = -12,
   border = false,
   title = "Category",
-  menuWidth = 300,
+  menuWidth = "auto",
+  baseUrl = ""
 }) => {
-  const [selectedItems, setSelectedItems] = useState<Array<string>>([
-    "NFT",
-    "Gaming",
-    "DeFi"
-  ]);
+  const [selectedItems] = useState<Array<IDataProps>>(data);
   const [collapsed, setCollapsed] = useState<boolean>(true);
+  const { deviceWidth } = useWindowDimensions();
+  const navigate = useNavigate();
+
   return (
     <Box
       position="absolute"
       left={direction === "left" ? 0 : "auto"}
       top={top}
       right={direction === "right" ? 0 : "auto"}
-      zIndex={Z_INDEX_LEVELS.SUPER}
+      zIndex={Z_INDEX_LEVELS.MAXIMUM}
       paddingVertical={1}
+      cursor
       onMouseEnter={() => {
         setCollapsed(false);
       }}
@@ -45,144 +56,184 @@ const DropDown: React.FC<IDropDownProps> = ({
         setCollapsed(true);
       }}
     >
-      <Box position="relative" width={menuWidth}>
+      <Box position="relative" /*width={menuWidth}*/>
         <Box
           paddingVertical={11}
-          paddingHorizontal={20}
+          paddingHorizontal={5}
           borderColor={COLORS.WHITE}
           borderWidth={border ? 1 : 0}
           borderRadius={15}
           cursor
-          width={120}
+          // width={100}
           onClick={() => {
             setCollapsed(!collapsed);
+
+            if (data.length === 0) {
+              if (baseUrl.length > 0) {
+                window.location.replace(baseUrl);
+              }
+            }
           }}
         >
           <Flex gap={menuWidth >= 300 ? 15 : 5} justifyContent="flex-start">
             <Flex justifyContent="space-around" gap={10}>
-              <Text type="plain" fontWeight={500} color={COLORS.WHITE}>
+              <Text
+                type="header"
+                fontWeight={600}
+                color={COLORS.DARK_THEME_WHITE}
+              >
                 {title}
               </Text>
               {selectedItems.length > 0 && (
-                <Box
-                  width={18}
-                  height={18}
-                  paddingVertical={1}
-                  backgroundColor={COLORS.WHITE}
-                  borderRadius={5}
-                >
-                  <Flex justifyContent="center" alignItems="center">
-                    <Text color={COLORS.BLACK} type="plain" fontWeight={600}>
-                      {selectedItems.length < 9 ? selectedItems.length : "9+"}
-                    </Text>
-                  </Flex>
-                </Box>
+                // <Box
+                //   width={18}
+                //   height={18}
+                //   paddingVertical={1}
+                //   backgroundColor={COLORS.GRAY_DARK}
+                //   borderRadius={5}
+                // >
+                //   <Flex justifyContent="center" alignItems="center">
+                //     <Text color={COLORS.WHITE} type="plain" fontWeight={600}>
+                //       {selectedItems.length < 9 ? selectedItems.length : "9+"}
+                //     </Text>
+                //   </Flex>
+                // </Box>
+                <></>
               )}
             </Flex>
-            <Icon icon={Icons.dropdown} />
+            {data.length > 0 && <Icon icon={Icons.dropdown} />}
           </Flex>
         </Box>
-        {/* <Box paddingVertical={5} /> */}
-        {!collapsed && (
-          <Box paddingHorizontal={30} marginTop={-5}>
-            <Icon icon={Icons.up} />
-          </Box>
+        <Box paddingVertical={10} />
+        {!collapsed && data.length > 0 && (
+          <>
+            <Box
+              width="100px"
+              height="400px"
+              position="absolute"
+              top={0}
+              left={-10}
+            ></Box>
+            <Box marginLeft={-50} marginTop={-20}>
+              <Icon icon={Icons.up} size="SUPER_LARGE"></Icon>
+            </Box>
+          </>
         )}
-        {!collapsed && (
+        {!collapsed && data.length > 0 && (
           <Box
-            padding={20}
-            marginTop={-5}
-            backgroundColor={COLORS.WHITE}
+            padding={40}
+            marginTop={-25}
+            // backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}
+            backgroundColor={COLORS.DARK_THEME_GREY_BACKGROUND}
             borderRadius={15}
+            borderColor={COLORS.DARK_THEME_GREY_BACKGROUND}
+            borderWidth={2}
+            width={`calc(${deviceWidth}px - 200px)`}
+            position="fixed"
+            top={120}
+            left={100}
+            zIndex={Z_INDEX_LEVELS.MAXIMUM}
+            onMouseEnter={() => {
+              setCollapsed(false);
+            }}
+            onMouseLeave={() => {
+              setCollapsed(true);
+            }}
           >
-            <SearchInput size="small" placeholder="Input category here" />
-            <Box>
+            <Box width="100%">
+              <Text
+                type="title"
+                fontWeight={600}
+                color={COLORS.DARK_THEME_WHITE}
+              >
+                {title}
+              </Text>
+              <Box padding={30} />
+              <Grid gap={10}>
+                {data.map((item, index) => {
+                  return (
+                    <GridItem columns={6} key={index}>
+                      <Box
+                        backgroundColor={COLORS.DARK_THEME_TRANSPARENT}
+                        backgroundHoverColor="grey"
+                        padding={30}
+                        cursor
+                        width="100%"
+                        onClick={() => {
+                          if (item.url.startsWith("https")) {
+                            window.location.replace(item.url);
+                          } else {
+                            navigate(item.url);
+                          }
+                        }}
+                      >
+                        {/**/}
+                        <Flex
+                          gap={30}
+                          alignItems="center"
+                          justifyContent="flex-start"
+                        >
+                          <Flex justifyContent="center" alignItems="center">
+                            <Box
+                              borderRadius={15}
+                              padding={25}
+                              // backgroundImage="linear-gradient(to right top, #27252F, #353037, #3A393D)"
+                              backgroundImage={COLORS.DARK_THEME_GRAY_BACKGROUND}
+                              boxShadow="0px 0px 20px #474747"
+                              cursor
+                            >
+                              <Icon
+                                icon={item.icon}
+                                size="UPPERMEDIUM"
+                              ></Icon>
+                            </Box>
+                          </Flex>
+                          <Flex flexDirection="column" gap={20}>
+                            <NavItem url={item.url} key={index} fontSize={18}>
+                              {item.title}
+                            </NavItem>
+                            <Text
+                              fontWeight={600}
+                              type="paragraph"
+                              color={"#CCC"}
+                            >
+                              {item.content}
+                            </Text>
+                          </Flex>
+                        </Flex>
+                      </Box>
+                    </GridItem>
+                  );
+                })}
+              </Grid>
+            </Box>
+            {/* <SearchInput size="small" placeholder="Input category here" /> */}
+            {/* <Box>
               <Box paddingVertical={5} />
               <Box paddingVertical={15}>
                 <Text color={COLORS.GRAY_DARK} type="paragraph">
-                  Products
+                  {title}
                 </Text>
-              </Box>{" "}
+              </Box>
               <Box overflowY="scroll" maxHeight={500} paddingHorizontal={10}>
                 <Grid gap={13}>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">NFT</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">845</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Gaming</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">78</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Token</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">205</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Utility</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">352</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">DeFi</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">10</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
-                  <GridItem columns={12}>
-                    <Flex justifyContent="space-between">
-                      <Text type="plain">Security Audit</Text>
-                      <Box
-                        paddingHorizontal={6}
-                        paddingVertical={2}
-                        backgroundColor={COLORS.GREY}
-                        borderRadius={5}
-                      >
-                        <Text type="plain">1025</Text>
-                      </Box>
-                    </Flex>
-                  </GridItem>
+                  {data.map((dataItem, index) => {
+                    return (
+                      <GridItem columns={12} key={index}>
+                        <Flex justifyContent="space-between">
+                          <Text type="plain">{dataItem.title}</Text>
+                          <Box
+                            paddingHorizontal={6}
+                            paddingVertical={2}
+                            backgroundColor={COLORS.GREY}
+                            borderRadius={5}
+                          >
+                            <Text type="plain" color={COLORS.DARK_THEME_BLACK}>{dataItem.amount}</Text>
+                          </Box>
+                        </Flex>
+                      </GridItem>
+                    );
+                  })}
                 </Grid>
               </Box>
               <Box>
@@ -193,9 +244,8 @@ const DropDown: React.FC<IDropDownProps> = ({
                 />
                 <Box paddingVertical={5} />
                 <Button
-                  color={COLORS.BLACK}
-                  backgroundColor={COLORS.GREY}
-                  backgroundHoverColor={COLORS.GRAY_DARK}
+                  backgroundColor={COLORS.TYPICAL_BLUE}
+                  backgroundHoverColor={COLORS.DROPDOWN_HOVER}
                   onClick={() => {
                     setSelectedItems([]);
                   }}
@@ -203,7 +253,7 @@ const DropDown: React.FC<IDropDownProps> = ({
                   Clear Filters
                 </Button>
               </Box>
-            </Box>
+            </Box> */}
           </Box>
         )}
       </Box>

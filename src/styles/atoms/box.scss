@@ -23,4 +23,27 @@
   &-backdrop {
     -webkit-backdrop-filter: blur(10px);
   }
+
+  &-hoverColor {
+    &-grey {
+      transition: 0.4s;
+      &:hover {
+        // background-color: #171717 !important;
+      }
+    }
+  }
+
+  &-hoverBorderColor {
+    &-blue {
+      transition: 0.4s !important;
+      box-sizing: border-box !important;
+      cursor: pointer !important;
+      border-width: 2px !important;
+      border-color: transparent !important;
+      &:hover {
+        border-width: 2px !important;
+        border-color: #1b00ff !important;
+      }
+    }
+  }
 }

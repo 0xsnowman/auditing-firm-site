@@ -1,0 +1,35 @@
+.atom-textarea {
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 20px;
+    transition: 0.3s;
+    // box-shadow: 0px 0px 10px transparent;
+    display: block !important;
+    width: 100%;
+    text-indent: 8px !important;
+    color: black;
+    box-sizing: border-box;
+    padding: 15px 40px 15px 70px;
+  
+    &-small {
+      font-size: 14px;
+      padding: 15px 40px 15px 43px;
+    }
+  
+    &-medium {
+      font-size: 18px;
+    }
+  
+    &:hover {
+      border: 1px solid grey;
+      // box-shadow: 0px 0px 10px black;
+    }
+  
+    &:focus {
+      border: 1px solid grey;
+      // box-shadow: 0px 0px 10px black;
+    }
+  }
+  

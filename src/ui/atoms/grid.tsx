@@ -3,7 +3,7 @@ import React from "react";
 interface IGridProps {
   children: React.ReactNode;
   className?: string;
-  gap?: number;
+  gap?: number | string;
   alignCenter?: boolean;
 }
 

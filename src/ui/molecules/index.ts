@@ -12,8 +12,18 @@ import MobileMenu from "./mobileMenu";
 import AlarmNotifier from "./alarmNotifier";
 import DropDown from "./dropdown";
 import SearchInput from "./searchInput";
+import AddressLabel from "./addressLabel";
+import CheckBox from "./checkBox";
+import PostBox from "./postBox";
+import TextBox from "./textBox";
+import MileStone from "./milestone";
+import Accordian from "./accordian";
+import Bell from "./bell";
+import Paginator from "./paginator/paginator";
 
 export {
+  Accordian,
+  AddressLabel,
   Button,
   MobileMenu,
   Carousel,
@@ -27,5 +37,11 @@ export {
   Table,
   AlarmNotifier,
   DropDown,
-  SearchInput
+  SearchInput,
+  CheckBox,
+  PostBox,
+  TextBox,
+  MileStone,
+  Bell,
+  Paginator
 };
