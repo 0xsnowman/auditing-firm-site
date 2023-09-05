@@ -1,2 +1,2 @@
-# Auditing Firm
-Auditing Firm site
+# Auditing Firm dashboard
+Auditing Firm is doing pre-liminary audits for DAOs
